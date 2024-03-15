@@ -19,7 +19,7 @@
 % The ones that are optional can be left blank. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % First line of title
-\def\disstitleone{Easy room web application with generative Interior design AI using Stable Diffusion Model}   
+\def\disstitleone{Easy room เว็บแอปพลิเคชัน with generative Interior design AI using Stable Diffusion Model}   
 % Second line of title
 \def\disstitletwo{เว็บแอปพลิเคชันสำหรับผู้ที่ต้องการออกแบบภายในโดยปัญญาประดิษฐ์ด้วย Stable Diffusion}   
 % Your first name and lastname
@@ -61,7 +61,7 @@
 \def\appendixnames{Appendix} %%% Appendices or Appendix
 
 \def\thaiworktype{ปริญญานิพนธ์} %  Project or research project % 
-\def\thaidisstitleone{Easy room web application with generative Interior design AI using Stable Diffusion Model}   
+\def\thaidisstitleone{Easy room เว็บแอปพลิเคชัน with generative Interior design AI using Stable Diffusion Model}   
 \def\thaidisstitletwo{เว็บแอปพลิเคชันสำหรับผู้ที่ต้องการออกแบบภายในโดยปัญญาประดิษฐ์ด้วย Stable Diffusion}
 \def\thaidissauthor{นายพฤฒิพล จิตรเจริญกิจ}
 \def\thaidissauthortwo{นายวิชยุฒม์ ช่วยชูกูล} %Optional
@@ -220,7 +220,8 @@ MANET & Mobile Ad Hoc Network
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% บทที่  1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{}
-
+\section{คำสำคัญ}
+\hspace {18pt}Generative AI, เว็บแอปพลิเคชัน, Diffusion Model, Deep Learning, Neural Network, Object Detection
 \section{ที่มาและความสำคัญ}
 \hspace {18pt}Artificial Intelligence (AI) หรือ ปัญญาประดิษฐ์ เป็นเทคโนโลยีที่มีความสำคัญ และกำลังได้รับความนิยมเป็นอย่างมาก เทคโนโลยี AI ในช่วงแรกจะใช้หลักการ Machine Learning คือการให้คอมพิวเตอร์เรียนรู้ด้วยตนเอง ผ่านข้อมูลที่มันได้รับ เทคโนโลยีที่เหนือจาก Machine Learning ไปอีกระดับคือ Deep Learning  ซึ่งเป็น Machine Learning ที่ลอกเลียนแบบโครงสร้างของระบบประสาทของมนุษย์ที่เรียกว่า Neural Network มาใช้ในการพัฒนาความฉลาดของ AI โดยการเทรน(train) หรือให้ Neural Network เรียนรู้จากข้อมูลมหาศาล ซึ่งในสมัยก่อนการหาข้อมูลมาเทรน AI ค่อนข้างยากและใช้เวลานาน แต่ในปัจจุบันข้อมูลสามารถค้นหาได้ง่ายและมีอยู่มากมายอินเตอร์เน็ต รวมไปถึงเทคโนโลยีอื่นๆเช่น หน่วยประมวลผลกราฟิก (GPU) ที่มีส่วนช่วยให้ใช้เวลาน้อยลงในการเทรน AI จึงทำให้ปัจจุบันพบ AI มากมายและมีความสามารถมากกว่าสมัยก่อน เช่น เทคโนโลยีรถยนต์ไร้คนขับ Generative AI ที่สามารถช่วยสร้างผลลัพธ์ในรูปแบบต่างเช่น ข้อความ เสียง รูปภาพ วิดีโอ จากคำสั่งของมนุษย์ที่บอกให้ช่วยสร้างหรือให้ช่วยหาคำตอบให้ เช่น ChatGPT \cite{chatgpt} Midjourney [2] Dall ·E [3] Stable Diffusion [4] ด้วย Generative AI เหล่านี้ สามารถแบ่งเบาภาระของมนุษย์ได้อย่างมาก โดย Midjourney Dall·E Stable diffusion สามารถสร้างรูปภาพผ่าน Prompt หรือคำสั่งในรูปแบบข้อความ
  \par \hspace {18pt} 
@@ -263,12 +264,11 @@ MANET & Mobile Ad Hoc Network
 \begin{itemize}
 \item MongoDB เก็บข้อมูลของผลิตภัณฑ์เช่น รายละเอียดของเฟอร์นิเจอร์ รายละเอียดของวัสดุ
 \item Cloudinary เก็บข้อมูลรูปภาพ
-\item PostgreSQL เก็บข้อมูลผู้ใช้งาน
 \end{itemize}
 
 \subsubsection{Generative AI}
 \begin{itemize}
-\item Stable Diffusion ใช้เป็นโมเดลหลักที่ใช้สำหรับการสร้างรูปภาพ
+\item Stable Diffusion ใช้เป็นโมเดลหลักที่ใช้สำหรับการ Generate รูปภาพ
 \end{itemize}
 
 \subsubsection{Object Detection AI}
@@ -287,22 +287,25 @@ MANET & Mobile Ad Hoc Network
 \item ระบุเฟอร์นิเจอร์ วัสดุ ของตกแต่งที่ใช้ พร้อมรายละเอียดหลังจากการใช้โมเดลสร้างแบบห้อง
 \item บันทึกและแสดงประวัติการใช้งานของผู้ใช้
 \item แบ่งปันแบบห้องให้กับผู้อื่นได้
-\item ตรวจจับผลิตภัณฑ์บนรูปภาพได้
+\item Admin สามารถเพิ่มเฟอร์นิเจอร์และรายละเอียดเพื่อเก็บข้อมูลไปใช้ในการพัฒนาความรู้ให้กับ
+Stable Diffusion
+\item Admin สามารถดูข้อมูลการใช้งานของผู้ใช้ในการ Generate รูปภาพได้
 \end{enumerate}
 
 \subsection{ข้อจำกัดของเว็บแอปพลิเคชัน }
 \begin{enumerate}
 \item ไม่สามารถอัปโหลดผลิตภัณฑ์ของผู้ใช้งานขึ้นเว็บแอบพลิเคชันได้ในกรณีที่ผู้ใช้งานมีความต้องการที่	จะให้ผลิตภัณฑ์ของตนอยู่ในแบบที่โมเดลออกแบบ(นอกเหนือจากฐานข้อมูลที่มี)
 \item ผลลัพธ์ของการค้นหาผลิตภัณฑ์จะเป็นผลิตภัณฑ์ที่มีอยู่ในฐานข้อมูลเท่านั้น
-\item จำเป็นที่จะต้องใช้คอมพิวเตอร์ที่มีประสิทธิการประมวลที่สูงโดยมี VRAM อย่างน้อย 8 GB และเป็นผลิตภัณฑ์ของ NVIDIA ใช้ในการสร้างรูปภาพของห้องและตรวจจับผลิตภัณฑ์ 
-\item ไม่สามารถสร้างแบบแปลนและค้นหาผลิตภัณฑ์จากแบบแปลนที่ใช้ในการก่อสร้าง
+\item	จำเป็นที่จะต้องใช้คอมพิวเตอร์ที่มีประสิทธิการประมวลที่สูงโดยมี VRAM อย่างน้อย 8 GB และเป็นผลิตภัณฑ์ของ NVIDIA ใช้ในการ Generate รูปภาพของห้อง 
+\item	เว็บแอปพลิเคชัน Generate รูปภาพได้ทีละ 1 คิวเท่านั้น 
+\item	ไม่สามารถสร้างแบบแปลนและค้นหาผลิตภัณฑ์จากแบบแปลนที่ใช้ในการก่อสร้าง 
+
 \end{enumerate}
 
 \section{สรุปโครงงานโดยย่อ}
 \begin{enumerate}
 \item โครงงานนี้พัฒนาขึ้นมาจากการใช้ความรู้ด้าน Deep Learning และความรู้ในเรื่องของการพัฒนาเว็บแอปพลิเคชัน
-\item สร้างโมเดลหลักที่ใช้ในการสร้างรูปภาพโดยการปรับแต่ง Stable Diffusion Model เพื่อให้เหมาะสมกับงานออกแบบภายใน 
-\item Train LoRA (โมเดลเสริม) เพื่อให้โมเดลหลักรู้จัก Keyword และ ภาพ เมื่อนำ LoRA มาใช้งานร่วมกับโมเดลหลัก
+\item สร้างโมเดลหลักที่ใช้ในการ Generate รูปภาพโดยการปรับแต่ง Stable Diffusion Model เพื่อให้เหมาะสมกับงานออกแบบภายใน 
 \item เว็บแอปพลิเคชันพัฒนาด้วย Next.js Framework, Express.js Framework และภาษาที่ใช้คือ TypeScript
 \item Database ที่ใช้จะมี MongoDB Cloudinary PostgreSQL และ Database เหล่านี้ยังมีการเรียกใช้ที่ต่างกันออกไป ทางคณะผู้จัดทำจึงเลือกใช้ Prisma ORM เพื่อเป็นตัวกลางให้กับ Database ในการสื่อสารระหว่าง Database กับ Server และลดปัญหาการเรียกใช้งานที่ต่างกันออกไป
 \end{enumerate}
@@ -326,7 +329,7 @@ MANET & Mobile Ad Hoc Network
 \item วิเคราะห์ ประเมินผลโมเดล
 \item พัฒนาโมเดล
 \item ประเมินผลโมเดล
-\item พัฒนา Web Application
+\item พัฒนา เว็บแอปพลิเคชัน
 \item ทดสอบและปรับปรุง
 \item จัดทำรายงานโครงงานประจำภาคการศึกษาที่ 2
 \item จัดทำโปสเตอร์โครงงาน
@@ -342,19 +345,19 @@ MANET & Mobile Ad Hoc Network
 \end{figure}
 
 \begin{figure}[!h]\centering
-\includegraphics[width=13.8cm]{image/gantt-chart-2.jpg}
+\includegraphics[width=13.8cm]{image/gantt-chart-2.png}
 \caption{แสดงถึงแผนภูมิแกนต์ในการวางแผนงานในภาคเรียนที่ 2}
 \label{fig:gantt-chart}
 \end{figure}
 
 \subsection{งานที่ได้รับผิดชอบของแต่ละบุคคล}
 
-\hspace {18pt} ทางผู้จัดทำได้มีการแบ่งงานออกเป็น 3 ส่วนใหญ่ๆ คือ Front-End Back-End และ AI โดยจะแบ่งคนในกลุ่มรับผิดชอบงานแต่ละอันเป็นหลัก โดย
+\hspace {18pt} ทางผู้จัดทำได้มีการแบ่งงานออกเป็น 3 ส่วนใหญ่ๆ คือ Frontend Backend และ AI โดยจะแบ่งคนในกลุ่มรับผิดชอบงานแต่ละอันเป็นหลัก โดย
 
 \begin{itemize}
 \item นายพฤฒิพล จิตรเจริญกิจ รับผิดชอบในส่วนของ AI
-\item นายวิชยุฒม์ ช่วยชูกูล รับผิดชอบในส่วนของ Front-End 
-\item นายธัญพิสิษฐ์ พิสิฐพล รับผิดชอบในส่วนของ Back-End 
+\item นายวิชยุฒม์ ช่วยชูกูล รับผิดชอบในส่วนของ Frontend 
+\item นายธัญพิสิษฐ์ พิสิฐพล รับผิดชอบในส่วนของ Backend 
 \end{itemize}
 
 โดยหากงานในส่วนใดติดขัดสามารถให้ผู้จัดทำคนอื่นที่รับผิดชอบในส่วนอื่นมาช่วยแก้ไขปัญหาเพื่อให้งานมีความคืบหน้าไปอย่างรวดเร็ว
@@ -364,7 +367,7 @@ MANET & Mobile Ad Hoc Network
 \begin{enumerate}
 \item ภาพห้องที่ได้รับจากโมเดลที่ผ่านการ Train มีความเสมือนจริงและมีผลิตภัณฑ์จากฐานข้อมูลในเว็บไซต์เท่านั้น ภาพมีความละเอียด 1024 * 1024 Pixels และสามารถประเมินราคาเบื้องต้นของห้อง สามารถระบุจำนวนและเฟอร์นิเจอร์ที่ใช้พร้อมทั้งรายละเอียดทั้งหมดคือ ราคา สถานที่จำหน่าย ขนาด  
 \item สามารถตรวจจับเฟอร์นิเจอร์ต่างๆที่อยู่ในรูปภาพและสามารถระบุจำนวนและเฟอร์นิเจอร์ที่ใช้พร้อมทั้งรายละเอียดทั้งหมดคือ ราคา สถานที่จำหน่าย ขนาด   
-\item Web Application สามารถใช้งานโมเดลในการออกแบบภายใน 
+\item เว็บแอปพลิเคชัน สามารถใช้งานโมเดลในการออกแบบภายใน 
 \end{enumerate}
 
 \subsection{ผลการดำเนินงานในภาคการศึกษาที่ 1}
@@ -383,10 +386,10 @@ MANET & Mobile Ad Hoc Network
 \subsection{ผลการดำเนินงานในภาคการศึกษาที่ 2}
 
 \begin{itemize}
-\item ทดสอบและปรับปรุงทั้ง Web Application และ โมเดล
+\item ทดสอบและปรับปรุงทั้ง เว็บแอปพลิเคชัน และ โมเดล
 \item จัดทำรายงาน โปสเตอร์และนำเสนอ
-\item Web Application มีความสามารถตรงตามความต้องการของผู้ใช้งาน
-\item โมเดลมีประสิทธิภาพในการสร้างรูปภาพที่สมเหตุสมผลตามเงื่อนไขที่ผู้ใช้งานระบุและสามารถตรวจจับรูปภาพเพื่อหาผลิตภัณฑ์ที่มีความใกล้เคียงกับผลิตภัณฑ์ในรูปภาพ
+\item เว็บแอปพลิเคชัน มีความสามารถตรงตามความต้องการของผู้ใช้งาน
+\item  โมเดลมีประสิทธิภาพในการ Generate รูปภาพที่สมเหตุสมผลตามเงื่อนไขที่ผู้ใช้งานระบุ
 \end{itemize}
 
 \chapter{ทฤษฎีและงานวิจัยที่เกี่ยวข้อง}
@@ -429,7 +432,7 @@ MANET & Mobile Ad Hoc Network
 \begin{enumerate}
 \item Encoder ทำหน้าที่บีบอัดข้อมูลให้กลายเป็น Latent Vector โดยจะกลายเป็น 4  Channel Grayscale  
 \item Decoder ทำหน้าที่คลายขนาดข้อมูลจาก Latent Vector กลับไปเป็น รูปภาพตามเดิม 
-\item Web Application สามารถใช้งานโมเดลในการออกแบบภายใน 
+\item เว็บแอปพลิเคชัน สามารถใช้งานโมเดลในการออกแบบภายใน 
 \end{enumerate}
 
 Stable Diffusion Model จะทำการ Encode รูปภาพก่อนที่จะสู่กระบวนการทำ Forward Diffusion และหลังจากจบกระบวนการ Reverse Diffusion จะทำการ Decode Latent Vector ให้กลับมาเป็นรูปภาพปกติ ดังภาพ ~\ref{fig:autoencoder}
@@ -531,9 +534,9 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
 \section{งานวิจัยที่เกี่ยวข้อง}
 
 \subsection{Stable Diffusion}
-\hspace {18pt}Stable Diffusion [4] เปิดตัวโดย StabilityAI ในปี 2022 เป็น Generative AI ที่สามารถทำได้หลายอย่างทั้ง text-to-image หรือคือการสร้างรูปภาพจากข้อความ (Prompt) Image-to-Image หรือการสร้างรูปภาพจากรูปภาพ in-painting ซึ่งคือการปรับแต่งรูปภาพเช่น การเพิ่มวัตถุ การลบวัตถุออกจากภาพ นอกจากนี้โค้ดของโมเดลยังสามารถเข้าถึงได้ฟรี สามารถปรับแต่งโมเดลได้ มี Community ที่หนาแน่น เช่น Civit.ai ที่มีโมเดล Stable Diffusion ที่ปรับแต่งให้เข้ากับการสร้างรูปภาพในหลากหลายสไตล์ สามารถใช้ในคอมพิวเตอร์ที่ใช้ Windows MacOS หรือ Linux มี RAM อย่างน้อย 16 GB มี Nvidia GPU ที่มี VRAM อย่างน้อย 10 GB มีพื้นที่ว่างอย่างน้อย 12 GB [14]
+\hspace {18pt}Stable Diffusion [4] เปิดตัวโดย StabilityAI ในปี 2022 เป็น Generative AI ที่สามารถทำได้หลายอย่างทั้ง text-to-image หรือคือการ Generate รูปภาพจากข้อความ (Prompt) Image-to-Image หรือการ Generate รูปภาพจากรูปภาพ in-painting ซึ่งคือการปรับแต่งรูปภาพเช่น การเพิ่มวัตถุ การลบวัตถุออกจากภาพ นอกจากนี้โค้ดของโมเดลยังสามารถเข้าถึงได้ฟรี สามารถปรับแต่งโมเดลได้ มี Community ที่หนาแน่น เช่น Civit.ai ที่มีโมเดล Stable Diffusion ที่ปรับแต่งให้เข้ากับการ Generate รูปภาพในหลากหลายสไตล์ สามารถใช้ในคอมพิวเตอร์ที่ใช้ Windows MacOS หรือ Linux มี RAM อย่างน้อย 16 GB มี Nvidia GPU ที่มี VRAM อย่างน้อย 10 GB มีพื้นที่ว่างอย่างน้อย 12 GB [14]
 
-\hspace {18pt} จากงานวิจัยจากแหล่งภายนอก ทางคณะผู้จัดทำพบว่า Stable Diffusion มีคะแนน FID [15] ที่ต่ำกว่า Midjourney จากการสร้างรูปภาพใบหน้าคน 5,000 รูป และคำนวณ FID scores โดยทำขั้นตอนนี้เป็นจำนวน 10 ครั้ง จากนั้นคำนวณค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของ FID คะแนน FID ดังภาพ~\ref{fig:fid} Stable Diffusion ให้คะแนน FID ที่ต่ำกว่า ดังนั้นจึงสร้างรูปใบหน้าคนได้ใกล้เคียงรูปจริงมากกว่า Midjourney
+\hspace {18pt} จากงานวิจัยจากแหล่งภายนอก ทางคณะผู้จัดทำพบว่า Stable Diffusion มีคะแนน FID [15] ที่ต่ำกว่า Midjourney จากการ Generate รูปภาพใบหน้าคน 5,000 รูป และคำนวณ FID scores โดยทำขั้นตอนนี้เป็นจำนวน 10 ครั้ง จากนั้นคำนวณค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของ FID คะแนน FID ดังภาพ~\ref{fig:fid} Stable Diffusion ให้คะแนน FID ที่ต่ำกว่า ดังนั้นจึงสร้างรูปใบหน้าคนได้ใกล้เคียงรูปจริงมากกว่า Midjourney
 
 \begin{figure}[!h]\centering
 \fbox{\includegraphics[width=9cm]{image/fid.jpg}}
@@ -571,7 +574,7 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
   \hline
   สร้างรูปภาพ & ต้องเป็นสมาชิกถึงจะใช้งานได้ใช้รูปภาพระบุชนิดและสไตล์ของห้องเป็นอินพุตโหมดการrenderเลือกResolutionผลลัพธ์ที่ได้คือภาพ 1 รูป มีชนิดและสไตล์ของห้องที่หลากหลายสร้างpanoramaได้ & ระบุชนิดและสไตล์ของห้องผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวมผลลัพธ์ที่ได้คือภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้แหล่งจำหน่ายเฟอร์นิเจอร์ \\
   \hline
-  ตรวจจับผลิตภัณฑ์ & มี & มี \\
+  ตรวจจับผลิตภัณฑ์ & มี & ไม่มี \\
   \hline
   ประวัติการใช้งาน & ไม่มี & มี \\
   \hline
@@ -603,7 +606,7 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
   \hline
   สร้างรูปภาพ & ใช้รูปภาพชนิดและสไตล์ของห้องเป็นอินพุต มีชนิดและสไตล์ของห้องที่หลากหลาย ผลลัพธ์ที่ได้คือ ภาพ 1 รูป  & ระบุชนิดและสไตล์ของห้องผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์ \\
   \hline
-  ตรวจจับผลิตภัณฑ์ & ไม่มี & มี \\
+  ตรวจจับผลิตภัณฑ์ & ไม่มี & ไม่มี \\
   \hline
   ประวัติการใช้งาน & ไม่มี & มี \\
   \hline
@@ -647,7 +650,7 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
 \label{fig:spacely1-2}
 \end{figure}
 
-\item การสร้างรูปภาพจากข้อความ (text to image)  
+\item การ Generate รูปภาพจากข้อความ (text to image)  
 \par \hspace {18pt} เว็ปแอปพลิเคชัน Spacely AI สามารถสร้างรูปภาพข้อความโดยจะรับอินพุตเป็นข้อความซึ่งจะได้ผลลัพธ์เป็นรูปภาพ 4 ภาพทีแตกต่างกันหากต้องการที่จะทราบรายละเอียดเฟอร์นิเจอร์ที่ใช้จะต้องโหลดรูปภาพและนำไปใช้งานกับฟีเจอร์ตรวจจับเฟอร์นิเจอร์ มีตัวอย่างดังนี้ 
 \par 
 ข้อความที่อินพุต "Generate a highly realistic image of a minimal-style living room that resembles an authentic photograph. The room should embody the essence of minimalism with lifelike architectural details, realistic furnishings, a subdued color palette, and convincing lighting, shadows, and reflections. Make it appear as though you're looking at a real photograph of a minimal-style living room"
@@ -658,7 +661,7 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
 
 \begin{figure}[!h]\centering
 \includegraphics[width=10cm]{image/spacely-gen.jpg}
-\caption{ผลลัพธ์ของการสร้างรูปภาพจากข้อความของเว็บแอปพลิเคชัน Spacely AI จาก \url{https://www.spacely.ai/}}
+\caption{ผลลัพธ์ของการ Generate รูปภาพจากข้อความของเว็บแอปพลิเคชัน Spacely AI จาก \url{https://www.spacely.ai/}}
 \label{fig:spacely-gen}
 \end{figure}
 
@@ -675,9 +678,9 @@ U-net [10] เป็น Convolutional Neural Network ที่ใช้ในง
 สร้างรูปภาพ & ไม่จำเป็นจะต้องเป็นสมาชิกก็สามารถใช้งานได้ แต่รูปที่ได้จะติดลายน้ำสามารถสร้างรูปภาพจากอินพุดที่เป็นข้อความเพียงอย่างเดียวได้
 สามารถสร้างรูปภาพได้หลากหลายจุดประสงค์ เช่น ปรับเปลี่ยนสไตล์ของภาพเก่า เป็นต้น มีชนิดและสไตล์ของห้องที่หลากหลาย & ระบุชนิดและสไตล์ของห้อง ผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์ \\
   \hline
-  ตรวจจับผลิตภัณฑ์ & มี & มี \\
+  ตรวจจับผลิตภัณฑ์ & มี & ไม่มี \\
   \hline
-  ประวัติการใช้งาน & ไม่มี & มี \\
+  ประวัติการใช้งาน & มี & มี \\
   \hline
   แบ่งปันไอเดีย & มี  & มี แต่สามารถเลือกได้ว่าจะแบ่งปันหรือไม่ \\
   \hline
@@ -738,13 +741,13 @@ Client-Server Model [21] คือเป็นรูปแบบโครงส�
 \subsection{ภาษาโปร}
 
 \begin{enumerate}
-\item \textbf{Typescript} เป็นส่วนขยายของ JavaScript ที่เพิ่มการระบุชนิดข้อมูลและสนับสนุนแนวคิดของ Object-Oriented Programming (OOP) เพื่อเพิ่มประสิทธิภาพและความคงทนในการพัฒนาโปรแกรม JavaScript ให้ดียิ่งขึ้น ทางคณะผู้จัดทำได้ใช้ในการพัฒนาเว็บแอปพลิเคชันทั้งในส่วนของ Front-End และ Back-End
+\item \textbf{Typescript} เป็นส่วนขยายของ JavaScript ที่เพิ่มการระบุชนิดข้อมูลและสนับสนุนแนวคิดของ Object-Oriented Programming (OOP) เพื่อเพิ่มประสิทธิภาพและความคงทนในการพัฒนาโปรแกรม JavaScript ให้ดียิ่งขึ้น ทางคณะผู้จัดทำได้ใช้ในการพัฒนาเว็บแอปพลิเคชันทั้งในส่วนของ Frontend และ Backend
 \item \textbf{Python} เป็นภาษาโปรแกรมมิ่งระดับสูงที่มีความเข้าใจง่ายและมีความหลากหลายในการใช้งาน มันเป็นภาษาที่มีการเรียนรู้และการใช้งานที่สะดวก ทำให้เป็นที่นิยมอย่างมากในหลายสายงานและอุตสาหกรรมต่าง ๆ รวมถึงเป็นภาษาหลักที่ใช้ในงานด้าน Data Science และ Machine Learning [16] 
 ทางคณะผู้จัดทำใช้ภาษา Python ในการพัฒนาและดัดแปลง Stable Diffusion ให้เหมาะสมกับโครงงาน	
 \end{enumerate}
 
 \subsection{เทคโนโลยี}
-\hspace {18pt}ในการพัฒนาเว็บแอปพลิเคชันในส่วนต่าง ๆทางคณะผู้จัดทำได้ใช้ Next.js ในการพัฒนา Front-End ร่วมกับ TailwindCSS และได้ใช้ ExpressJS ในการพัฒนา Back-End ในส่วนของ Generative AI ของผู้จัดทำได้ใช้ Stable Diffusion ในการ Generate รูปภาพและได้ใช้เครื่องมือที่ชื่อว่า kohya เป็นเครื่องมือในการ Train โมเดล	
+\hspace {18pt}ในการพัฒนาเว็บแอปพลิเคชันในส่วนต่าง ๆทางคณะผู้จัดทำได้ใช้ Next.js ในการพัฒนา Frontend ร่วมกับ TailwindCSS และได้ใช้ ExpressJS ในการพัฒนา Backend ในส่วนของ Generative AI ของผู้จัดทำได้ใช้ Stable Diffusion ในการ Generate รูปภาพและได้ใช้เครื่องมือที่ชื่อว่า kohya เป็นเครื่องมือในการ Train โมเดล	
 
 \begin{enumerate}
 
@@ -869,7 +872,7 @@ Client-Server Model [21] คือเป็นรูปแบบโครงส�
 \end{itemize}
 
 \subsection{Use cases}
-\hspace {18pt}ผู้ใช้ที่มีความต้องการเครื่องมืออำนวยความสะดวกในเรื่องของการออกแบบภายในและต้องการทราบราคาที่ใช้ในการก่อสร้างรวมไปถึงรายละเอียดสิงของต่างๆ อาทิเช่น ราคา สถานที่จำหน่าย เพื่อเพิ่มความสะดวกสบายในการค้นหาสินค้าตกแต่งบ้าน โดย Guest สามารถที่จะ Login และ Register Customer สามารถที่จะใช้ AI ในการสร้างรูปภาพ ดูรูปภาพที่ตนให้ AI สร้าง สามารถดูประวัติการใช้งานของตน สามารถอัปโหลดรูปภาพให้ AI ในการค้นหาผลิตภัณฑ์ที่มีในเว็บไซต์ และ Admin สามารถทำทุกอย่างที่ Customer ทำได้ทั้งหมด และสิ่งที่ทำได้เพิ่มเติมดังนี้ สามารถดูข้อมูลการใช้เฟอร์นิเจอร์ของ AI ในการสร้างรูปภาพ อัตราการใช้แต่ละสไตล์และชนิดของห้องของผู้ใช้งานซึ่งจะอยู่ในรูปแบบของ Dashboard และสามารถเพิ่มผลิตภัณฑ์และเฟอร์นิเจอร์ได้ ดังภาพ~\ref{fig:use-case}
+\hspace {18pt}ผู้ใช้ที่มีความต้องการเครื่องมืออำนวยความสะดวกในเรื่องของการออกแบบภายในและต้องการทราบราคาที่ใช้ในการก่อสร้างรวมไปถึงรายละเอียดสิงของต่างๆ อาทิเช่น ราคา สถานที่จำหน่าย เพื่อเพิ่มความสะดวกสบายในการค้นหาสินค้าตกแต่งบ้าน โดย Guest สามารถที่จะ Login และ Register Customer สามารถที่จะใช้ AI ในการ Generate รูปภาพ ดูรูปภาพที่ตนให้ AI สร้าง สามารถดูประวัติการใช้งานของตน สามารถอัปโหลดรูปภาพให้ AI ในการค้นหาผลิตภัณฑ์ที่มีในเว็บไซต์ และ Admin สามารถทำทุกอย่างที่ Customer ทำได้ทั้งหมด และสิ่งที่ทำได้เพิ่มเติมดังนี้ สามารถดูข้อมูลการใช้เฟอร์นิเจอร์ของ AI ในการ Generate รูปภาพ อัตราการใช้แต่ละสไตล์และชนิดของห้องของผู้ใช้งานซึ่งจะอยู่ในรูปแบบของ Dashboard และสามารถเพิ่มผลิตภัณฑ์และเฟอร์นิเจอร์ได้ ดังภาพ~\ref{fig:use-case}
 
 \begin{figure}[!h]\centering
 \includegraphics{image/use-case.jpg}
@@ -881,7 +884,7 @@ Client-Server Model [21] คือเป็นรูปแบบโครงส�
 \vspace{\fill}\clearpage
 
 \subsection{Workflow}
-\hspace {18pt}ในเว็บแอปพลิเคชันมีโมเดลที่ถูกtrainมาแล้วโดยผู้ใช้สามารถกรอกข้อมูลตามที่พวกเรากำหนดจากนั้นจะส่งข้อมูลเข้าไปประมวลผลในโมเดลแล้วจะแสดงรูปภาพพร้อมทั้งผลิตภัณฑ์และมูลค่าโดยประมาณของผลิตภัณฑ์ที่ใช้ในภาพให้กับผู้ใช้ ดังภาพ~\ref{fig:sequence} ลำดับกระบวนการทำงานในการสร้างรูปภาพ 
+\hspace {18pt}ในเว็บแอปพลิเคชันมีโมเดลที่ถูกtrainมาแล้วโดยผู้ใช้สามารถกรอกข้อมูลตามที่พวกเรากำหนดจากนั้นจะส่งข้อมูลเข้าไปประมวลผลในโมเดลแล้วจะแสดงรูปภาพพร้อมทั้งผลิตภัณฑ์และมูลค่าโดยประมาณของผลิตภัณฑ์ที่ใช้ในภาพให้กับผู้ใช้ ดังภาพ~\ref{fig:sequence} ลำดับกระบวนการทำงานในการ Generate รูปภาพ 
 
 \begin{figure}[!h]\centering
 \includegraphics{image/sequence.jpg}
@@ -916,6 +919,157 @@ Client-Server Model [21] คือเป็นรูปแบบโครงส�
 \hspace {18pt} จากภาพ~\ref{fig:er} สามารถบ่งบอกได้ว่าโครงสร้างของ Database ของเว็บแอปพลิเคชัน Easy Room มีทั้งหมด 6 collections คือ 1.account 2.result 3.session\_management 4.like 5.room และ 6.furniture ซึ่ง account จะมีหน้าที่ในการเก็บข้อมูลของผู้ใช้ โดยจะมี data dictionary ดังนี้
 
 
+\begin{table}[!h]
+\caption{data dictionary ของ account }\label{tbl:er-table1}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+ id & ObjectId & รหัสประจำตัวของ account\\
+ \hline
+ email & String & อีเมลล์\\
+  \hline
+password\_hash & String & รหัสผ่านที่ผ่านการ hash ด้วย Argon 2 hash algorithm\\
+  \hline
+firstname& String & ชื่อจริง\\
+  \hline
+lastname & String & นามสกุล\\
+  \hline
+date\_of\_birth & Date & วันเดือนปีเกิด YYYY-MM-DD\\
+  \hline
+  sex& String & เพศมีทั้งหมด 3 เพศคือ male female และ others\\
+  \hline
+role &String & ตำแหน่งซึ่งจะมีทั้งหมด 2 ตำแหน่งคือ user และ admin\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{data dictionary ของ result }\label{tbl:er-table2}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+ id & ObjectId & รหัสประจำตัวของ result\\
+ \hline
+ owner\_id & ObjectId & รหัสประจำตัวของผู้ใช้ที่สร้างresultซึ่งอ้างอิงได้จาก account \\
+  \hline
+room\_id & ObjectId & รหัสประจำตัวของห้องและสไตล์ที่เลือกใช้เพื่อสร้างresultซึ่งสามารถอ้างอิงได้จาก room\\
+  \hline
+status & String & สถานะของผลลัพธ์\\
+  \hline
+furniture\_list & [ObjectId] & รหัสประจำตัวของเฟอร์นิเจอร์ที่ใช้ในการสร้างresultซึ่งสามารถอ้างอิงได้จาก furniture\\
+  \hline
+task & String & ลักษณะของงานที่เลือกในการสร้างresult\\
+  \hline
+budget & float & ราคาที่ผู้ใช้ตั้งไว้ในการสร้างresult\\
+  \hline
+image & Object & รูปภาพที่ได้จากการทำงาน ของ Ai service ซึ่งจะเก็บเป็น object โดยจะมี Index ไว้บ่งบอกว่าเป็นรูปที่เท่าไหร่ และ url ที่เก็บลิงก์ของรูปภาพหลังจากฝากไว้ที่ cloudinary\\
+\hline
+post &  Object & ข้อมูลรายละเอียดต่างๆของโพสต์ที่เกี่ยวข้องกับ result โดยจะมี post\_id เป็นรหัสประจำตัวของโพสต์  title เป็นหัวข้อของโพสต์ description  เป็นเนื้อหาในโพสต์ status คือสถานะของ โพสต์ซึ่งมี 2 แบบคือ deleted และ active privacy 
+คือ ความเป็นส่วนตัวของโพสต์ซึ่งจะมี 2 แบบคือ private และ public created\_at
+คือ เวลาที่โพสต์นี้ถูกสร้างขึ้น updated\_at คือเวลาที่โพสต์ถูกแก้ไขครั้งล่าสุด
+ selected\_image คือรูปภาพที่เลือกมาโพสต์ซึ่งจะอ้างอิงกับ index ใน image\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{data dictionary ของ session\_management }\label{tbl:er-table3}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+ id & ObjectId & รหัสประจำตัวของ session\\
+ \hline
+ refresh\_token &String& เก็บ JWT refresh\_token ของผู้ใช้\\
+  \hline
+expire\_date& Date& เวลาที่ refresh\_token หมดอายุ\\
+  \hline
+owner\_id& String & รหัสประจำตัวของเจ้าของ refresh\_token ดังกล่าว ซึ่งอ้างอิงจาก account\\
+\hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{data dictionary ของ like }\label{tbl:er-table4}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+\hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+   id & ObjectId & รหัสประจำตัวของ furniture \\
+  \hline
+  added\_by & ObjectId & รหัสประจำตัวของผู้ใช้ที่เพิ่มเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  room\_id & [ObjectId] & รหัสประจำตัวของสไตล์และประเภทของห้องที่เหมาะสมกับเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  thai\_name & String & ชื่อภาษาไทยของเฟอร์นิเจอร์ \\
+  \hline
+  english\_name & String & ชื่อภาษาอังกฤษของเฟอร์นิเจอร์ \\
+  \hline
+  brand & String & แบรนด์ของเฟอร์นิเจอร์ \\
+  \hline
+  image\_url & String & ลิ้งก์ของรูปภาพของเฟอร์นิเจอร์ซึ่งฝากไว้บน cloudinary \\
+  \hline
+  seller & String & แหล่งจัดจำหน่ายผลิตภัณฆ์ดังกล่าว \\
+  \hline
+  website\_url & String & ลิงก์ของเว็ปไซต์ที่ขายเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  price & Float & ราคาของเฟอร์นิเจอร์ \\
+  \hline
+  category & String & หมวดหมู่ของเฟอร์นิเจอร์ \\
+  \hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{data dictionary ของ room }\label{tbl:er-table5}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+   id & ObjectId & รหัสประจำตัวของ room \\
+  \hline
+  room\_type & String & ประเภทของห้องซึ่งมีทั้งหมด 2 ประเภทคือ bathroom และ bedroom \\
+  \hline
+  room\_style & String &   สไตล์ของห้องซึ้่งมีทั้งหมด 3 สไตล์คือ contemporary modern และ bohemian \\
+  \hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{data dictionary ของ furniture }\label{tbl:er-table6}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+\hline
+  \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย} \\
+  \hline
+   id & ObjectId & รหัสประจำตัวของ furniture \\
+  \hline
+  added\_by & ObjectId & รหัสประจำตัวของผู้ใช้ที่เพิ่มเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  room\_id & [ObjectId] & รหัสประจำตัวของสไตล์และประเภทของห้องที่เหมาะสมกับเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  thai\_name & String & ชื่อภาษาไทยของเฟอร์นิเจอร์ \\
+  \hline
+  english\_name & String & ชื่อภาษาอังกฤษของเฟอร์นิเจอร์ \\
+  \hline
+  brand & String & แบรนด์ของเฟอร์นิเจอร์ \\
+  \hline
+  image\_url & String & ลิ้งก์ของรูปภาพของเฟอร์นิเจอร์ซึ่งฝากไว้บน cloudinary \\
+  \hline
+  seller & String & แหล่งจัดจำหน่ายผลิตภัณฆ์ดังกล่าว \\
+  \hline
+  website\_url & String & ลิงก์ของเว็ปไซต์ที่ขายเฟอร์นิเจอร์ดังกล่าว \\
+  \hline
+  price & Float & ราคาของเฟอร์นิเจอร์ \\
+  \hline
+  category & String & หมวดหมู่ของเฟอร์นิเจอร์ \\
+  \hline
+\end{tabular}
+\end{table}
+
+\chapter{ผลการทดลองและอภิปรายผล}
+\section{ผลการทดลองการเก็บข้อมูล Furniture จาก Internet}
+\section{ผลการทดลองการเก็บข้อมูลรูปภาพ ประเภทของห้อง และรูปแบบของห้อง จาก Internet}
+\section{ผลการทดลองการ Generate  รูปภาพ}
+\section{ผลการทดลองการสร้างเว็บแอปพลิเคชัน}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ref %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
