@@ -1,9 +1,129 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{chatgpt}
 Open AI,  2020,
 \newblock ``Introducing ChatGPT,'' Available at
   \url{https://arvrjourney.com/is-the-virtual-celebrity-industry-still-on-the-rise-in-2020-60cfd2b2c315},
-\newblock [Online; accessed 30-November-2020].
+\newblock [Online; accessed 7-Semtember-2020].
+
+\bibitem{midjourney}
+Georgia Weston,  2023,
+\newblock ``What Is Midjourney AI And How Does It Work?,'' Available at
+  \url{https://101blockchains.com/midjourney-ai-tutorial},
+\newblock [Online; accessed 7-Semtember-2023].
+
+\bibitem{dalle3}
+David Pierce,  2023,
+\newblock ``You can now use the DALL-E 3 AI image generator inside Bing Chat,''
+  Available at
+  \url{https://www.theverge.com/2023/10/3/23901963/bing-chat-dall-e-3-openai-image-generator},
+\newblock [Online; accessed 7-Semtember-2023].
+
+\bibitem{stable}
+Andrew,  2023,
+\newblock ``How does Stable Diffusion work,'' Available at
+  \url{https://stable-diffusion-art.com/how-stable-diffusion-work/#:~:text=Updated%20September%2027%2C%202023%20By,image%20into%20the%20latent%},
+\newblock [Online; accessed 8-Semtember-2023].
+
+\bibitem{googlelens}
+Chris Hall,  2023,
+\newblock ``What is Google Lens and what can it do?,'' Available at
+  \url{https://www.pocket-lint.com/what-is-google-lens-and-how-does-it-work-and-which-devices-have-it/},
+\newblock [Online; accessed 10-Semtember-2023].
+
+\bibitem{lora}
+Andrew,  2023,
+\newblock ``What are LoRA models and how to use them in AUTOMATIC1111,''
+  Available at
+  \url{https://stable-diffusion-art.com/lora/#What_are_LoRA_models},
+\newblock [Online; accessed 10-Semtember-2023].
+
+\bibitem{hu2021lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen,  2021,
+\newblock ``LoRA: Low-Rank Adaptation of Large Language Models,'' .
+
+\bibitem{ho2020denoising}
+Jonathan Ho, Ajay Jain, and Pieter Abbeel,  2020,
+\newblock ``Denoising Diffusion Probabilistic Models,'' .
+
+\bibitem{rombach2022highresolution}
+Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Björn
+  Ommer,  2022,
+\newblock ``High-Resolution Image Synthesis with Latent Diffusion Models,'' .
+
+\bibitem{illustrated1}
+Jay Alammar,  2021,
+\newblock ``The Illustrated Stable Diffusion,'' Available at
+  \url{https://jalammar.github.io/illustrated-stable-diffusion/},
+\newblock [Online; accessed 15-Semtember-2023].
+
+\bibitem{ruiz2023dreambooth}
+Nataniel Ruiz, Yuanzhen Li, Varun Jampani, Yael Pritch, Michael Rubinstein, and
+  Kfir Aberman,  2023,
+\newblock ``DreamBooth: Fine Tuning Text-to-Image Diffusion Models for
+  Subject-Driven Generation,'' .
+
+\bibitem{dreambooth}
+Andrew,  2023,
+\newblock ``How to use Dreambooth to put anything in Stable Diffusion (Colab
+  notebook),'' Available at \url{https://stable-diffusion-art.com/dreambooth/},
+\newblock [Online; accessed 15-Semtember-2023].
+
+\bibitem{zeroshot}
+Briggs,  2022,
+\newblock ``Fast Zero Shot Object Detection with OpenAI CLIP,'' Available at
+  \url{https://www.pinecone.io/learn/series/image-search/zero-shot-object-detection-clip/},
+\newblock [Online; accessed 17-Semtember-2023].
+
+\bibitem{pcsystem}
+Jon Martindale,  2023,
+\newblock ``Stable Diffusion PC system requirements: what do you need to run
+  it?,'' Available at
+  \url{https://www.digitaltrends.com/computing/stable-diffusion-pc-system-requirements/},
+\newblock [Online; accessed 3-October-2023].
+
+\bibitem{fid}
+George Lawton,  2023,
+\newblock ``Fréchet inception distance (FID),'' Available at
+  \url{https://www.techtarget.com/searchenterpriseai/definition/Frechet-inception-distance-FID},
+\newblock [Online; accessed 18-Semtember-2023].
+
+\bibitem{interior}
+Levelsio,  2023,
+\newblock ``Fire your interior designer,'' Available at
+  \url{https://interiorai.com/},
+\newblock [Online; accessed 18-Semtember-2023].
+
+\bibitem{planner}
+AI~Room Planner,  2023,
+\newblock ``Interior Design by AI,'' Available at
+  \url{https://airoomplanner.com/},
+\newblock [Online; accessed 18-Semtember-2023].
+
+\bibitem{client}
+Shakirat Haroon-Sulyman,  2014,
+\newblock ``Client-Server Model,'' Available at
+  \url{https://www.researchgate.net/publication/271295146_Client-Server_Model},
+\newblock [Online; accessed 15-Semtember-2023].
+
+\bibitem{mvc}
+Abdul Majeed and Ibtisam Rauf,  2018,
+\newblock ``MVC Architecture: A Detailed Insight to the Modern Web Applications
+  Development,'' Available at
+  \url{https://crimsonpublishers.com/prsp/pdf/PRSP.000505.pdf},
+\newblock [Online; accessed 15-Semtember-2023].
+
+\bibitem{islam2017network}
+Shafinaz Islam,  2017,
+\newblock ``Network Load Balancing Methods: Experimental Comparisons and
+  Improvement,'' .
+
+\bibitem{orm}
+Joshi and Kukreti,  2014,
+\newblock ``Object Relational Mapping in Comparison to Traditional Data Access
+  Techniques,'' Available at
+  \url{https://www.ijser.org/researchpaper/Object-Relational-Mapping-in-Comparison-to-Traditional.pdf},
+\newblock [Online; accessed 20-Semtember-2023].
 
 \end{thebibliography}
