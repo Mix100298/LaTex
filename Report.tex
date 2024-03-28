@@ -915,12 +915,12 @@ will reduce by as many as 43\% of the maximum throughput.
 \subsection{Database ER diagram}
 
 \begin{figure}[!h]\centering
-  \includegraphics{image/er.jpg}
+  \includegraphics{image/new-ER.png}
   \caption{ER Diagram}
   \label{fig:er}
 \end{figure}
 
-\hspace {18pt} จากภาพ~\ref{fig:er} สามารถบ่งบอกได้ว่าโครงสร้างของ Database ของเว็บแอปพลิเคชัน Easy Room มีทั้งหมด 6 collections คือ 1.account 2.result 3.session\_management 4.like 5.room และ 6.furniture ซึ่ง account จะมีหน้าที่ในการเก็บข้อมูลของผู้ใช้ โดยจะมี data dictionary ดังนี้
+\hspace {18pt} จากภาพ~\ref{fig:er} สามารถบ่งบอกได้ว่าโครงสร้างของ Database ของเว็บแอปพลิเคชัน Easy Room มีทั้งหมด 5 collections คือ 1.account 2.result 3.like 4.room และ 5.furniture ซึ่ง account จะมีหน้าที่ในการเก็บข้อมูลของผู้ใช้ โดยจะมี data dictionary ดังนี้
 
 
 \begin{table}[!h]
@@ -929,22 +929,27 @@ will reduce by as many as 43\% of the maximum throughput.
     \hline
     \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                               \\
     \hline
-    id                   & ObjectId           & รหัสประจำตัวของ account                          \\
+    id                   & ObjectId           & ID ของ account                          \\
     \hline
     email                & String             & อีเมลล์                                         \\
     \hline
-    password\_hash       & String             & รหัสผ่านที่ผ่านการ hash ด้วย Argon 2 hash algorithm \\
+    password       & String             & รหัสผ่านที่ผ่านการ hash ด้วย Argon 2 hash algorithm \\
     \hline
     firstname            & String             & ชื่อจริง                                         \\
     \hline
     lastname             & String             & นามสกุล                                        \\
     \hline
-    date\_of\_birth      & Date               & วันเดือนปีเกิด YYYY-MM-DD                         \\
+    date\_of\_birth      & Date               & วันเดือนปีเกิด                          \\
     \hline
     sex                  & String             & เพศมีทั้งหมด 3 เพศคือ male female และ others      \\
     \hline
-    role                 & String             & ตำแหน่งซึ่งจะมีทั้งหมด 2 ตำแหน่งคือ user และ admin      \\
+    role                 & String             & ตำแหน่งซึ่งจะมีทั้งหมด 2 ตำแหน่งคือ User และ Admin      \\
     \hline
+    avatar_image&String&ลิงก์ของรูปโปรไฟล์ที่ได้จากการฝากรูปจาก cloudinary
+    \hline
+    create\_at&Date&เวลาที่บัญชีนี้ถูกสร้างขึ้น
+    \hline
+    update\_at&Date&เวลาที่มีการแก้ไขล่าสุด
   \end{tabular}
 \end{table}
 
@@ -954,23 +959,21 @@ will reduce by as many as 43\% of the maximum throughput.
     \hline
     \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                                                                                                                                                              \\
     \hline
-    id                   & ObjectId           & รหัสประจำตัวของ result                                                                                                                                                                          \\
+    id                   & ObjectId           & ID ของ การ Generate รูปภาพ                                                                                                                                                                          \\
     \hline
-    owner\_id            & ObjectId           & รหัสประจำตัวของผู้ใช้ที่สร้างresultซึ่งอ้างอิงได้จาก account                                                                                                                                               \\
+    owner\_id            & ObjectId           & ID ของผู้ใช้ที่สร้าง result                                                                                                                                        \\
     \hline
-    room\_id             & ObjectId           & รหัสประจำตัวของห้องและสไตล์ที่เลือกใช้เพื่อสร้างresultซึ่งสามารถอ้างอิงได้จาก room                                                                                                                            \\
+    room\_id             & ObjectId           & ID ของห้องและสไตล์ที่เลือกใช้ในการ generate รูปภาพ                                                                                                                            \\
     \hline
-    status               & String             & สถานะของผลลัพธ์                                                                                                                                                                                \\
+    status               & String             & สถานะของการ generate รูปภาพ                                                                                                                                                                             \\
     \hline
-    furniture\_list      & [ObjectId]         & รหัสประจำตัวของเฟอร์นิเจอร์ที่ใช้ในการสร้างresultซึ่งสามารถอ้างอิงได้จาก furniture                                                                                                                          \\
+    furniture\_list      & [ObjectId]         & ID ของ furniture ที่ใช้ประกอบการ generate รูปภาพ                                                                                                                        \\                                                                                                                                                           \\
     \hline
-    task                 & String             & ลักษณะของงานที่เลือกในการสร้างresult                                                                                                                                                              \\
+    budget               & float              & ราคาที่ผู้ใช้ตั้งไว้ในการ generate รูปภาพ                                                                                                                                                                 \\
     \hline
-    budget               & float              & ราคาที่ผู้ใช้ตั้งไว้ในการสร้างresult                                                                                                                                                                  \\
+    image                & Object             & รูปภาพที่ได้จากการgenerate รูปภาพ ซึ่งจะเก็บเป็น object โดยจะมี Index ซึ่งบ่งบอกว่าเป็นรูปที่เท่าไหร่ และ url คือลิงก์ที่ได้จากการเก็บรูปภาพที่ cloudinary                                                        \\
     \hline
-    image                & Object             & รูปภาพที่ได้จากการทำงาน ของ Ai service ซึ่งจะเก็บเป็น object โดยจะมี Index ไว้บ่งบอกว่าเป็นรูปที่เท่าไหร่ และ url ที่เก็บลิงก์ของรูปภาพหลังจากฝากไว้ที่ cloudinary                                                        \\
-    \hline
-    post                 & Object             & ข้อมูลรายละเอียดต่างๆของโพสต์ที่เกี่ยวข้องกับ result โดยจะมี post\_id เป็นรหัสประจำตัวของโพสต์  title เป็นหัวข้อของโพสต์ description  เป็นเนื้อหาในโพสต์ status คือสถานะของ โพสต์ซึ่งมี 2 แบบคือ deleted และ active privacy
+    post                 & Object             & ข้อมูลรายละเอียดของโพสต์ ที่เกี่ยวข้องกับการ Generate รูปภาพ โดยจะมี post\_id เป็น ID ของโพสต์  title เป็นหัวข้อของโพสต์ description  เป็นเนื้อหาในโพสต์ status คือสถานะของ โพสต์ซึ่งมี 2 แบบคือ deleted และ active privacy
     คือ ความเป็นส่วนตัวของโพสต์ซึ่งจะมี 2 แบบคือ private และ public created\_at
     คือ เวลาที่โพสต์นี้ถูกสร้างขึ้น updated\_at คือเวลาที่โพสต์ถูกแก้ไขครั้งล่าสุด
     selected\_image คือรูปภาพที่เลือกมาโพสต์ซึ่งจะอ้างอิงกับ index ใน image                                                                                                                                                                             \\
@@ -978,22 +981,6 @@ will reduce by as many as 43\% of the maximum throughput.
   \end{tabular}
 \end{table}
 
-\begin{table}
-  \caption{data dictionary ของ session\_management }\label{tbl:er-table3}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
-    \hline
-    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                             \\
-    \hline
-    id                   & ObjectId           & รหัสประจำตัวของ session                                        \\
-    \hline
-    refresh\_token       & String             & เก็บ JWT refresh\_token ของผู้ใช้                               \\
-    \hline
-    expire\_date         & Date               & เวลาที่ refresh\_token หมดอายุ                                 \\
-    \hline
-    owner\_id            & String             & รหัสประจำตัวของเจ้าของ refresh\_token ดังกล่าว ซึ่งอ้างอิงจาก account \\
-    \hline
-  \end{tabular}
-\end{table}
 \begin{table}
   \caption{data dictionary ของ like }\label{tbl:er-table4}
   \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
