@@ -1043,80 +1043,209 @@
 
 
 \section{ผลการทดลองการเก็บข้อมูลรูปภาพ ประเภทของห้อง และรูปแบบของห้อง จาก Internet}
-\begin{flushleft}
-  Download รูปภาพจากเว็บไซต์ www.pinterest.com โดยใช้เครื่องมือช่วย Download
-  โดยมีข้อมูลดังนี้
-  \begin{itemize}
-    \item ประเภทของห้อง
-          \begin{enumerate}
-            \item ห้องนอน
-            \item ห้องน้ำ
-          \end{enumerate}
-    \item รูปแบบของห้อง
-          \begin{enumerate}
-            \item Bohemian style
-            \item Contemporary style
-            \item Modern style
-          \end{enumerate}
-  \end{itemize}
-  คัดเลือกรูปภาพที่เหมาะจะนำมาใช้ในการ train โมเดล โดยคัดเลือกตามคุณสมบัติดังต่อไปนี้
-  \begin{enumerate}
-    \item Images quality are high resolution
-    \item Images size more than 512x512 pixel
-    \item Images are not duplicate
-    \item Images are variety look
-    \item Number of image are more than 30 images per category
-  \end{enumerate}
-  หลังจากคัดเลือกแล้วมีรูปภาพจำนวนทั้งหมด 512 รูปภาพนำไปทำการ resize ด้วย
+ิ\begin{enumerate}
+\item Download รูปภาพจากเว็บไซต์ www.pinterest.com โดยใช้เครื่องมือช่วย Download
+โดยมีข้อมูลดังนี้
+\begin{itemize}
+\item ประเภทของห้อง
+\begin{enumerate}
+  \item ห้องนอน
+  \item ห้องน้ำ
+\end{enumerate}
+\item รูปแบบของห้อง
+\begin{enumerate}
+  \item Bohemian style
+  \item Contemporary style
+  \item Modern style
+\end{enumerate}
 
-\end{flushleft}
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/frontend-1.png}
+  \caption{Code ที่ใช้ในการ scrape รูปภาพจาก pinterest.com}
+  \label{fig:scrape-1}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/frontend-1.png}
+  \caption{รูปภาพที่ได้จากการ scrape มาจาก pinterest.com}
+  \label{fig:scrape-2}
+\end{figure}
+\item
+คัดเลือกรูปภาพที่เหมาะจะนำมาใช้ในการ train โมเดล โดยคัดเลือกตามคุณสมบัติดังต่อไปนี้
+\begin{enumerate}
+  \item รูปภาพต้องมีความคมชัด
+  \item ขนาดของรูปภาพจะต้องมีขนาดมากกว่า 512x512 pixel
+  \item รูปภาพไม่ซ้ำกัน
+  \item รูปภาพต้องมีลักษณะที่หลากหลาย
+  \item จำนวนรูปภาพต้องมากกว่า 30 รูปภาพต่อหมวดหมู่และรูปแบบของห้อง
+\end{enumerate}
+โดยจำนวนรูปภาพทั้งหมดที่ได้มาคือ 516 รูปภาพ
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/frontend-1.png}
+  \caption{รูปภาพ 516 รูปที่จะนำไปใช้ train โมเดล}
+  \label{fig:scrape-3}
+\end{figure}
+\end{enumerate}
+
+
 
 
 \section{ผลการทดลองการ train โมเดล และ generate รูปภาพ}
-\subsection{โมเดลรูปแบบปละประเภทของห้อง}
+\subsection{ข้อมูลเพื่อใช้ในการ train โมเดล}
+หลังจากได้รูปภาพมาแล้ว นำไปทำการ resize ด้วยเว็บไซต์ https://www.birme.net เพื่อทำการ resize ให้เป็นขนาด 512x512 pixel
+และตั้งชื่อใหม่ให้กับรูปภาพทั้งหมด
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/prepare-data-1.jpg}
+  \caption{resize รูปภาพให้เป็นขนาด 512x512 pixel บนเว็บไซต์ https://www.birme.net}
+  \label{fig:prepare-data-1}
+\end{figure}
+
+
+\begin{figure}[!h]\centering
+\includegraphics[width=10cm]{image/prepare-data-2.jpg}
+\caption{ตั้งชื่อใหม่ให้กับรูปภาพทั้งหมด}
+\label{fig:prepare-data-2}
+
+หลังจากนั้นจะทำการสร้างคำอธิบายให้กับแต่ละรูปภาพ โดยใช้ BLIP ที่อยู๋ใน Kohya ui ซึ่งเป็นเครื่องมือที่ใช้ช่วยสร้างคำอธิบายให้กับรูปภาพ
+และตั้งชื่อใหม่ให้ตรงกับชื่อของรูปภาพ
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/prepare-data-3.jpg}
+  \caption{ใช้ BLIP บน Kohya UI ในการสร้างคำอธิบายให้กับรูปภาพ}
+  \label{fig:prepare-data-3}
+\end{figure}
+
+
+\begin{figure}[!h]\centering
+\includegraphics[width=10cm]{image/prepare-data-4.jpg}
+\caption{ตั้งชื่อใหม่ให้สอดคล้องกับชื่อของรูปภาพ}
+\label{fig:prepare-data-4}
+
+\begin{figure}[!h]\centering
+\includegraphics[width=10cm]{image/prepare-data-5.jpg}
+\caption{ตัวอย่างคำอธิบายรูปภาพ}
+\label{fig:prepare-data-5}
+
+
+\subsection{การ train โมเดล}
+หมายเหตุ ณ ตอนนี้โมเดลไม่สามารถประเมินผลความแม่นยำด้วย precision และ recall ได้เนื่องจากไม่มีข้อมูลที่เป็น ground truth ซึ่งเป็นข้อมูลที่ถูกตรวจสอบแล้วว่าเป็นคำตอบที่ถูกต้อง
+แต่สามารถประเมินผลได้ด้วยการดูรูปภาพที่ได้จากการทำงานของโมเดลว่ามีความเหมาะสมหรือไม่
+
+\subsubsection{โมเดลรูปแบบปละประเภทของห้อง}
+
 \hspace{18pt}Hyperparameter
 \begin{itemize}
   \item Epoch : 100
   \item Batch size : 16
   \item Learning rate : 0.00002
-  \item  Learning rate Scheduler : constant
   \item Optimizer : 8bitAdam
-  \item Number of Image : 57
+  \item Number of Image : 516
 \end{itemize}
-\subsection{โมเดลรูปแบบปละประเภทของห้อง}
+\hspace{18pt}ผลลัพธ์
+เวลาที่ใช้ train โมเดล : 9 ชั่วโมง
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/modern_bedroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:modern_bedroom}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/modern_bathroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:modern_bathroom}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/contemporary_bedroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:contemporary_bedroom}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/contemporary_bathroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที���ได้จากโมเดล}
+  \label{fig:contemporary_bathroom}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/bohemian_bedroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:bohemian_bedroom}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/bohemian_bathroom.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:bohemian_bathroom}
+\end{figure}
+
+
+
+
+
+\subsubsection{โมเดลรูปแบบปละประเภทของเฟอร์นิเจอร์}
+Furniture ที่ใช้ในการ train โมเดลมีทั้งหมด 2 ชนิด
+\begin{enumerate}
+  \item โคมไฟรุ่น TVARHAND จาก IKEA จำนวน 31 รูปภาพ
+  \item เตียง TARVA จาก IKEA จำนวน 26 รูปภาพ
+\end{enumerate}
 \hspace{18pt}Hyperparameter
 \begin{itemize}
   \item Epoch : 100
   \item Batch size : 16
-  \item Learning rate : 0.00002
-  \item  Learning rate Scheduler : constant
+  \item Learning rate : 0.00001
   \item Optimizer : 8bitAdam
   \item Number of Image : 57
 \end{itemize}
+\hspace{18pt}ผลลัพธ์
+เวลาที่ใช้ train โมเดล : 3 ชั่วโมง 20 นาที
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/frontend-1.png}
-  \caption{UI ของเครื่องมือที่ใช้ในการ Fine tuning โมเดล}
-  \label{fig:fine-tuning-1}
+  \includegraphics[width=10cm]{image/TVARHAND.jpg}
+  \caption{ตัวอย่างของโคมไฟรุ่น TVARHAND จาก IKEA}
+  \label{fig:TVARHAND}
 \end{figure}
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/frontend-1.png}
-  \caption{เวลาที่ใช้ในการ Fine tuning โมเดล}
-  \label{fig:fine-tuning-2}
+  \includegraphics[width=10cm]{image/TARVA.jpg}
+  \caption{ตัวอย่างเตียง TARVA จาก IKEA}
+  \label{fig:TARVA}
 \end{figure}
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/frontend-1.png}
-  \caption{เวลาที่ใช้ในการ Fine tuning โมเดล}
-  \label{fig:fine-tuning-3}
+  \includegraphics[width=10cm]{image/result-furniture-1.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:result-furniture-1}
 \end{figure}
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/frontend-1.png}
-  \caption{เวลาที่ใช้ในการ Fine tuning โมเดล}
-  \label{fig:fine-tuning-4}
+  \includegraphics[width=10cm]{image/result-furniture-2.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:result-furniture-2}
 \end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/result-furniture-3.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:result-furniture-3}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/result-furniture-4.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:result-furniture-4}
+\end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/result-furniture-5.png}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
+  \label{fig:result-furniture-5}
+\end{figure}
+
+
+
+
 
 \vspace{\fill}\clearpage
 
@@ -1213,8 +1342,8 @@
 ช่วยชูกูล นักศึกษาชั้นปีที่ 4 ภาควิชาวิศวกรรมคอมพิวเตอร์ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
 
 \hspace {18pt}มีจุดประสงค์เพื่อศึกษาและรวบรวมข้อมูลและความต้องการต่างๆ ในการใช้งาน AI ในงานออกแบบภายใน เพื่อใช้เป็นแนวทางในการ
-พัฒนาระบบที่ช่üยอํานüยคüามÿะดüกเ��ี่ยüกับการออกแบบภายใน โดยเราจะนําข้อมูลนั้นไปใช้ในการÿร้างเü็บไซต์แอปพลิเคชันที่ÿามารถ
-ใช้งาน AI ���นการสร้างรูปของห้องต่างๆและสามารถประเมินค่าใช้จ่ายทั้งหมดจา���ภาพที่ AI สร้างขึ้น ซึ่งข้อมูลที่ได้รับจะไม่ถูกนําไปเปิดเผย
+พัฒนาระบบที่ช่วยอํานวยความสะดวกเกี่���วกับการออกแบบภายใน โดยเราจะนําข้อมูลนั้นไปใช้ในการสร้างเü็บไซต์แอปพลิเคชันที่สามารถ
+ใช้งาน AI ในการสร้างรูปของห้องต่างๆและสามารถประเมินค่าใช้จ่ายทั้งหมดจากภาพที่ AI สร้างขึ้น ซึ่งข้อมูลที่ได้รับจะไม่ถูกนําไปเปิดเผย
 และใช้เพื่อการศีกษาเท่านั้น
 
 \hspace {18pt} สามารถเข้าทำแบบสอบถามได้จาก \url{https://forms.gle/jPAt6VJqqN2smsn29}
