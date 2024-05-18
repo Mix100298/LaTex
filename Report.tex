@@ -1,10 +1,12 @@
-% !TeX root = Report.tex
 %%%%%% Run at command line, run
 %%%%%% xelatex grad-sample.tex 
 %%%%%% for a few times to generate the output pdf file
 \documentclass[12pt,oneside,openright,a4paper]{cpe-thai-project}
 
 \usepackage{polyglossia}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \setdefaultlanguage{thai}
 \setotherlanguage{english}
 \newfontfamily\thaifont[Script=Thai,Scale=1.23]{TH Sarabun New}
@@ -19,7 +21,7 @@
 % The ones that are optional can be left blank. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % First line of title
-\def\disstitleone{Easy room เว็บแอปพลิเคชัน with generative Interior design AI using Stable Diffusion Model}   
+\def\disstitleone{Easy room web application with generative Interior design AI using Stable Diffusion Model}   
 % Second line of title
 \def\disstitletwo{เว็บแอปพลิเคชันสำหรับผู้ที่ต้องการออกแบบภายในโดยปัญญาประดิษฐ์ด้วย Stable Diffusion}   
 % Your first name and lastname
@@ -31,7 +33,7 @@
 
 % The degree that you're persuing..
 \def\dissdegree{Bachelor of Engineering} % Name of the degree
-\def\dissdegreeabrev{B.Eng} % Abbreviation of the degree
+\def\dissdegreeabrev{B.Eng}           % Abbreviation of the degree
 \def\dissyear{2023}                   % Year of submission
 \def\thaidissyear{2566}               % Year of submission (B.E.)
 
@@ -61,7 +63,7 @@
 \def\appendixnames{Appendix} %%% Appendices or Appendix
 
 \def\thaiworktype{ปริญญานิพนธ์} %  Project or research project % 
-\def\thaidisstitleone{Easy room เว็บแอปพลิเคชัน with generative Interior design AI using Stable Diffusion Model}   
+\def\thaidisstitleone{Easy room web application with generative Interior design AI using Stable Diffusion Model}   
 \def\thaidisstitletwo{เว็บแอปพลิเคชันสำหรับผู้ที่ต้องการออกแบบภายในโดยปัญญาประดิษฐ์ด้วย Stable Diffusion}
 \def\thaidissauthor{นายพฤฒิพล จิตรเจริญกิจ}
 \def\thaidissauthortwo{นายวิชยุฒม์ ช่วยชูกูล} %Optional
@@ -127,28 +129,24 @@
 \makesignaturepage
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% English abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \abstract
+\abstract
 
-% In a multihop ad hoc network, the interference among nodes is
-% reduced to maximize the throughput by using a smallest transmission
-% range that still preserve the network connectivity. However, most
-% existing works on transmission range control focus on the
-% connectivity but lack of results on the throughput performance. This
-% paper analyzes the per-node saturated throughput of an IEEE 802.11b
-% multihop ad hoc network with a uniform transmission range. Compared
-% to simulation, our model can accurately predict the per-node
-% throughput.  The results show that the maximum achievable per-node
-% throughput can be as low as 11\% of the channel capacity in a normal
-% set of $\alpha$ operating parameters independent of node density. However, if
-% the network connectivity is considered, the obtainable throughput
-% will reduce by as many as 43\% of the maximum throughput.
+\hspace{18pt}In the modern world, interior design has become a part of creating comfortable and aesthetically pleasing living spaces. However, the process can often be complex and intimidating,
+especially for those without a background in design. Recognizing this challenge, we developed Easy-Room, an innovative web application aimed at simplifying interior design and serving
+as a source of design ideas by using a generative AI model, Stable Diffusion, fine-tuned through AUTOMATIC1111 GUI and kohya\_ss GUI using LoRa and Dreambooth fine-tuning techniques.
+Easy-Room allows users to generate interior designs effortlessly by selecting from various options for room type (Bedroom, Bathroom, Random), room style (Bohemian, Contemporary, Modern),
+and 44 distinct furniture items. Eliminate the need for complex design processes by only selecting options rather than drawing. Furthermore, the project is better than the former website
+by being able to choose the desired furniture to be included in the generated image. Additionally, the platform has a community where users can share ideas from the generated images.
+For administrators, Easy-Room provides a robust dashboard for managing furniture data and monitoring usage. The technological infrastructure of Easy-Room includes an Express framework backend,
+a Next.js frontend, a Fast-API for AI services, and a MongoDB database, ensuring a robust and scalable solution for interior design challenges.
 
-% \begin{flushleft}
-%   \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
-%     \textbf{Keywords}: & Multihop ad hoc networks / Topology control / Single-Hop Throughput
-%   \end{tabular*}
-% \end{flushleft}
-% \endabstract
+
+\begin{flushleft}
+  \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
+    \textbf{Keywords}: & Stable Diffusion / Generetive AI / Text-to-Image AI / Dreambooth
+  \end{tabular*}
+\end{flushleft}
+\endabstract
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%% Thai abstract here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,9 +156,7 @@
 % \thaifont
 \thaiabstract
 
-\hspace{18pt}โครงงานนี้เป็นโครงงานที่เกี่ยวกับการประยุต์ใช้ Generative Ai มาใช้กับงานออกแบบภายในโดยนำมา Generate รูปภาพให้กับห้องนอนหรือห้องน้ำ โดยการนำ Stable Diffusion ซึ่งเป็น Generetive AI มา Fine tuning ด้วยเทคนิค dreambooth และ LoRa ผ่าน automatic1111
-ซึ่งเป็น web-ui ในการพัฒนาโมเดล มาใช้ในการ Generate รูปภาพ ซึ่งนำเสนอในรูปแบบของเว็บแอปพลิเคชัน โดยจะมีฟีเจอร์การ Generate รูปภาพ ซึ่งผู้ใช้สามารถเลือกรูปแบบของห้อง ชนิดของห้องที่ต้องการ เฟอร์นิเจอร์ที่ต้องการให้อยู่ภายในรูปภาพ และฟีเจอร์สำหรับการแบ่งปันไอเดียที่ได้จากการ Generate รูปภาพเพื่อใช้เป็นแหล่งค้นหาไอเดียให้กับ
-ผู้ที่ต้องการออกแบบภายในให้กับห้องนอนหรือห้องน้ำ
+\hspace{18pt}โครงงานนี้เป็นโครงงานที่เกี่ยวข้องกับการประยุกต์ใช้ Generative AI ในงานออกแบบภายใน โดยใช้เพื่อสร้างภาพสำหรับห้องนอนหรือห้องน้ำ โดยนำ Stable Diffusion ซึ่งเป็น Generative AI มาปรับแต่งด้วยเทคนิค DreamBooth และ LoRa ผ่าน Automatic1111 ซึ่งเป็น web-UI ในการพัฒนาโมเดล มาใช้ในการสร้างภาพ โดยนำเสนอในรูปแบบของเว็บแอปพลิเคชัน โดยจะมีฟีเจอร์ในการสร้างภาพ ซึ่งผู้ใช้สามารถเลือกรูปแบบของห้อง ชนิดของห้องที่ต้องการ รวมถึงเฟอร์นิเจอร์ที่ต้องการให้ปรากฏในภาพ และฟีเจอร์สำหรับการแบ่งปันไอเดียที่ได้จากการสร้างภาพเพื่อใช้เป็นแหล่งค้นหาไอเดียสำหรับผู้ที่ต้องการออกแบบภายในห้องนอนหรือห้องน้ำ
 
 \begin{flushleft}
   \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
@@ -177,7 +173,7 @@
 %%%%%%%%%%%%%%%%%%%%%%% Acknowledgments %%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \preface
-ขอบคุณอาจารย์ที่ปรึกษา คณะกรรมการ มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี ที่ให้โอกาสในการทำโครงงานนี้ขึ้นมา และเพื่อนๆกับครอบครัวที่อยู่เคียงข้าง ช่วยเหลือให้งานนั้นสำเร็จตามต้องการ
+ขอบพระคุณ ดร.ทวีชัย นันทวิสุทธิวงศ์ ที่เป็นอาจารย์ที่ปรึกษาประจำกลุ่มที่คอยให้คำปรึกษาระหว่างการทำโครงงาน และคณะกรรมการทุกท่านที่ให้โอกาสคณะผู้จัดทำได้ทำโครงงานและขอขอบคุณทุกๆท่านที่คอยให้ความร่วมมือในการทำแบบสอบถามทั้งแบบสอบถามสำหรับการวิเคราะห์ความต้องการและแบบสอบถามความพึงพอใจของผู้ใช้ ขอบคุณมหาวิทยาเทคโนโลยีพระจอมเกล้าธนบุรีที่ให้การสนับสนุนสถานที่ในการทำงานและสุดท้ายนี้ขอขอบคุณคณะผู้จัดทำทุกท่านที่ได้ทำโครงงานนี้้จนสำเร็จ
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% ToC, List of figures/tables %%%%%%%%%%%%%%%%
@@ -192,26 +188,26 @@
 %%%%%%%%%%%%%%%%%%%%% List of symbols page %%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % You have to add this manually..
-\listofsymbols
-\begin{flushleft}
-  \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
-    \textbf{SYMBOL} &                        & \textbf{UNIT} \\[0.2cm]
-    $\alpha$        & Test variable\hfill    & m$^2$         \\
-    $\lambda$       & Interarival rate\hfill & jobs/second   \\
-    $\mu$           & Service rate\hfill     & jobs/second   \\
-  \end{tabular}
-\end{flushleft}
+% \listofsymbols
+% \begin{flushleft}
+%   \begin{tabular}{@{}p{0.07\textwidth}p{0.7\textwidth}p{0.1\textwidth}}
+%     \textbf{SYMBOL} &                        & \textbf{UNIT} \\[0.2cm]
+%     $\alpha$        & Test variable\hfill    & m$^2$         \\
+%     $\lambda$       & Interarival rate\hfill & jobs/second   \\
+%     $\mu$           & Service rate\hfill     & jobs/second   \\
+%   \end{tabular}
+% \end{flushleft}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%% List of vocabs & terms %%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % You also have to add this manually..
-\listofvocab
-\begin{flushleft}
-  \begin{tabular}{@{}p{1in}@{=\extracolsep{0.5in}}p{0.73\textwidth}}
-    Test  & Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non condimentum purus. Pellentesque sed augue sapien. In volutpat quis diam laoreet suscipit. Curabitur fringilla sem nisi, at condimentum lectus consequat vitae. \\
-    MANET & Mobile Ad Hoc Network
-  \end{tabular}
-\end{flushleft}
+% \listofvocab
+% \begin{flushleft}
+%   \begin{tabular}{@{}p{1in}@{=\extracolsep{0.5in}}p{0.73\textwidth}}
+%     Test  & Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam non condimentum purus. Pellentesque sed augue sapien. In volutpat quis diam laoreet suscipit. Curabitur fringilla sem nisi, at condimentum lectus consequat vitae. \\
+%     MANET & Mobile Ad Hoc Network
+%   \end{tabular}
+% \end{flushleft}
 
 %\setlength{\parskip}{1.2mm}
 
@@ -223,98 +219,78 @@
 
 \chapter{}
 \section{คำสำคัญ}
-\hspace {18pt}Generative AI, เว็บแอปพลิเคชัน, Diffusion Model, Deep Learning, Neural Network, Object Detection
+\hspace {18pt}Generative AI, เว็บแอปพลิเคชัน, Diffusion Model, Deep Learning, Neural Network
 \section{ที่มาและความสำคัญ}
-\hspace {18pt}Artificial Intelligence (AI) หรือ ปัญญาประดิษฐ์ เป็นเทคโนโลยีที่มีความสำคัญ และกำลังได้รับความนิยมเป็นอย่างมาก เทคโนโลยี AI ในช่วงแรกจะใช้หลักการ Machine Learning คือการให้คอมพิวเตอร์เรียนรู้ด้วยตนเอง ผ่านข้อมูลที่มันได้รับ เทคโนโลยีที่เหนือจาก Machine Learning ไปอีกระดับคือ Deep Learning  ซึ่งเป็น Machine Learning ที่ลอกเลียนแบบโครงสร้างของระบบประสาทของมนุษย์ที่เรียกว่า Neural Network มาใช้ในการพัฒนาความฉลาดของ AI โดยการเทรน(train) หรือให้ Neural Network เรียนรู้จากข้อมูลมหาศาล ซึ่งในสมัยก่อนการหาข้อมูลมาเทรน AI ค่อนข้างยากและใช้เวลานาน แต่ในปัจจุบันข้อมูลสามารถค้นหาได้ง่ายและมีอยู่มากมายอินเตอร์เน็ต รวมไปถึงเทคโนโลยีอื่นๆเช่น หน่วยประมวลผลกราฟิก (GPU) ที่มีส่วนช่วยให้ใช้เวลาน้อยลงในการเทรน AI จึงทำให้ปัจจุบันพบ AI มากมายและมีความสามารถมากกว่าสมัยก่อน เช่น เทคโนโลยีรถยนต์ไร้คนขับ Generative AI ที่สามารถช่วยสร้างผลลัพธ์ในรูปแบบต่างเช่น ข้อความ เสียง รูปภาพ วิดีโอ จากคำสั่งของมนุษย์ที่บอกให้ช่วยสร้างหรือให้ช่วยหาคำตอบให้ เช่น ChatGPT \cite{chatgpt} Midjourney \cite{midjourney} Dall ·E \cite{dalle3} Stable Diffusion \cite{stable} ด้วย Generative AI เหล่านี้ สามารถแบ่งเบาภาระของมนุษย์ได้อย่างมาก โดย Midjourney Dall·E Stable diffusion สามารถสร้างรูปภาพผ่าน Prompt หรือคำสั่งในรูปแบบข้อความ
+\hspace {18pt}Artificial Intelligence (AI) หรือ ปัญญาประดิษฐ์ เป็นเทคโนโลยีที่มีความสำคัญและกำลังได้รับความนิยมอย่างมาก ในระยะแรกเทคโนโลยี AI อาศัยหลักการ Machine Learning ซึ่งหมายถึงการที่คอมพิวเตอร์สามารถเรียนรู้ด้วยตนเองผ่านข้อมูลที่ได้รับ การพัฒนาขั้นสูงจาก Machine Learning คือ Deep Learning ซึ่งเป็นรูปแบบหนึ่งของ Machine Learning ที่จำลองโครงสร้างของระบบประสาทมนุษย์ที่เรียกว่า Neural Network มาใช้ในการพัฒนาความฉลาดของ AI โดยการฝึก (train) หรือให้ Neural Network เรียนรู้จากข้อมูลมหาศาล ในอดีตการหาข้อมูลมาใช้ในการฝึก AI เป็นเรื่องที่ยากและใช้เวลานาน แต่ปัจจุบันการเข้าถึงข้อมูลทำได้ง่ายขึ้นและมีข้อมูลมากมายบนอินเทอร์เน็ต นอกจากนี้เทคโนโลยีอื่นๆ เช่น หน่วยประมวลผลกราฟิก (GPU) ยังช่วยลดระยะเวลาในการฝึก AI ทำให้ AI ในปัจจุบันมีการใช้งานมากขึ้นและมีความสามารถมากกว่าในอดีต เช่น เทคโนโลยีรถยนต์ไร้คนขับ Generative AI ที่สามารถสร้างผลลัพธ์ในรูปแบบต่างๆ เช่น ข้อความ เสียง รูปภาพ วิดีโอ จากคำสั่งของมนุษย์ เช่น ChatGPT Midjourney DALL·E และ Stable Diffusion Generative AI เหล่านี้สามารถแบ่งเบาภาระของมนุษย์ได้เป็นอย่างมาก โดย Midjourney, DALL·E, และ Stable Diffusion สามารถสร้างรูปภาพผ่านคำสั่งในรูปแบบข้อความ (Prompt)
 \par \hspace {18pt}
-จากที่กล่าวมาข้างต้นด้วยความสามารถของ AI เหล่านี้จึงเกิดความคิดที่จะใช้มันการออกแบบห้องซึ่งจากการสำรวจทางอินเตอร์เน็ตพบว่า มีเว็บไซต์ที่ใช้ AI ในการออกแบบห้องอยู่พอสมควรในหลายรูปแบบ เช่น 1. ใช้เปลี่ยนสไตล์ของห้องโดยจะรับข้อมูลเป็น รูปภาพของห้องและสไตล์ของห้องที่อยากให้เป็น 2. ใช้ในการออกแบบภายใน รับข้อมูลเป็นสไตล์ของห้องและชนิดของห้อง ซึ่งในบางเว็บไซต์มีฟีเจอร์ที่สามารถใช้ Google Lens \cite{googlelens} ในการหาผลิตภัณฑ์ที่ใช้ในรูปภาพ ซึ่งผลลัพธ์ที่ได้จาก Google Lens จะเป็นผลิตภัณฑ์ที่ใกล้เคียง มีบางผลิตภัณฑ์ที่หาซื้อได้ผ่าน Amazon หรือ IKEA
+จากที่กล่าวมาข้างต้น ด้วยความสามารถของ AI เหล่านี้จึงเกิดแนวคิดที่จะใช้ AI ในการออกแบบห้อง ซึ่งจากการสำรวจบนอินเทอร์เน็ต พบว่ามีเว็บไซต์ที่ใช้ AI ในการออกแบบห้องอยู่พอสมควรในหลายรูปแบบ เช่น 1. ใช้เปลี่ยนสไตล์ของห้องโดยรับข้อมูลเป็นรูปภาพของห้องและสไตล์ที่ต้องการ 2. ใช้ในการออกแบบภายใน รับข้อมูลเป็นสไตล์ของห้องและชนิดของห้อง บางเว็บไซต์มีฟีเจอร์ที่สามารถใช้ Google Lens [5] ในการค้นหาผลิตภัณฑ์ที่ใช้ในรูปภาพ ซึ่งผลลัพธ์จาก Google Lens จะเป็นผลิตภัณฑ์ที่ใกล้เคียงและบางผลิตภัณฑ์สามารถสั่งซื้อได้ผ่าน Amazon หรือ IKEA
 \par  \hspace {18pt}
-คณะผู้จัดทำมีความเห็นว่าเครื่องมืออำนวยความสะดวกด้านการออกแบบภายในเหล่านี้ อาจไม่ตอบโจทย์ผู้ใช้งานชาวไทยเท่าที่ควรเช่น เฟอร์นิเจอร์ ของตกแต่ง วัสดุต่างๆอาจไม่มีตัวแทนจำหน่ายในประเทศไทยจึงทำให้สั่งซื้อได้ยาก และไม่สามารถประเมินราคาค่าใช้จ่าย จากปัญหาที่กล่าวไว้ข้างต้นทำให้คณะผู้จัดทำคิดริเริ่มที่จะพัฒนาเว็บแอปพลิเคชันที่มี AI ในการออกแบบภายในเพื่ออำนวยความสะดวกให้กับผู้ใช้ชาวไทยโดยจะใช้ผลิตภัณฑ์เฟอร์นิเจอร์ ของตกแต่งที่สามารถหาซื้อได้ที่ประเทศไทย สามารถระบุจำนวนผลิตภัณฑ์ สามารถประเมินมูลค่าของผลิตภัณฑ์ที่อยู่ในรูปภาพที่สร้างขึ้น นอกจากนี้ยังเป็นแหล่งรวบรวม Idea ในการออกแบบภายใน
+คณะผู้จัดทำมีความเห็นว่าเครื่องมืออำนวยความสะดวกด้านการออกแบบภายในที่มีอยู่ในปัจจุบันอาจไม่ตอบสนองความต้องการของผู้ใช้งานชาวไทยอย่างเพียงพอ เช่น เฟอร์นิเจอร์ และของตกแต่ง อาจไม่มีตัวแทนจำหน่ายในประเทศไทย ทำให้การสั่งซื้อเป็นไปได้ยาก จากปัญหาดังกล่าว คณะผู้จัดทำจึงมีแนวคิดที่จะพัฒนาเว็บแอปพลิเคชันที่ใช้ AI ในการออกแบบภายใน เพื่ออำนวยความสะดวกให้กับผู้ใช้ชาวไทย โดยใช้ผลิตภัณฑ์เฟอร์นิเจอร์และของตกแต่งที่สามารถหาซื้อได้ในประเทศไทย ทั้งนี้ ผู้ใช้สามารถระบุผลิตภัณฑ์ได้สูงสุดจำนวน 2 ชิ้น โดยสามารถระบุได้ด้วยตนเองหรือให้เว็บแอปพลิเคชันสุ่มผลิตภัณฑ์ภายในงบประมาณที่ผู้ใช้กำหนด และสรุปมูลค่าของผลิตภัณฑ์ที่ได้จากการเลือกหรือสุ่มในภาพที่สร้างขึ้น นอกจากนี้ แอปพลิเคชันยังทำหน้าที่เป็นแหล่งรวบรวมไอเดียในการออกแบบภายในอีกด้วย
 
 \section{ประเภทของโครงงาน}
 เว็บแอปพลิเคชันที่ให้บริการออกแบบภายในด้วยปัญญาประดิษฐ์
 
-\section{วิธีการที่นำเสนอ}
+\section{วิธีการนำเสนอ}
 
 \subsection{วัตถุประสงค์}
 \begin{itemize}
-  \item เพื่อเป็นเครื่องมือความคิดสร้างสรรค์ให้กับผู้ใช้ออกแบบภายในได้ตามต้องการ
-  \item เพื่อเป็นแหล่งค้นหาผลิตภัณฑ์ วัสดุ เฟอร์นิเจอร์และของตกแต่งในการออกแบบภายใน
-  \item เพื่อเพิ่มโอกาสให้ผู้ใช้ที่ไม่มีทักษะการออกแบบ ทดลองออกแบบภายในโดยไม่จำเป็นต้องใช้ทักษะการออกแบบ
+  \item เพื่อเป็นเครื่องมือสำหรับนักออกแบบภายในในการสร้างภาพสำหรับนำเสนอแก่ลูกค้า
+  \item เพื่อเป็นเครื่องมือในการสร้างสรรค์และค้นหาไอเดียสำหรับผู้ใช้ในการออกแบบภายในตามความต้องการ
+  \item เพื่อเป็นแหล่งค้นหาผลิตภัณฑ์เฟอร์นิเจอร์ และของตกแต่งสำหรับการออกแบบภายใน
+  \item เพื่อเพิ่มโอกาสให้ผู้ใช้ที่ไม่มีทักษะการออกแบบได้ทดลองออกแบบภายใน โดยไม่จำเป็นต้องมีทักษะการออกแบบ
 \end{itemize}
 
 \subsection{วิธีการใช้}
-\begin{itemize}
-  \item เว็บแอปพลิเคชันสำหรับออกแบบภายในด้วยปัญญาประดิษฐ์ที่สามารถตอบสนองความต้องการของผู้ใช้และช่วยให้ผู้ใช้ทราบถึงรายละเอียดสิ่งต่างๆภายในภาพที่ออกแบบนั้น
-  \item หาชุดข้อมูลและนำมาพัฒนาโมเดล
-  \item ใช้โมเดล Stable Diffusion และ LoRA \cite{lora,hu2021lora} จาก civitai.com และแหล่งภาพที่ใช้ Train จาก laion.com เพื่อนำมาพัฒนาโมเดลให้ดีและเหมาะสมกับเว็บแอพลิเคชันให้มากที่สุด
-\end{itemize}
-
-
 \subsubsection{ส่วนติดต่อผู้ใช้ Frontend}
 \begin{itemize}
-  \item ใช้ Next.JS ในการพัฒนาเว็บแอปพลิเคชั่น
+  \item ใช้ Next.js และ TailwindCSS เพื่อพัฒนาส่วนต่อประสานกับผู้ใช้ (User Interface) ของเว็บแอปพลิเคชัน
 \end{itemize}
 
 \subsubsection{ส่วนติดต่อผู้ใช้ Backend}
 \begin{itemize}
-  \item ใช้ ExpressJS ในการพัฒนาหลังบ้านของเว็บแอปพลิเคชั่น
-  \item ใช้ Proxy Server เพื่อเพิ่มประสิทธิภาพให้กับ Server ทั้งในเรื่องของความปลอดภัย การกำหนดสิทธิ์ ในการเข้าถึง รวมไปถึงการยืนยันตัวตนและการตรวจสอบความถูกต้อง
+  \item ใช้ Express เพื่อพัฒนาฝั่งเซิร์ฟเวอร์ (server-side) ของเว็บแอปพลิเคชัน
+  \item นำ Load Balancing เข้ามาใช้เพื่อเพิ่มประสิทธิภาพในการรองรับการเชื่อมต่อกับ AI ในเซิร์ฟเวอร์
 \end{itemize}
 
 \subsubsection{Database}
 \begin{itemize}
-  \item MongoDB เก็บข้อมูลของผลิตภัณฑ์เช่น รายละเอียดของเฟอร์นิเจอร์ รายละเอียดของวัสดุ
-  \item Cloudinary เก็บข้อมูลรูปภาพ
+  \item ใช้ MongoDB เป็นฐานข้อมูลสำหรับเก็บข้อมูลในเว็บแอปพลิเคชัน รวมถึงข้อมูลเกี่ยวกับผลิตภัณฑ์เฟอร์นิเจอร์ ข้อมูลผู้ใช้ และข้อมูลโพสต์ที่ผู้ใช้สร้าง
+  \item ใช้ Cloudinary เป็นบริการสำหรับเก็บข้อมูลรูปภาพ ของเว็บแอปพลิเคชัน
 \end{itemize}
 
-\subsubsection{Generative AI}
+\subsubsection{Artificial Intelligence (AI)}
 \begin{itemize}
-  \item Stable Diffusion ใช้เป็นโมเดลหลักที่ใช้สำหรับการ Generate รูปภาพ
-\end{itemize}
-
-\subsubsection{Object Detection AI}
-\begin{itemize}
-  \item Zero-Shot Object Detection with OpenAI’s CLIP ใช้เป็นโมเดลในการตรวจจับวัตถุบนรูปภาพ
+  \item ใช้ Stable Diffusion เป็นโมเดลที่ใช้ในกระบวนการสร้างรูปภาพ
+  \item นำ OpenAI’s CLIP มาใช้เพื่อทำการตรวจจับวัตถุโดยใช้เทคนิค Zero-Shot
 \end{itemize}
 
 \subsection{ขอบเขตของโครงงาน}
-\hspace {18pt} สร้างเว็บแอปพลิเคชันสำหรับให้ผู้ใช้ที่ต้องการออกแบบภายในด้วยโมเดล Stable Diffusion ที่มีประสิทธิภาพ โดยเพียงเลือกตามหมวดหมู่ของห้อง ชนิดของห้องที่กำหนด และมีการชี้แจงรายละเอียดต่าง ๆ ของรูปภาพ เช่น ราคา สี ของผลิตภัณฑ์ดังกล่าว พร้อมมูลค่าเฉลี่ยของผลิตภัณฑ์ที่อยู่ข้างในรูปภาพ
-โดยเว็บแอปพลิเคชันของเราจะมีความสามารถ
+\hspace {18pt} โครงการนี้มุ่งเน้นการสร้างแอปพลิเคชันเว็บเพื่อให้ผู้ใช้สามารถออกแบบภายในโดยใช้โมเดล Stable Diffusion ที่มีประสิทธิภาพ เพียงแค่เลือกประเภทและสไตล์ของห้องที่ต้องการออกแบบ และระบุรายละเอียดต่าง ๆ เกี่ยวกับภาพ เช่น ราคาชื่อ และแหล่งจัดจำหน่ายของผลิตภัณฑ์ รวมถึงมูลค่าทั้งหมดของผลิตภัณฑ์ที่ปรากฏในภาพ โดยภายในเว็บแอปพลิเคชันจะมีความสามารถดังนี้
 \begin{enumerate}
   \item เข้าสู่ระบบ / ออกจากระบบ
-  \item ลงทะเบียน
-  \item ออกแบบภายในด้วยโมเดล Stable Diffusion
-  \item ประเมินราคาเฉลี่ยผลิตภัณฑ์ที่อยู่ข้างในรูปภาพที่ Stable Diffusion สร้างขึ้น
-  \item ระบุเฟอร์นิเจอร์ วัสดุ ของตกแต่งที่ใช้ พร้อมรายละเอียดหลังจากการใช้โมเดลสร้างแบบห้อง
-  \item บันทึกและแสดงประวัติการใช้งานของผู้ใช้
-  \item แบ่งปันแบบห้องให้กับผู้อื่นได้
-  \item Admin สามารถเพิ่มเฟอร์นิเจอร์และรายละเอียดเพื่อเก็บข้อมูลไปใช้ในการพัฒนาความรู้ให้กับ
-        Stable Diffusion
-  \item Admin สามารถดูข้อมูลการใช้งานของผู้ใช้ในการ Generate รูปภาพได้
+  \item ลงทะเบียนผู้ใช้
+  \item ออกแบบภายในโดยใช้โมเดล Stable Diffusion
+  \item สรุปผลิตภัณฑ์เฟอร์นิเจอร์ที่ใช้ประกอบการออกแบบภายในด้วยโมเดล Stable Diffusion ได้ ชื่อ ราคา และแหล่งจัดจำหน่าย
+  \item สามารถแบ่งปันหรือไม่แบ่งปันผลลัพธ์ที่ได้จากโมเดล Stable Diffusion บนคอมมูนิตี้
+  \item มีคอมมูนิตี้ที่เป็นแหล่งเก็บรูปภาพที่โมเดล Stable Diffusion สร้างขึ้นสามารถกดไลค์ได้
+  \item สามารถเพิ่ม-ลด รวมไปถึงแก้ไข รายละเอียดของผลิตภัณฑ์เฟอร์นิเจอร์ได้ (Admin)
+  \item สามารถดูข้อมูลการใช้งานของผู้ใช้ได้ (Admin)
 \end{enumerate}
 
 \subsection{ข้อจำกัดของเว็บแอปพลิเคชัน }
 \begin{enumerate}
-  \item ไม่สามารถอัปโหลดผลิตภัณฑ์ของผู้ใช้งานขึ้นเว็บแอบพลิเคชันได้ในกรณีที่ผู้ใช้งานมีความต้องการที่	จะให้ผลิตภัณฑ์ของตนอยู่ในแบบที่โมเดลออกแบบ(นอกเหนือจากฐานข้อมูลที่มี)
-  \item ผลลัพธ์ของการค้นหาผลิตภัณฑ์จะเป็นผลิตภัณฑ์ที่มีอยู่ในฐานข้อมูลเท่านั้น
-  \item	จำเป็นที่จะต้องใช้คอมพิวเตอร์ที่มีประสิทธิการประมวลที่สูงโดยมี VRAM อย่างน้อย 8 GB และเป็นผลิตภัณฑ์ของ NVIDIA ใช้ในการ Generate รูปภาพของห้อง
-  \item	เว็บแอปพลิเคชัน Generate รูปภาพได้ทีละ 1 คิวเท่านั้น
-  \item	ไม่สามารถสร้างแบบแปลนและค้นหาผลิตภัณฑ์จากแบบแปลนที่ใช้ในการก่อสร้าง
-
+  \item ผู้ใช้งานไม่สามารถอัปโหลดผลิตภัณฑ์เฟอร์นิเจอร์ของตนเข้าสู่เว็บแอปพลิเคชันในกรณีที่ต้องการให้ผลิตภัณฑ์มีลักษณะตามที่โมเดลออกแบบ (นอกเหนือจากฐานข้อมูลที่มีอยู่)
+  \item ผลิตภัณฑ์เฟอร์นิเจอร์จะมีเพียงผลิตภัณฑ์ที่มีอยู่ในฐานข้อมูลเท่านั้น
+  \item	เซิร์ฟเวอร์ยังไม่สามารถรองรับการใช้งาน AI พร้อมกันจากหลายผู้ใช้ได้ (ขึ้นอยู่กับจำนวนของ GPU ยี่ห้อ NVIDIA ที่มี)
+  \item	รูปภาพสามารถปรากฏผลิตภัณฑ์เฟอร์นิเจอร์ได้มากสุด 2 ชิ้น (ที่อยู่ในฐานข้อมูล)
+  \item	ผู้ใช้จะได้รับภาพ 3 ภาพต่อครั้งเมื่อใช้งานการออกแบบภายในด้วยโมเดล Stable Diffusion 1 ครั้ง
+  \item รูปภาพที่ได้จากโมเดล Stable Diffusion จะเป็นเพียงรูปภาพไม่สามารถหมุนได้
 \end{enumerate}
 
-\section{สรุปโครงงานโดยย่อ}
-\begin{enumerate}
-  \item โครงงานนี้พัฒนาขึ้นมาจากการใช้ความรู้ด้าน Deep Learning และความรู้ในเรื่องของการพัฒนาเว็บแอปพลิเคชัน
-  \item สร้างโมเดลหลักที่ใช้ในการ Generate รูปภาพโดยการปรับแต่ง Stable Diffusion Model เพื่อให้เหมาะสมกับงานออกแบบภายใน
-  \item เว็บแอปพลิเคชันพัฒนาด้วย Next.js Framework, Express.js Framework และภาษาที่ใช้คือ TypeScript
-  \item Database ที่ใช้จะมี MongoDB Cloudinary PostgreSQL และ Database เหล่านี้ยังมีการเรียกใช้ที่ต่างกันออกไป ทางคณะผู้จัดทำจึงเลือกใช้ Prisma ORM เพื่อเป็นตัวกลางให้กับ Database ในการสื่อสารระหว่าง Database กับ Server และลดปัญหาการเรียกใช้งานที่ต่างกันออกไป
-\end{enumerate}
 
-\section{สรุปโครงงานโดยย่อ}
+\section{แผนการดำเนินงาน}
 
-\subsection{ข้อจำกัดของเว็บแอปพลิเคชัน}
+\subsection{การแยกย่อยงาน}
 \begin{enumerate}
   \item กำหนดหัวข้อโครงงาน \subitem  1.1 ประชุมและกำหนดหัวข้อโครงงาน \subitem  1.2 ศึกษาหาข้อมูลและแนวทางการทำโปรเจค
   \item จัดทำเอกสารเสนอไอเดีย
@@ -367,9 +343,9 @@
 \subsection{ผลลัพธ์ที่คาดหวัง}
 
 \begin{enumerate}
-  \item เว็บแอปพลิเคชันสามารถทำงานได้ครบทุก feature เช่น เข้าสู่ระบบ สมัครสมาชิก ฯลฯ
-  \item เว็บแอปพลิเคชันสามารถใช้ Stable diffusion ในการ Generate รูปภาพได้
-  \item user ได้ผลลัพธ์จาก feature การ Generate จาก Stable diffusion ที่มีขนาดอย่างน้อย 512 * 512 pixel และมีความถูกต้องและสอดคล้องกับ input ที่รับเข้าไป เช่น รูปแบบของห้อง ประเภทของห้อง รวมไปถึงเฟอร์นิเจอร์ที่ต้องการ และมีรายละเอียดต่างๆ ของเฟอร์นิเจอร์ ได้แก่ ชื่อ ราคา ที่จัดจำหน่าย
+  \item เว็บแอปพลิเคชันสามารถทำงานได้ครบทุก feature เช่น การสร้างรูปภาพห้องจากปัญญาประดิษฐ์ การบันทึกแก้ไขลบโพสต์ การดูโพสต์ของตนเองและผู้อื่นจากคอมมูนิตี้ ระบบแอดมิน การลงทะเบียน การเข้าสู่ระบบ การออกจากระบบ
+  \item เว็บแอปพลิเคชันสามารถใช้ Stable diffusion ในการสร้างรูปภาพห้องจากปัญญาประดิษฐ์ได้
+  \item ผู้ใช้ได้ผลลัพธ์จาก feature การสร้างรูปภาพห้องจากปัญญาประดิษฐ์จะเป็นรูปภาพที่มีขนาดอย่างน้อย 512 * 512 pixels จำนวน 3 รูปภาพ และมีความถูกต้องและสอดคล้องกับตัวเลือกที่ผู้ใช้เลือก เช่น ประเภทของห้อง สไตล์ของห้อง ผลิตภัณฑ์เฟอร์นิเจอร์ที่ต้องการให้มีอยู่ในรูปภาพ มีราคารวมของผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้น้อยกว่าราคาที่ผู้ใช้ตั้ง
 \end{enumerate}
 
 \subsection{ผลการดำเนินงานในภาคการศึกษาที่ 1}
@@ -391,13 +367,13 @@
   \item ทดสอบและปรับปรุงทั้ง เว็บแอปพลิเคชัน และ โมเดล
   \item จัดทำรายงาน โปสเตอร์และนำเสนอ
   \item เว็บแอปพลิเคชัน มีความสามารถตรงตามความต้องการของผู้ใช้งาน
-  \item โมเดลมีประสิทธิภาพในการ Generate รูปภาพที่สมเหตุสมผลตามเงื่อนไขที่ผู้ใช้งานระบุ
+  \item โมเดลมีประสิทธิภาพในการสร้างรูปภาพใหม่ด้วยปัญญาประดิษฐ์ที่สมเหตุสมผลตามเงื่อนไขที่ผู้ใช้งานระบุ
 \end{itemize}
 
 \chapter{ทฤษฎีและงานวิจัยที่เกี่ยวข้อง}
 
 \section{บทนำ}
-\hspace {18pt} ในส่วนบทที่ 2 จะกล่าวถึง แนวคิดและทฤษฎีที่เกี่ยวข้องที่ใช้ในการทำงานและการศึกษาเพื่อบรรลุวัตถุประสงค์ รวมถึงงานวิจัยที่เกี่ยวข้องที่ได้ใช้อ้างอิงเพื่อใช้เป็นแนวทางในการดำเนินการทำโครงงาน
+\hspace {18pt} ในบทที่ 2 จะอธิบายแนวคิดและทฤษฎีที่เกี่ยวข้องที่ใช้ในการทำงานและการศึกษาเพื่อบรรลุวัตถุประสงค์ รวมถึงการนำงานวิจัยที่เกี่ยวข้องมาใช้เป็นแนวทางในการดำเนินโครงงาน
 
 \section{ทฤษฎีที่เกี่ยวข้อง}
 
@@ -424,7 +400,7 @@
 \end{figure}
 
 \subsection{Stable Diffusion Model}
-\hspace {18pt} Stable Diffusion Model เป็น Generative AI ที่พัฒนาต่อยอดมาจากแนวคิด Diffusion Model ในการ Generate รูปภาพออกมา วัตถุประสงค์เพื่อแก้ไขความล่าช้าอันเกิดมาจากขนาดของข้อมูลรูปภาพที่มีขนาดใหญ่และทำให้บริโภค GPU อย่างมากด้วยการใช้เทคนิคที่ชื่อว่า Variational Autoencoder
+\hspace {18pt} Stable Diffusion Model เป็น Generative AI ที่พัฒนาต่อยอดมาจากแนวคิด Diffusion Model ในการสร้างรูปภาพใหม่ออกมา วัตถุประสงค์เพื่อแก้ไขความล่าช้าอันเกิดมาจากขนาดของข้อมูลรูปภาพที่มีขนาดใหญ่และทำให้บริโภค GPU อย่างมากด้วยการใช้เทคนิคที่ชื่อว่า Variational Autoencoder
 
 \begin{itemize}
 
@@ -434,10 +410,9 @@
         \begin{enumerate}
           \item Encoder ทำหน้าที่บีบอัดข้อมูลให้กลายเป็น Latent Vector โดยจะกลายเป็น 4  Channel Grayscale
           \item Decoder ทำหน้าที่คลายขนาดข้อมูลจาก Latent Vector กลับไปเป็น รูปภาพตามเดิม
-          \item เว็บแอปพลิเคชัน สามารถใช้งานโมเดลในการออกแบบภายใน
         \end{enumerate}
 
-        Stable Diffusion Model จะทำการ Encode รูปภาพก่อนที่จะสู่กระบวนการทำ Forward Diffusion และหลังจากจบกระบวนการ Reverse Diffusion จะทำการ Decode Latent Vector ให้กลับมาเป็นรูปภาพปกต��� ดังภาพ ~\ref{fig:autoencoder}
+        Stable Diffusion Model จะทำการ Encode รู้ภาพก่อนที่จะสู่กระบวนการทำ Forward Diffusion และหลังจากจบกระบวนการ Reverse Diffusion จะทำการ Decode Latent Vector ให้กลับมาเป็นรูปภาพปกติ ดังภาพ ~\ref{fig:autoencoder}
 
         \begin{figure}[!h]\centering
           \includegraphics[width=10cm]{image/autoencoder.jpg}
@@ -453,7 +428,7 @@
           \item Reverse Diffusion ในขั้นตอนการ Reverse Diffusion ถ้าไม่มีการควบคุมให้กับกระบวนการนี้ผลลัพธ์ที่ได้จะไม่ต่างอะไรกับการสุ่มภาพออกมาเราจึงจำเป็นต้องมีการควบคุมเพื่อให้ได้ผลลัพธ์ที่เราต้องการ
         \end{enumerate}
 
-        ในกรณีนี้คณะผู้จัดทำควบคุมด้วยข้อความคือการรับค่าเป็นข้อความแล้วได้ผลลัพธ์เป็นรูปภาพ โดยการที่รับข้อความแล้วออกมาเป็นรูปภาพ กลไกที่เป็นตัวควบคุมการย้อนกลับนั้นคือ Noise Predictor (U-Net) และ Scheduler ในการรับเงื่อนไขแล้วทำการลบ Gaussian Noise เรื่อยๆ จนได้ภาพที่ต้องการ กลไกตรงส่วนนี้จะเรียกว่าการทำ Denoising U-Net ดังภาพ~\ref{fig:u-net}
+        ในกรณีนี้คณะผู้จัดทำควบคุมด้วยข้อความคือการรับค่าเป็นข้อความแล้วได้ผลลัพธ์เป็นรูปภาพ โดยการที่รับข้อความแล้วออกมาเป็นรูปภาพ กลไกที่เป็นตัวควบคุมการย้อนกลับนั้นคือ Noise Predictor (U-Net) และ Scheduler ทำการรับเงื่อนไขแล้วทำการลบ Gaussian Noise เรื่อยๆ จนได้ภาพที่ต้องการ กลไกตรงส่วนนี้จะเรียกว่าการทำ Denoising U-Net ดังภาพ~\ref{fig:u-net}
 
         %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
         \vspace{\fill}\clearpage
@@ -466,7 +441,7 @@
 
         ในการรับข้อความแล้วได้ผลลัพธ์เป็นรูปภาพนั้นจะต้องทำการ Encode ข้อความด้วย Text Encoder ก่อนเพื่อให้กระบวนการ Denoising เข้าใจว่าความหมายของข้อความ (ให้ Machine เข้าใจภาษามนุษย์) ใน Stable Diffusion Model ใช้ CLIP ViT-L/14 \cite{illustrated1}
 
-  \item \textbf{CLIP ViT-L/14}  Constrastive Language – Image Pre-training (CLIP) เป็น Neural Network Model ที่ทาง OpenAI พัฒนาขึ้น ด้วยการ Train ชุดข้อมูลการจับคู่ระหว่างรูปภาพและข้อความ เป็นจำนวน 400 ล้านคู่ มีความสามารถในการระบุข้อความและรูปภาพที่มีความหมายใกล้เคียงกันได้ ดังภาพ~\ref{fig:table-vector}
+  \item \textbf{CLIP ViT-L/14}  Constrastive Language – Image Pre-training (CLIP) เป็น Neural Network Model ที่ทาง OpenAI พัฒนาขึ้น ด้วยการ Train ชุดข้อมูลการจับคู่ระหว่างรูปภาพและข้อความ เป็นคำนวน 400 ล้านคู่ มีความสามารถในการระบุข้อความและรูปภาพที่มีความหมายใกล้เคียงกันได้ ดังภาพ~\ref{fig:table-vector}
 
         \begin{figure}[!h]\centering
           \includegraphics[width=8cm]{image/table-vector.jpg}
@@ -536,9 +511,9 @@
 \section{งานวิจัยที่เกี่ยวข้อง}
 
 \subsection{Stable Diffusion}
-\hspace {18pt}Stable Diffusion \cite{stable} เปิดตัวโดย StabilityAI ในปี 2022 เป็น Generative AI ที่สามารถทำได้หลายอย่างทั้ง text-to-image หรือคือการ Generate รูปภาพจากข้อความ (Prompt) Image-to-Image หรือการ Generate รูปภาพจากรูปภาพ in-painting ซึ่งคือการปรับแต่งรูปภาพเช่น การเพิ่มวัตถุ การลบวัตถุออกจากภาพ นอกจากนี้โค๊ดของโมเดลยังสามารถเข้าถึงได้ฟรี สามารถปรับแต่งโมเดลได้ มี Community ที่หนาแน่น เช่น Civit.ai ที่มีโมเดล Stable Diffusion ที่ปรับแต่งให้เข้ากับการ Generate รูปภาพในหลากหลายสไตล์ สามารถใช้ในคอมพิวเตอร์ที่ใช้ Windows MacOS หรือ Linux มี RAM อย่างน้อย 16 GB มี Nvidia GPU ที่มี VRAM อย่างน้อย 10 GB มีพื้นที่ว่างอย่างน้อย 12 GB \cite{pcsystem}
+\hspace {18pt}Stable Diffusion \cite{stable} เปิดตัวโดย StabilityAI ในปี 2022 เป็น Generative AI ที่สามารถทำได้หลายอย่างทั้ง text-to-image หรือคือการสร้างรูปภาพใหม่จากข้อความ (Prompt) Image-to-Image หรือการสร้างรูปภาพจากรูปภาพ in-painting ซึ่งคือการปรับแต่งรูปภาพเช่น การเพิ่มวัตถุ การลบวัตถุออกจากภาพ นอกจากนี้โค๊ดของโมเดลยังสามารถเข้าถึงได้ฟรี สามารถปรับแต่งโมเดลได้ มี Community ที่หนาแน่น เช่น Civit.ai ที่มีโมเดล Stable Diffusion ที่ปรับแต่งให้เข้ากับการสร้างรูปภาพในหลากหลายสไตล์ สามารถใช้ในคอมพิวเตอร์ที่ใช้ Windows MacOS หรือ Linux มี RAM อย่างน้อย 16 GB มี Nvidia GPU ที่มี VRAM อย่างน้อย 10 GB มีพื้นที่ว่างอย่างน้อย 12 GB \cite{pcsystem}
 
-\hspace {18pt} จากงานวิจัยจากแหล่งภายนอก ทางคณะผู้จัดทำพบว่า Stable Diffusion มีคะแนน FID \cite{fid} ที่ต่ำกว่า Midjourney จากการ Generate รูปภาพใบหน้าคน 5,000 รูป และคำนวณ FID scores โดยทำขั้นตอนนี้เป็นจำนวน 10 ครั้ง จากนั้นคำนวณค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของ FID คะแนน FID ดังภาพ~\ref{fig:fid} Stable Diffusion ให้คะแนน FID ที่ต่ำกว่า ดังนั้นจึงสร้างรูปใบหน้าคนได้ใกล้เคียงรูปจริงมากกว่า Midjourney
+\hspace {18pt} จากงานวิจัยจากแหล่งภายนอก ทางคณะผู้จัดทำพบว่า Stable Diffusion มีคะแนน FID \cite{fid} ที่ต่ำกว่า Midjourney จากการสร้างรูปภาพใบหน้าคน 5,000 รูป และคำนวณ FID scores โดยทำขั้นตอนนี้เป็นจำนวน 10 ครั้ง จากนั้นคำนวณค่าเฉลี่ยและส่วนเบี่ยงเบนมาตรฐานของ FID คะแนน FID ดังภาพ~\ref{fig:fid} Stable Diffusion ให้คะแนน FID ที่ต่ำกว่า ดังนั้นจึงสร้างรูปใบหน้าคนได้ใกล้เคียงรูปจริงมากกว่า Midjourney
 
 \begin{figure}[!h]\centering
   \fbox{\includegraphics[width=9cm]{image/fid.jpg}}
@@ -568,21 +543,19 @@
   \caption{ตารางเปรียบเทียบเว็บแอปพลิเคชันของคณะผู้จัดทำกับ เว็บแอปพลิเคชัน Interior AI }\label{tbl:interior-ai-table}
   \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
     \hline
-    \textbf{Features}     & \textbf{ Interior AI}                                                                                                                         & \textbf{Easy room }                                                                                                \\
+    \textbf{Features} & \textbf{ Interior AI}                                                                                                                         & \textbf{Easy room }                                                                            \\
     \hline
-    เข้าสู่ระบบ / ออกจากระบบ & ไม่สามารถออกจากระบบ                                                                                                                            & สามารถทำได้ทั้งหมด                                                                                                     \\
+    ลงทะเบียน          & มี                                                                                                                                             & มี                                                                                              \\
     \hline
-    ลงทะเบียน              & มี                                                                                                                                             & มี                                                                                                                  \\
+    สร้างรูปภาพ         & ต้องเป็นสมาชิกถึงจะใช้งานได้ใช้รูปภาพระบุชนิดและสไตล์ของห้องเป็นอินพุตโหมดการrenderเลือกResolutionผลลัพธ์ที่ได้คือภาพ 1 รูป มีชนิดและสไตล์ของห้องที่หลากหลายสร้างpanoramaได้ & ระบุชนิดและสไตล์ของห้อง ผลิตภัณฑ์ที่ต้องการให้มีอยู่ในภาพและราคาของผลิตภัณฑ์ที่ใช้ประกอบรูปภาพโดยผลลัพธ์ที่ได้คือภาพ 3 รูป \\
     \hline
-    สร้างรูปภาพ             & ต้องเป็นสมาชิกถึงจะใช้งานได้ใช้รูปภาพระบุชนิดและสไตล์ของห้องเป็นอินพุตโหมดการrenderเลือกResolutionผลลัพธ์ที่ได้คือภาพ 1 รูป มีชนิดและสไตล์ของห้องที่หลากหลายสร้างpanoramaได้ & ระบุชนิดและสไตล์ของห้องผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวมผลลัพธ์ที่ได้คือภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้แหล่งจำหน่ายเฟอร์นิเจอร์ \\
+    ตรวจจับผลิตภัณฑ์      & มี                                                                                                                                             & ไม่มี                                                                                            \\
     \hline
-    ตรวจจับผลิตภัณฑ์          & มี                                                                                                                                             & ไม่มี                                                                                                                \\
+    ประวัติการใช้งาน     & ไม่มี                                                                                                                                           & มี                                                                                              \\
     \hline
-    ประวัติการใช้งาน         & ไม่มี                                                                                                                                           & มี                                                                                                                  \\
+    แบ่งปันไอเดีย        & มี และสามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                                                               & มี และสามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                \\
     \hline
-    แบ่งปันไอเดีย            & มี แต่สามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                                                                & มี แต่สามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                                     \\
-    \hline
-    ประวัติการใช้งาน         & ไม่มี                                                                                                                                           & ไม่มี                                                                                                                \\
+    ประวัติการใช้งาน     & ไม่มี                                                                                                                                           & มี หากผู้ใช้ตัดสินใจบันทึกลงคอมมูนิตี้                                                                     \\
     \hline
   \end{tabular}
 \end{table}
@@ -592,7 +565,7 @@
 
 \begin{figure}[!h]\centering
   \includegraphics[width=9cm]{image/planner.jpg}
-  \caption{ตัวอย่างการใช้งาน AI ในเว็บแอปพลิเคชัน AI ROOM PLANNERทางซ้ายของภาพเป็นภาพต้นแบบที่ทำการอินพุตและภาพทางขวาคือภาพที่ AI สร้างขึ้น จาก \url{https://airoomplanner.com/}}
+  \caption{ตัวอย่างการใช้งาน AI ในเว็บแอปพลิเคชัน AI ROOM PLANNERทางซ้ายของภาพเป็นภาพต้นแบบที่่ทำการอินพุตและภาพทางขวาคิอภาพที่ AI สร้างขึ้น จาก \url{https://airoomplanner.com/}}
   \label{fig:planner}
 \end{figure}
 
@@ -600,21 +573,20 @@
   \caption{ตารางเปรียบเทียบเว็บแอปพลิเคชันของคณะผู้จัดทำกับ เว็บแอปพลิเคชัน Ai Room Planner }\label{tbl:planner-table}
   \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
     \hline
-    \textbf{Features}     & \textbf{AI ROOM PLANNER}                                                      & \textbf{Easy room }                                                                                                   \\
+    \textbf{Features} & \textbf{AI ROOM PLANNER}                                                      & \textbf{Easy room }                                                                                                   \\
     \hline
-    เข้าสู่ระบบ / ออกจากระบบ & ไม่สามารถออกจากระบบ                                                            & สามารถทำได้ทั้งหมด                                                                                                        \\
+    ลงทะเบียน          & มี                                                                             & มี                                                                                                                     \\
     \hline
-    ลงทะเบียน              & มี                                                                             & มี                                                                                                                     \\
+    สร้างรูปภาพ         & ใช้รูปภาพชนิดและสไตล์ของห้องเป็นอินพุต มีชนิดและสไตล์ของห้องที่หลากหลาย ผลลัพธ์ที่ได้คือ ภาพ 1 รูป & ระบุชนิดและสไตล์ของห้องผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์ \\
     \hline
-    สร้างรูปภาพ             & ใช้รูปภาพชนิดและสไตล์ของห้องเป็นอินพุต มีชนิดและสไตล์ของห้องที่หลากหลาย ผลลัพธ์ที่ได้คือ ภาพ 1 รูป & ระบุชนิดและสไตล์ของห้องผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์ \\
+    ตรวจจับผลิตภัณฑ์      & ไม่มี                                                                           & ไม่มี                                                                                                                   \\
     \hline
-    ตรวจจับผลิตภัณฑ์          & ไม่มี                                                                           & ไม่มี                                                                                                                   \\
+    ประวัติการใช้งาน     & ไม่มี                                                                           & มี                                                                                                                     \\
     \hline
-    ประวัติการใช้งาน         & ไม่มี                                                                           & มี                                                                                                                     \\
+    แบ่งปันไอเดีย        & มี                                                                             & มี และสามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                                       \\
     \hline
-    แบ่งปันไอเดีย            & มี                                                                             & มี แต่สามารถเลือกได้ว่าจะแบ่งปันหรือไม่                                                                                        \\
+    ประวัติการใช้งาน     & ไม่มี                                                                           & มี หากผู้ใช้ตัดสินใจบันทึกลงคอมมูนิตี้                                                                                            \\
     \hline
-    ประวัติการใช้งาน         & ไม่มี                                                                           & ไม่มี                                                                                                                   \\
   \end{tabular}
 \end{table}
 
@@ -651,7 +623,7 @@
           \label{fig:spacely1-2}
         \end{figure}
 
-  \item การ Generate รูปภาพจากข้อความ (text to image)
+  \item การสร้างรูปภาพจากข้อความ (text to image)
         \par \hspace {18pt} เว็ปแอปพลิเคชัน Spacely AI สามารถสร้างรูปภาพข้อความโดยจะรับอินพุตเป็นข้อความซึ่งจะได้ผลลัพธ์เป็นรูปภาพ 4 ภาพทีแตกต่างกันหากต้องการที่จะทราบรายละเอียดเฟอร์นิเจอร์ที่ใช้จะต้องโหลดรูปภาพและนำไปใช้งานกับฟีเจอร์ตรวจจับเฟอร์นิเจอร์ มีตัวอย่างดังนี้
         \par
         ข้อความที่อินพุต "Generate a highly realistic image of a minimal-style living room that resembles an authentic photograph. The room should embody the essence of minimalism with lifelike architectural details, realistic furnishings, a subdued color palette, and convincing lighting, shadows, and reflections. Make it appear as though you're looking at a real photograph of a minimal-style living room"
@@ -662,7 +634,7 @@
 
         \begin{figure}[!h]\centering
           \includegraphics[width=10cm]{image/spacely-gen.jpg}
-          \caption{ผลลัพธ์ของการ Generate รูปภาพจากข้อความของเว็บแอปพลิเคชัน Spacely AI จาก \url{https://www.spacely.ai/}}
+          \caption{ผลลัพธ์ของการสร้างรูปภาพจากข้อความของเว็บแอปพลิเคชัน Spacely AI จาก \url{https://www.spacely.ai/}}
           \label{fig:spacely-gen}
         \end{figure}
 
@@ -670,22 +642,22 @@
           \caption{ตารางเปรียบเทียบเว็บแอปพลิเคชันของคณะผู้จัดทำกับ เว็บแอปพลิเคชัน Ai Room Planner }\label{tbl:planner-table}
           \begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
             \hline
-            \textbf{Features}                                                                            & \textbf{Spacely AI}                                                                                                    & \textbf{Easy room }            \\
+            \textbf{Features}                                                                            & \textbf{Spacely AI}                                                                                                    & \textbf{Easy room }             \\
             \hline
-            เข้าสู่ระบบ / ออกจากระบบ                                                                        & สามารถทำได้ทั้งหมด                                                                                                         & สามารถทำได้ทั้งหมด                 \\
+            เข้าสู่ระบบ / ออกจากระบบ                                                                        & สามารถทำได้ทั้งหมด                                                                                                         & สามารถทำได้ทั้งหมด                  \\
             \hline
-            ลงทะเบียน                                                                                     & มี                                                                                                                      & มี                              \\
+            ลงทะเบียน                                                                                     & มี                                                                                                                      & มี                               \\
             \hline
             สร้างรูปภาพ                                                                                    & ไม่จำเป็นจะต้องเป็นสมาชิกก็สามารถใช้งานได้ แต่รูปที่ได้จะติดลายน้ำสามารถสร้างรูปภาพจากอินพุดที่เป็นข้อความเพียงอย่างเดียวได้
-            สามารถสร้างรูปภาพได้หลากหลายจุดประสงค์ เช่น ปรับเปลี่ยนสไตล์ของภาพเก่า เป็นต้น มีชนิดและสไตล์ของห้องที่หลากหลาย & ระบุชนิดและสไตล์ของห้อง ผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์                                  \\
+            สามารถสร้างรูปภาพได้หลากหลายจุดประสงค์ เช่น ปรับเปลี่ยนสไตล์ของภาพเก่า เป็นต้น มีชนิดและสไตล์ของห้องที่หลากหลาย & ระบุชนิดและสไตล์ของห้อง ผลิตภัณฑ์ที่ใช้และระบุงบประมาณโดยรวม ผลลัพธ์ที่ได้คือ ภาพ 1 รูป พร้อมมูลค่าโดยรวมของเฟอร์นิเจอร์ที่ใช้ แหล่งจำหน่ายเฟอร์นิเจอร์                                   \\
             \hline
-            ตรวจจับผลิตภัณฑ์                                                                                 & มี                                                                                                                      & ไม่มี                            \\
+            ตรวจจับผลิตภัณฑ์                                                                                 & มี                                                                                                                      & ไม่มี                             \\
             \hline
-            ประวัติการใช้งาน                                                                                & มี                                                                                                                      & มี                              \\
+            ประวัติการใช้งาน                                                                                & มี                                                                                                                      & มี                               \\
             \hline
-            แบ่งปันไอเดีย                                                                                   & มี                                                                                                                      & มี แต่สามารถเลือกได้ว่าจะแบ่งปันหรือไม่ \\
+            แบ่งปันไอเดีย                                                                                   & มี                                                                                                                      & มี และสามารถเลือกได้ว่าจะแบ่งปันหรือไม่ \\
             \hline
-            ประวัติการใช้งาน                                                                                & มี                                                                                                                      & ไม่มี                            \\
+            ประวัติการใช้งาน                                                                                & มี                                                                                                                      & มี หากผู้ใช้ตัดสินใจบันทึกลงคอมมูนิตี้      \\
             \hline
           \end{tabular}
         \end{table}
@@ -698,7 +670,7 @@
 \section{เนื้อหาทางวิศวกรรมต้นฉบับ}
 
 \subsection{แบบแผนการออกแบบโครงสร้างซอฟต์แวร์}
-\hspace {18pt}ทางคณะผู้จัดทำได้เลือกใช้ Client-Server Model เป็นโมเดลโครงสร้างพื้นฐานสำหรับเว็บแอปพลิเคชัน เพราะเว็บแอปพลิเคชัน Easy Room สามารถเข้าใช้งานได้หลายคนในเวลาเดียวกัน Client-Server Model จึงเป็นโครงสร้างที่เหมาะสมในการนำมาใช้ \cite{client} และเพื่อให้การพัฒนาซอฟต์แวร์นั้นทำได้ง่ายขึ้น ทางคณะผู้จัดทำได้เลือก MVC Architecture \cite{mvc} เพื่อใช้ในการแยกส่วนการทำงานให้ออกมาเป็น 3 ส่วนด้วยกัน ได้แก่ 1. Model 2. View 3. Controller และเพื่อเพิ่มความปลอดภัยให้ได้มากที่สุดจึงได้มีการทำ Proxy Server มาเป็นตัวกลางการติดต่อระหว่าง Client และ Server และเนื่องจากเว็บแอปพลิเคชัน Easy Room มีการใช้ Stable diffusion ในส่วนของการ Generate รูปภาพขึ้นมาซึ่งมีความจำอย่างมากที่จะต้องใช้ GPU \cite{pcsystem} ในการประมวล ณ ปัจจุบันเว็บแอปพลิเคชัน Easy Room ไม่สามารถใช้งาน GPU ได้หลายคนในเวลาเดียวกัน ทางคณะผู้จัดทำจึงเลือกที่จะทำ Load balance \cite{islam2017network} เพื่อใช้ในการจัดการการเข้าใช้งาน GPU บนเว็บแอปพลิเคชัน Easy Room
+\hspace {18pt}ทางคณะผู้จัดทำได้เลือกใช้ Client-Server Model เป็นโมเดลโครงสร้างพื้นฐานสำหรับเว็บแอปพลิเคชัน เพราะเว็บแอปพลิเคชัน Easy Room สามารถเข้าใช้งานได้หลายคน Client-Server Model จึงเป็นโครงสร้างที่เหมาะสมในการนำมาใช้ \cite{client}  เพื่อให้การพัฒนาซอฟต์แวร์มีความสะดวกยิ่งขึ้น ทางคณะผู้จัดทำได้เลือกใช้ MVC Architecture \cite{mvc} เพื่อแยกส่วนการทำงานออกเป็น 3 ส่วน ได้แก่ 1. Model 2. View 3. Controller และเพื่อเพิ่มความสามารถในการรองรับการใช้งาน AI ของผู้ใช้งานจำนวนมาก ทางคณะผู้จัดทำได้ใช้ Load Balance \cite{loadBalancer}เป็นตัวกลางในการกระจายงานจากเซิร์ฟเวอร์ ไปยัง AI เนื่องจากเว็บแอปพลิเคชัน Easy Room ใช้โมเดล Stable Diffusion ในการสร้างรูปภาพ ซึ่งจำเป็นต้องใช้ GPU \cite{pcsystem} ในการประมวลผล ทำให้จำเป็นต้องแยกส่วนของ AI ให้กลายเป็น service ที่เรียกใช้งานผ่าน API เพื่อสะดวกในการพัฒนา
 
 \begin{itemize}
   \item \textbf {Model View Controller (MVC Architecture)}
@@ -716,24 +688,32 @@
         \end{figure}
 
   \item \textbf {Client-Server Model }
-        Client-Server Model \cite{client} คือเป็นรูปแบบโครงสร้างของเว็บแอปพลิเคชันรูปแบบหนึ่งซึ่งประกอบไปด้วย 2 ส่วนได้แก่
+        Client-Server Model \cite{client} เป็นรูปแบบโครงสร้างของเว็บแอปพลิเคชันรูปแบบหนึ่งซึ่งประกอบไปด้วย 2 ส่วนได้แก่
         \begin{itemize}
-          \item Client หรือ ผู้ขอใช้บริการหรือต้องการบริการบางอย่างจาก Server
-          \item Server หรือผู้ให้บริการ
+          \item \textbf {Client} หรือ ผู้ขอใช้บริการหรือต้องการบริการบางอย่าจาก Server
+          \item \textbf{Server} หรือผู้ให้บริการ
         \end{itemize}
         รูปแบบโครงสร้าง Client-Server นั้นช่วยในเรื่องรองรับการเข้าถึงข้อมูลพร้อมๆกันในเวลาเดียวกัน \cite{client} โดย Client จะส่ง Request ไปให้กับ Server ส่วน Server เปรียบเสมือนคนกลางที่คอยติดต่อกับ Database และประมวลผลข้อมูลต่างๆและส่งไปให้ Client ดังภาพ~\ref{fig:client}
-
+        %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+        \vspace{\fill}\clearpage
         \begin{figure}[!h]\centering
           \includegraphics[width=10cm]{image/client.jpg}
           \caption{ภาพแสดงหลักการของ  MVC Architecture ใน Client-Server Model จาก \url{https://www.wideskills.com/struts/introduction-to-mvc-architecture}}
           \label{fig:client}
         \end{figure}
 
-  \item \textbf {Proxy Server}
-        เป็นตัวกลางคั่นกลางระหว่าง Client และ Server เพื���อไม่ให้ Client สามารถติดต่อโดยตรงกับ Server ได้ เพื่อเพิ่มความปลอดภัยให้กับ Server โดยสามารถป้องกัน Request ที่ไม่พึงประสงค์ได้ สามารถกำหนดสิทธิ์ในการเข้าถึง Serverได้ และยังเพิ่มประสิทธิภาพให้กับ Server อีกด้วยการ Cache เนื้อหาที่มีการมีการเข้าถึงบ่อยจึงสามารถเรียกใช้งานได้อย่างรวดเร็ว
-
+  \item \textbf {Load Balance}
+        Load Balance\cite{loadBalancer} เป็นการจัดการทรัพยากรที่เกี่ยวข้องกับการกระจายงานหรือ การเข้าถึงทรัพยากรทั้งในด้านฮาร์ดแวร์และซอฟต์แวร์ ในด้านซอฟต์แวร์ เราสามารถใช้วิธีการแบ่งการดำเนินงาน หรือ การเข้าถึงทรัพยากรต่าง ๆ อย่างเช่น ขั้นตอนวิธีการที่ทำหน้าที่เป็นกลางระหว่างผู้ใช้และทรัพยากร (reverse proxy) หรือวิธีการแบ่งการดำเนินงาน โดยใช้อัลกอริทึมต่าง ๆ เช่น round robin หรือ source IP hash ซึ่งทั้งหมดนี้มีไวยากรณ์ที่มีประสิทธิภาพและสามารถเพิ่มประสิทธิภาพให้กับระบบได้อย่างมีประสิทธิภาพมากขึ้น
+        \begin{itemize}
+          \item \textbf{Round Robin algorithm} Round Robin algorithm\cite{loadBalancer} เป็นหนึ่งในอัลกอริทึมที่ใช้ในการแบ่งงานอย่างเท่าเทียมระหว่างเซิร์ฟเวอร์หลายๆ เซิร์ฟเวอร์ เพื่อให้การทำงานแจกจ่ายเป็นอย่างเท่าเทียมและปราศจากภาระงานที่มากเกินไปในเซิร์ฟเวอร์ใดๆ โดยหลักการของอัลกอริทึมนี้คือการจดจำเซิร์ฟเวอร์ที่ได้รับงานก่อนหน้าและส่งงานให้เซิร์ฟเวอร์ถัดไปในรายการอย่างต่อเนื่อง ในแบบที่มีการจัดลำดับเซิร์ฟเวอร์โดยเลขลำดับหรือลำดับที่มีการกำหนด อัลกอริทึมจะส่งงานไปยังเซิร์ฟเวอร์ต่อไปในรายการตามลำดับ โดยหลังจากการส่งงานสำเร็จอัลกอริทึมจะเลื่อนไปยังเซิร์ฟเวอร์ถัดไปในลำดับ และจะเริ่มต้นส่งงานใหม่เพื่อใช้วงรอบใหม่ ๆ และอัลกอริทึมจะวนรอบไปเรื่อย ๆ ตามรอบการส่งงาน
+                \begin{figure}[!h]\centering
+                  \includegraphics[width=10cm]{image/roundRobin.jpg}
+                  \caption{ภาพแสดงหลักการของ Round Robin algorithm \url{https://www.geeksforgeeks.org/load-balancing-algorithms/}}
+                  \label{fig:roundRobin}
+                \end{figure}
+        \end{itemize}
   \item \textbf {Object Relational Mapping (ORM)}
-        \cite{orm} เป็นการ map ข้อมูลใน Database ให้อยู่ในรูปแบบของ Object-Orient Language และแปลงจาก Object-Orient Language กลับไปเป็นข้อมูลที่เป็นรูปแบบข้อมูลที่มีความสัมพันธ์ได้ ทำให้เราเข้าถึงข้อมูลได้โดยไม่ต้องเขียน SQL แต่จะเข้าถึงผ่าน Object ที่สร้างขึ้นมาแทนองค์ประกอบของ ORM ซึ่งเป็นตัวกลางในการแปลงข้อมูล และสามารถรองรับการ Query ในรูปแบบต่างๆเพื่อรองรับกับความต้องการของนักพัฒนาได้
+        Object Relational Mapping (ORM)\cite{orm} เป็นการ map ข้อมูลใน Database ให้อยู่ในรูปแบบของ Object-Orient Language และแปลงจาก Object-Orient Language กลับไปเป็นข้อมูลที่เป็นรูปแบบข้อมูลที่มีความสัมพันธ์ได้ ทำให้เราเข้าถึงข้อมูลได้โดยไม่ต้องเขียน SQL แต่จะเข้าถึงผ่าน Object ที่สร้างขึ้นมาแทนองค์ประกอบของ ORM ซึ่งเป็นตัวกลางในการแปลงข้อมูล และสามารถรองรับการ Query ในรูปแบบต่างๆเพื่อรองรับกับความต้องการของนักพัฒนาได้
 
 \end{itemize}
 
@@ -742,42 +722,40 @@
 \subsection{ภาษาโปรแกรมมิ่ง}
 
 \begin{enumerate}
-  \item \textbf{Typescript} เป็นส่วนขยายของ JavaScript ที่เพิ่มการระบุชนิดข้อมูลและสนับสนุนแนวคิดของ Object-Oriented Programming (OOP) เพื่อเพิ่มประสิทธิภาพและความคงทนในการพัฒนาโปรแกรม JavaScript ให้ดียิ่งขึ้น ทางคณะผู้จัดทำได้ใช้ในการพัฒนาเว็บแอปพลิเคชันทั้งในส่วนของ Frontend และ Backend
-  \item \textbf{Python} เป็นภาษาโปรแกรมมิ่งระดับสูงที่มีความเข้าใจง่ายและมีความหลากหลายในการใช้งาน มันเป็นภาษาที่มีการเรียนรู้และการใช้งานที่สะดวก ทำให้เป็นที่นิยมอย่างมากในหลายสายงานและอุตสาหกรรมต่าง ๆ รวมถึงเป็นภาษาหลักที่ใช้ในงานด้าน Data Science และ Machine Learning
-        ทางคณะผู้จัดทำใช้ภาษา Python ในการพัฒนาและดัดแปลง Stable Diffusion ให้เหมาะสมกับโครงงาน
+  \item \textbf{Typescript} เป็นส่วนขยายของ JavaScript ที่เพิ่มการระบุชนิดข้อมูลและสนับสนุนแนวคิดของการเขียนโปรแกรมเชิงวัตถุ (Object-Oriented Programming - OOP) เพื่อเพิ่มประสิทธิภาพและความคงทนในการพัฒนาโปรแกรม JavaScript ให้ดียิ่งขึ้น ทางคณะผู้จัดทำได้นำ TypeScript มาใช้ในการพัฒนาเว็บแอปพลิเคชันทั้งในส่วนของ Frontend และ Backend
+  \item \textbf{Python} เป็นภาษาโปรแกรมมิ่งระดับสูงที่เข้าใจง่ายและมีความหลากหลายในการใช้งาน ด้วยความสะดวกในการเรียนรู้และใช้งาน ทำให้ Python เป็นที่นิยมอย่างมากในหลายสายงานและอุตสาหกรรม รวมถึงเป็นภาษาหลักที่ใช้ในด้าน Data Science และ Machine Learning ทางคณะผู้จัดทำได้ใช้ภาษา Python ในการพัฒนาและปรับปรุงโมเดล Stable Diffusion ให้เหมาะสมกับโครงงานนี้
 \end{enumerate}
 
 \subsection{เทคโนโลยี}
-\hspace {18pt}ในการพัฒนาเว็บแอปพลิเคชันในส่วนต่าง ๆทางคณะผู้จัดทำได้ใช้ Next.js ในการพัฒนา Frontend ร่วมกับ TailwindCSS และได้ใช้ ExpressJS ในการพัฒนา Backend ในส่วนของ Generative AI ของผู้จัดทำได้ใช้ Stable Diffusion ในการ Generate รูปภาพและได้ใช้เครื่องมือที่ชื่อว่า kohya เป็นเครื่องมือในการ Train โมเดล
 
 \begin{enumerate}
 
-  \item \textbf{Next.JS} เป็นเฟรมเวิร์กที่มี Server-Side Rendering (SSR) ที่ช่วยปรับปรุงประสิทธิภาพและ SEO ของเว็บไซต์ได้อย่างเหนือชั้น โดยสร้างและส่งเนื้อหา HTML จากเซิร์ฟเวอร์โดยตรง ทำให้เว็บแอปพลิเคชันโหลดแสดงข้อมูลเร็วและมีโอกาสอันดับสูงในผลการค้นหาของ Google และบราวเซอร์ต่าง ๆ นอกจากนี้ Next.js ยังสนับสนุน Pre-rendering เพื่อเพิ่มประสิทธิภาพในการโหลดและให้ประสบการณ์ผู้ใช้ที่ดี ทั้งนี้ Next.js เป็นโปรเจ็กต์ open-source ที่เกิดจากบริษัทเอกชน Vercel ที่มีชื่อเสียงในวงการเว็บโฮสติ้งและมีการพัฒนาและการรับรองจากชุมชนที่ใหญ่อย่างกว้างขวาง
-  \item \textbf{TailwindCSS} เป็นเฟรมเวิร์ก สำหรับสร้างสไตล์ CSS ของเว็บแอปพลิเคชัน มันเป็นโปรเจ็กต์ open-source ที่ออกแบบมาเพื่อช่วยให้การจัดรูปแบบเว็บไซต์เป็นเรื่องง่ายและมีประสิทธิภาพมากขึ้น วิธีการทำงานของ Tailwind CSS คือการนำคลาส (Class) ย่อยๆ ที่ถูกกำหนดไว้ล่วงหน้า มาใช้งานและรวมกันเพื่อสร้างสไตล์ตามที่ต้องการ
-  \item \textbf{ExpressJS} เป็นเฟรมเวิร์ก สำหรับพัฒนาแอปพลิเคชันเว็บและเว็บเซอร์วิสด้วย JavaScript ซึ่งใช้ Node.js เป็นพื้นฐาน มีความเร็วและประสิทธิภาพสูง รองรับการใช้งาน Middlewares และช่วยในการจัดการเริ่มต้นและสร้าง API อย่างง่าย ๆ ด้วยการสนับสนุนเส้นทางและคอนโทรลเลอร์ มีชุมชนและความร่วมมือจากนักพัฒนาทั่วโลก
-  \item \textbf{Stable Diffusion} เป็น Generative AI ที่เผยแพร่ในปี 2022 โดยใช้เทคนิค Diffusion มันใช้สำหรับสร้างรูปภาพที่ละเอียดโดยมีข้อความเป็นเงื่อนไข แต่ยังสามารถนำมาใช้ในงานอื่น ๆ เช่น inpainting, outpainting, และการสร้างภาพแปลงแปลงจากภาพอื่นๆ ตามคำบรรยายข้อความได้ด้วย โมเดลนี้ถูกพัฒนาโดยนักวิจัยจากกลุ่ม CompVis ที่มหาวิทยาลัย Ludwig Maximilian University of Munich และ Runway พร้อมทั้งการบริจาคเทคโนโลยีการประมวลผลจาก Stability AI และข้อมูลการฝึกจากองค์กรไม่แสวงหาผลกำไร โมเดล Stable Diffusion เป็นโมเดล Latent Diffusion ที่เป็นชนิดของ Deep Generative Artificial Neural Network โค้ดและน้ำหนักของโมเดลถูกเปิดเผยสู่สาธารณะและสามารถใช้งานบนคอมพิวเตอร์ ที่มี GPU ขนาดเล็กอย่างน้อย 8 GB VRAM ซึ่งทำให้สามารถเข้าถึงได้ง่ายมากกว่าโมเดลอื่นๆ เช่น Midjourney หรือ Dall ·E
-  \item \textbf{Kohya}เป็น GUI (Graphical user interface) สำหรับ Train Model ให้กับ Stable Diffusion ซึ่ง UI จะใช้ตั้งค่าพารามิเตอร์ในการ Train และรันคำสั่ง CLI (Command-line user interface) สำหรับการฝึกโมเดล
+  \item \textbf{Next.JS} เป็นเฟรมเวิร์กที่มี Server-Side Rendering (SSR) ซึ่งช่วยปรับปรุงประสิทธิภาพและ SEO ของเว็บไซต์ได้อย่างมีประสิทธิภาพ โดยสามารถสร้างและส่งเนื้อหา HTML จากเซิร์ฟเวอร์โดยตรง ทำให้เว็บแอปพลิเคชันโหลดข้อมูลได้รวดเร็วและมีโอกาสอันดับสูงในผลการค้นหาของ Google และเบราว์เซอร์ต่าง ๆ นอกจากนี้ Next.js ยังสนับสนุน Pre-rendering เพื่อเพิ่มประสิทธิภาพในการโหลดและมอบประสบการณ์ผู้ใช้ที่ดี อีกทั้ง Next.js ยังเป็นโปรเจ็กต์โอเพนซอร์สที่พัฒนาโดยบริษัท Vercel ซึ่งมีชื่อเสียงในวงการเว็บโฮสติ้งและได้รับการสนับสนุนและการรับรองจากชุมชนขนาดใหญ่และกว้างขวาง
+  \item \textbf{TailwindCSS} เป็นเฟรมเวิร์กสำหรับสร้างสไตล์ CSS ของเว็บแอปพลิเคชัน เป็นโครงการโอเพนซอร์สที่ออกแบบมาเพื่อช่วยให้การจัดรูปแบบเว็บไซต์เป็นเรื่องง่ายและมีประสิทธิภาพมากยิ่งขึ้น วิธีการทำงานของ TailwindCSS คือการนำคลาส (Class) ย่อยๆ ที่ถูกกำหนดไว้ล่วงหน้า มาใช้งานและรวมกันเพื่อสร้างสไตล์ตามที่ต้องการ
+  \item \textbf{ExpressJS} เป็นเฟรมเวิร์กสำหรับพัฒนาเว็บแอปพลิเคชันและเว็บเซอร์วิสด้วย JavaScript โดยใช้ Node.js เป็นพื้นฐาน มีความรวดเร็วและประสิทธิภาพสูง รองรับการใช้งาน Middleware และช่วยในการจัดการเริ่มต้นและสร้าง API ได้อย่างง่ายดาย ด้วยการสนับสนุนเส้นทางและคอนโทรลเลอร์ นอกจากนี้ ExpressJS ยังได้รับการพัฒนาและสนับสนุนจากชุมชนและนักพัฒนาทั่วโลก
+  \item \textbf{Stable Diffusion} Diffusion เป็น Generative AI ที่เผยแพร่ในปี 2022 โดยใช้เทคนิค Diffusion สำหรับสร้างภาพที่มีความละเอียดสูง โดยใช้ข้อความเป็นเงื่อนไข นอกจากนี้ยังสามารถนำไปใช้ในงานอื่น ๆ เช่น การแก้ไขภาพ (inpainting), การขยายภาพ (outpainting), และการสร้างภาพแปลงจากภาพอื่น ๆ ตามคำบรรยายได้อีกด้วย โมเดลนี้ถูกพัฒนาโดยนักวิจัยจากกลุ่ม CompVis ที่มหาวิทยาลัย Ludwig Maximilian University of Munich และ Runway พร้อมทั้งได้รับการสนับสนุนทางเทคโนโลยีการประมวลผลจาก Stability AI และข้อมูลการฝึกจากองค์กรไม่แสวงหาผลกำไร โมเดล Stable Diffusion เป็นโมเดล Latent Diffusion ซึ่งเป็นประเภทของ Deep Generative Artificial Neural Network โค้ดและน้ำหนักของโมเดลนี้ถูกเปิดเผยสู่สาธารณะและสามารถใช้งานบนคอมพิวเตอร์ที่มี GPU ขนาดเล็กอย่างน้อย 8 GB VRAM ทำให้สามารถเข้าถึงได้ง่ายกว่าโมเดลอื่น ๆ เช่น Midjourney หรือ DALL·E
+  \item \textbf{Kohya} เป็นเครื่องมือที่ใช้สำหรับการฝึกโมเดลของ Stable Diffusion (LoRA) ผู้ใช้สามารถใช้ชุดข้อมูลที่ต้องการในการฝึกโมเดลเพื่อเสริมความเข้าใจของโมเดลได้ นอกจากนี้ยังสามารถปรับแต่งหรือตั้งค่าพารามิเตอร์ต่าง ๆ สำหรับการฝึกโมเดลได้ตามต้องการ
 
 \end{enumerate}
 
 \subsection{ระบบฐานข้อมูล}
 
 \begin{enumerate}
-  \item \textbf{MongoDB} เป็น open source NoSQL Database จัดเก็บข้อมูลในรูปแบบ document ที่ยืดหยุ่นและสามารถขยายได้ มีความสามารถในการจัดเก็บข้อมูลแบบไม่มีโครงสร้างคงที่ทำให้เหมาะสำหรับข้อมูลที่ไม่มีโครงสร้างคงที่หรือเปลี่ยนแปลงบ่อย มีประสิทธิภาพสูงในการอ่านและเขียนข้อมูล มีภาษาคิวรีที่มีประสิทธิภาพและสนับสนุนการใช้งานที่หลากหลาย สร้างสรรค์เป็นอย่างดีสำหรับการจัดเก็บข้อมูลที่ยืดหยุ่นและใช้งานระบบที่มีปริมาณข้อมูลมากหรือโหลดการใช้งานสูง
-  \item \textbf{PostgreSQL} เป็น open source SQL Database ที่มีความมั่นคงและคุณสมบัติมากมาย มันเหมาะสำหรับการพัฒนาและจัดการข้อมูลในแอปพลิเคชันและโครงการต่าง ๆ โดยใช้ SQL สำหรับการสอบถามและจัดการข้อมูล มีความยืดหยุ่นและประสิทธิภาพสูง และมีระบบควบคุมความแข็งแกร่งเพื่อความเสถียร มันเป็นเครื่องมือที่มีความนิยมในการพัฒนาแอปพลิเคชันและโปรเจคที่ต้องการระบบฐานข้อมูลที่เชื่อถือได้และมีประสิทธิภาพ
-  \item \textbf{Cloudinary} เป็นบริการคลาวด์สำหรับจัดการและเก็บสื่อดิจิทัล เช่น รูปภาพและวิดีโอ ซึ่งช่วยให้ผู้ใช้สามารถเรียกใช้และจัดการสื่อเหล่านี้ในแอปพลิเคชันหรือเว็บไซต์ รวมถึงการให้ความสามารถในการปรับขนาดและแก้ไขสื่อ รวมถึงการใช้ API เพื่อจัดการกับสื่อต่าง ๆ บนพื้นที่คลาวด์ของพวกเขา
+  \item \textbf{MongoDB} เป็นระบบฐานข้อมูล NoSQL รูปแบบ open source ที่ใช้เก็บข้อมูลในรูปแบบ document ที่ยืดหยุ่นและสามารถขยายได้ตามความต้องการ มีความสามารถในการจัดเก็บข้อมูลแบบไม่มีโครงสร้างคงที่ซึ่งเหมาะสำหรับข้อมูลที่ไม่มีโครงสร้างคงที่หรือมีการเปลี่ยนแปลงบ่อย มีประสิทธิภาพสูงในการอ่านและเขียนข้อมูล ซึ่งเหมาะสำหรับการใช้งานในระบบที่มีปริมาณข้อมูลมากหรือมีการโหลดการใช้งานสูง นอกจากนี้ยังมีภาษาคิวรีที่มีประสิทธิภาพและสนับสนุนการใช้งานที่หลากหลาย ทำให้เป็นระบบฐานข้อมูลที่เหมาะสมสำหรับการจัดเก็บข้อมูลที่มีความยืดหยุ่นและมีการใช้งานระบบที่มีปริมาณข้อมูลมากหรือมีการโหลดการใช้งานสูงอย่างดี
+  \item \textbf{Cloudinary} เป็นบริการคลาวด์ที่มุ่งเน้นในการจัดการและเก็บรวบรวมสื่อดิจิทัล เช่น รูปภาพและวิดีโอ เพื่อช่วยให้ผู้ใช้สามารถเรียกใช้และจัดการสื่อเหล่านี้ได้อย่างมีประสิทธิภาพในแอปพลิเคชันหรือเว็บไซต์ของตน นอกจากนี้ยังมีคุณสมบัติที่มาพร้อมกับการปรับขนาดและแก้ไขสื่อ รวมถึงการใช้ API เพื่อการจัดการสื่อต่าง ๆ บนพื้นที่คลาวด์ของบริการนี้อีกด้วย
 \end{enumerate}
 
 \subsection{เครื่องมือที่ใช้ในการจัดการเวอร์ชั่นและทดสอบ}
 
 \begin{enumerate}
-  \item \textbf{Git} เป็นเครื่องมือที่ช่วยในการบริหารจัดการเวอร์ชั่นของโค้ด โดยการบันทึกประวัติการสร้าง/ลบ/แก้ไขไฟล์แต่ละไฟล์โดยผู้ใช้งานแต่ละคน พร้อมทั้งบันทึกข้อมูลเป็นประวัติการเปลี่ยนแปลงทั้งหมด ทำให้สามารถติดตามการแก้ไขโค้ดได้อย่างละเอียด และย้อนกลับไปในประวัติโค้ดได้ คุณสมบัตินี้เป็นประโยชน์มากในการทำงานทีมและช่วยให้การจัดการโค้ดเป็นไปอย่างเรียนร้อยและมีประสิทธิภาพ
+  \item \textbf{Git} เป็นเครื่องมือสำคัญที่ช่วยในการบริหารจัดการเวอร์ชันของโค้ดอย่างมีประสิทธิภาพ โดยที่มีฟังก์ชันการบันทึกประวัติการสร้าง/ลบ/แก้ไขไฟล์แต่ละไฟล์โดยผู้ใช้งานแต่ละคน และเก็บข้อมูลเป็นประวัติการเปลี่ยนแปลงทั้งหมด ซึ่งช่วยให้สามารถติดตามและย้อนกลับไปในประวัติของโค้ดได้อย่างละเอียดอีกด้วย คุณสมบัตินี้มีประโยชน์มากในการทำงานทีมและช่วยให้การจัดการโค้ดเป็นไปอย่างเรียบร้อยและมีประสิทธิภาพอย่างมาก
+  \item \textbf{Postman} เป็นเครื่องมือทดสอบที่สำคัญสำหรับการทดสอบ API โดยนักพัฒนาสามารถใช้งานเพื่อทดสอบการทำงานของ API ก่อนที่จะนำไปใช้งานจริงกับ Client การใช้ Postman ช่วยให้สามารถสร้างและส่งคำขอไปยัง API ต่าง ๆ และตรวจสอบผลลัพธ์ได้อย่างรวดเร็วและมีประสิทธิภาพ นอกจากนี้ยังสามารถจัดการกับเอกสารที่เกี่ยวข้องกับการทดสอบ API ได้ด้วย
 \end{enumerate}
 
 \chapter{วิธีการทำงาน กระบวนการและการออกแบบ}
 
 \section{บทนำ}
-\hspace {18pt} ในบทที่ 3 จะกล่าวถึงโครงงานของเราจะมีวิธีการทำงานอย่างไร โครงสร้างทางระบบที่ทางเราได้วางเอาไว้ การใช้งานหว่างระบบออกแบบมาตอบโจทย์ผู้ใช้งาน รวมถึงการจัดการระบบที่ออกแบบมา และผลตอบรับจากแบบสอบถามที่ผู้จัดได้ทำขึ้นหาเพื่อวิเคราะห์ความต้องการของผู้ใช้งาน
+\hspace {18pt} บทที่ 3 จะกล่าวถึงโครงงานของเราจะมีวิธีการทำงานอย่างไร โครงสร้างทางระบบที่ทางเราได้วางเอาไว้ การใช้งานหว่างระบบออกแบบมาตอบโจทย์ผู้ใช้งาน รวมถึงการจัดการระบบที่ออกแบบมา และผลตอบรับจากแบบสอบถามที่ผู้จัดได้ทำขึ้นหาเพื่อวิเคราะห์ความต้องการของผู้ใช้งาน
 
 \section{วิเคราะห์ความต้องการ}
 \hspace {18pt} คณะผู้จัดทำได้สำรวจ Requirement จากการทำแบบสอบถามโดยมีผู้ทำแบบสอบถาม 50 คน และคณะผู้จัดทำสามารถวิเคราะห์จากผลตอบรับได้ดังนี้
@@ -803,9 +781,7 @@
   \includegraphics[width=10cm]{image/requirement-3.jpg}
   \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามในคำถามที่ว่าควรพัฒนา AI ในการออกแบบอย่างไรเพื่อให้สามารถช่วยในการออกแบบห้องได้}
   \label{fig:requirement-3}
-\end{figure}
-
-\hspace {18pt}จากภาพ~\ref{fig:requirement-3} คณะผู้จัดได้ข้อสรุปว่าควรพัฒนาระบบให้สามารถสร้างรูปภาพโดยประกอบไปด้วยผลิตภัณฑ์ที่มีตัวแทนจำหน่ายในประเทศไทยเท่านั้น เช่น Index Living Mall Homepro ไทวัสดุ และ SB Design Square และพัฒนาเว็บแอปพลิเคชันให้สามารถตรวจจับเฟอร์นิเจอร์พร้อมทั้งระบุแหล่งจัดจำหน่าย
+\end{figure}\hspace {18pt}จากภาพ~\ref{fig:requirement-3} คณะผู้จัดได้ข้อสรุปว่าควรพัฒนาระบบให้สามารถสร้างรูปภาพโดยประกอบไปด้วยผลิตภัณฑ์ที่มีตัวแทนจำหน่ายในประเทศไทยเท่านั้น เช่น Index Living Mall Homepro ไทวัสดุ และ SB Design Square และพัฒนาเว็บแอปพลิเคชันให้สามารถตรวจจับเฟอร์นิเจอร์พร้อมทั้งระบุแหล่งจัดจำหน่าย
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/requirement-4.jpg}
@@ -839,7 +815,7 @@
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/requirement-8.jpg}
-  \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามถึงคำถามหากบน Website มี AI ในการออกแบบห้องและรวบรวม สถาปนิก ผู้รับเหมาไว้ให้ติดต่อได้เลยจะสะดวกขึ้นหรือไม่}
+  \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามถึงคำถามจากบน Website มี AI ในการออกแบบห้องและรวบรวม สถาปนิก ผู้รับเหมาไว้ให้ติดต่อได้เลยจะสะดวกขึ้นหรือไม่}
   \label{fig:requirement-8}
 \end{figure}
 
@@ -849,7 +825,7 @@
 
 \begin{enumerate}
   \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถเลือกเฟอร์นิเจอร์หรือผลิตภัณฑ์ให้ AI สร้างรูปภาพห้องที่มีเฟอร์นิเจอร์ที่ผู้ใช้เลือก
-  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถระบุงบประมาณของเฟอร์นิเจอร์โดยรวมให้ AI สร้างรูปภาพห้อง
+  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถระบุงบระมาณของเฟอร์นิเจอร์โดยรวมให้ AI สร้างรูปภาพห้อง
   \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็ปแอปพลิเคชันให้ผู้ใช้สามารถระบุขนาดพื้นที่ห้องให้กับ AI เนื่องจากไม่มีเวลาเพียงพอและเป็นที่เรื่องที่ซับซ้อนในการพัฒนา
   \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็ปแอปพลิเคชันให้สามารถสร้างรูปภาพในหลากหลายมุมมอง เช่น Top View Front View Side View เนื่องจากมีความซับซ้อนในการพัฒนา
   \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็บแอปพลิเคชันให้สามารถติดต่อสถาปนิกและผู้รับเหมา เนื่องจากการปรับเปลี่ยนขอบเขตของงาน จึงทำให้ความสำคัญของสิ่งนี้ลดน้อยลง
@@ -872,7 +848,7 @@
 \end{itemize}
 
 \subsection{Use cases}
-\hspace {18pt}ผู้ใช้ที่มีความต้องการเครื่องมืออำนวยความสะดวกในเรื่องของการออกแบบภายในและต้องการทราบราคาที่ใช้ในการก่อสร้างรวมไปถึงรายละเอียดสิงของต่างๆ อาทิเช่น ราคา สถานที่จำหน่าย เพื่อเพิ่มความสะดวกสบายในการค้นหาสินค้าตกแต่งบ้าน โดย Guest สามารถที่จะ Login และ Register Customer สามารถที่จะใช้ AI ในการ Generate รูปภาพ ดูรูปภาพที่ตนให้ AI สร้าง สามารถดูประวัติการใช้งานของตน สามารถอัปโหลดรูปภาพให้ AI ในการค้นหาผลิตภัณฑ์ที่มีในเว็บไซต์ และ Admin สามารถทำทุกอย่างที่ Customer ทำได้ทั้งหมด และสิ่งที่ทำได้เพิ่มเติมดังนี้ สามารถดูข้อมูลการใช้เฟอร์นิเจอร์ของ AI ในการ Generate รูปภาพ อัตราการใช้แต่ละสไตล์แต่ละชนิดของห้องของผู้ใช้งานซึ่งจะอยู่ในรูปแบบของ Dashboard และสามารถเพิ่มผลิตภัณฑ์และเฟอร์นิเจอร์ได้ ดังภาพ~\ref{fig:use-case}
+\hspace {18pt}ผู้ใช้ที่มีความต้องการเครื่องมืออำนวยความสะดวกในเรื่องของการออกแบบภายในและต้องการทราบราคาที่ใช้ในการก่อสร้างรวมไปถึงรายละเอียดสิงของต่างๆ อาทิเช่น ราคา สถานที่จำหน่าย เพื่อเพิ่มความสะดวกสบายในการค้นหาสินค้าตกแต่งบ้าน โดย Guest สามารถที่จะลงทะเบียนและทำการเข้าสู่ระบบเป็น Customer จึงสามารถที่จะใช้ AI ในการสร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ ดูรูปภาพที่ตนให้ AI สร้าง สามารถดูประวัติการใช้งานของตน สามารถอัปโหลดรูปภาพให้ AI ในการค้นหาผลิตภัณฑ์ที่มีในเว็บไซต์ และ Admin สามารถทำทุกอย่างที่ Customer ทำได้ทั้งหมด และสิ่งที่ทำได้เพิ่มเติมดังนี้ สามารถดูข้อมูลการใช้เฟอร์นิเจอร์ของ AI ในการสร้างรูปภาพห้อง อัตราการใช้แต่ละสไตล์แต่ละชนิดของห้องของผู้ใช้งานซึ่งจะอยู่ในรูปแบบของ Dashboard และสามารถเพิ่มผลิตภัณฑ์และเฟอร์นิเจอร์ได้ ดังภาพ~\ref{fig:use-case}
 
 \begin{figure}[!h]\centering
   \includegraphics{image/use-case.jpg}
@@ -884,26 +860,34 @@
 \vspace{\fill}\clearpage
 
 \subsection{Workflow}
-\hspace {18pt}ในเว็บแอปพลิเคชันมีโมเดลที่ถูกtrainมาแล้วโดยผู้ใช้สามารถกรอกข้อมูลตามที่พวกเรากำหนดจากนั้นจะส่งข้อมูลเข้าไปประมวลผลในโมเดลแล้วจะแสดงรูปภาพพร้อมทั้งผลิตภัณฑ์และมูลค่าโดยประมาณของผลิตภัณฑ์ที่ใช้ในภาพให้กับผู้ใช้ ดังภาพ~\ref{fig:sequence} ลำดับกระบวนการทำงานในการ Generate รูปภาพ
+\hspace {18pt}ผู้ใช้สามารถกรอกข้อมูลตามฟอร์มที่ปรากฏบนเว็บแอปพลิเคชันหลังจากนั้นข้อมูลจะถูกส่งไปประมวลผลแล้วจะแสดงรูปภาพผลลัพธ์พร้อมรายละเอียดของเฟอร์นิเจอร์ให้กับผู้ใช้ดังภาพ~\ref{fig:sequence} ลําดับกระบวนการทํางานในการสร้างรูปภาพ
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/sequence.jpg}
-  \caption{Sequence Diagram}
+  \includegraphics[width=16.25cm]{image/new-sequence.png}
+  \caption{Sequence Diagram of Generate image}
   \label{fig:sequence}
 \end{figure}
 
 %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
 \vspace{\fill}\clearpage
 
+\hspace{18pt}ผู้ใช้สามารถบันทึกผลลัพธ์ที่ได้จาก AI ได้โดยหลังที่ได้รับรูปภาพแล้วเว็บแอปพลิเคชันจะให้ท่านระบุข้อมูลบนฟอร์มเพื่อบันทึกผลดังภาพ~\ref{fig:saveImageFromAi} ลําดับกระบวนการบันทึกผลลัพธ์ที่ได้จาก AI
 \begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/system.jpg}
+  \includegraphics[width=16.25cm]{image/saveAiimage.png}
+  \caption{Sequence Diagram of Save image from AI}
+  \label{fig:saveImageFromAi}
+\end{figure}
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
+\begin{figure}[!h]\centering
+  \includegraphics[width=16.25cm]{image/new-system.png}
   \caption{System Diagram}
   \label{fig:system}
 \end{figure}
 
-\hspace {18pt}จากภาพ~\ref{fig:system} สามารถอธิบายได้ว่า Client จะไม่สามารถติดต่อสื่อสารโดยตรงกับ Server ได้จะต้องติดต่อผ่าน Proxy Server เท่านั้นเพื่อเพิ่มความปลอดภัยให้มากขึ้น โดยในส่วนนี้จะมีการยืนยันตัวตนให้กับผู้ใช้ และทำการตรวจสอบข้อมูลก่อนทีจะส่งไปยัง Server และ Request ที่ต้องการใช้งานในส่วนของ AI จะถูกส่งไปยัง Load Balancer เพื่อทำการจัดคิวการเข้าใช้งานของ GPU (ณ ตอนนี้ Client ยังไม่สามารถใช้งาน AI ได้พร้อมกันเนื่องจากมีข้อจำกัดทางฮาร์ดแวร์คือ GPU ไม่เพียงพอต่อการใช้งาน)
-
-\hspace {18pt}เนื่องจากเว็บแอปพลิเคชัน Easy Room ได้มีการใช้ Database ที่มีความหลากหลายไปตามความสามารถจึงเลือกที่จะใช้ Prisma ORM เพื่อเป็นตัวกลางในการติดต่อสารระหว่าง Server กับ Database เพื่อลดความภาระของการศึกษาการเรียกใช้งานของแต่ละ Database
+\hspace {18pt}จากภาพ~\ref{fig:system} สามารถอธิบายได้ว่า Client ติดต่อสื่อสารกับ Server Cluster โดยมีการใช้ PM2 ซึ่งเป็น process manager ในการจัดการเชื่อมต่อระหว่าง Client และ Server เพื่อเพิ่มประสิทธิภาพการรองรับผู้ใช้งานให้กับ Server
+สำหรับคำขอจาก Client ที่ต้องการเข้าถึงการใช้งาน AI ในคำขอนี้ Load Balancer ที่อยู่ภายใน Server ทำการกระจายภาระงานไปยัง Stable Diffusion AI ที่ถูกรันเป็น Server เอาไว้ เพื่อเพิ่มประสิทธิภาพการรองรับการใช้งาน AI พร้อม ๆกันและง่ายต่อการเพิ่ม-ลดจำนวน AI server
+มีการใช้ Mongoose ODM ทำหน้าที่ในการเข้าถึงฐานข้อมูล MongoDB นอกจากนี้ ยังมีการใช้บริการ Cloudinary สำหรับการจัดการและเก็บข้อมูลรูปภาพ
 
 %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
 \vspace{\fill}\clearpage
@@ -911,20 +895,20 @@
 \subsection{Database ER diagram}
 
 \begin{figure}[!h]\centering
-  \includegraphics[width=12cm]{image/new-ER.png}
+  \includegraphics[width=12cm]{image/final_ER.png}
   \caption{ER Diagram}
   \label{fig:er}
 \end{figure}
 
-\hspace {18pt} จากภาพ~\ref{fig:er} สามารถบ่งบอกได้ว่าโครงสร้างของ Database ของเว็บแอปพลิเคชัน Easy Room มีทั้งหมด 5 collections คือ 1.user 2.result 3.like 4.room และ 5.furniture ซึ่ง user จะมีหน้าที่ในการเก็บข้อมูลของผู้ใช้ โดยจะมี data dictionary ดังนี้
+\hspace {18pt} จากภาพ~\ref{fig:er} สามารถบ่งบอกได้ว่าโครงสร้างของ Database ของเว็บแอปพลิเคชัน Easy Room มีทั้งหมด 5 collections คือ 1.user เก็บข้อมูลของผู้ใช้ 2.room เก็บข้อมูลการใช้งาน feature สร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ 3.post เก็บข้อมูลของโพสต์ 4.like เก็บข้อมูลการกดไลค์ 5. newFurniture เก็บข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์โดยจะมี data dictionary ดังนี้
 
 \begin{table}[!h]
   \caption{data dictionary ของ user}\label{tbl:er-table1}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \begin{tabular}{|p{2.5cm}|p{2cm}|p{10cm}|}
     \hline
     \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                     \\
     \hline
-    id                   & ObjectId           & ID ของ user                                         \\
+    \_id                 & ObjectId           & ID ของ user                                         \\
     \hline
     email                & String             & อีเมลล์ของ user                                       \\
     \hline
@@ -949,96 +933,124 @@
   \end{tabular}
 \end{table}
 \begin{table}
-  \caption{data dictionary ของ result }\label{tbl:er-table2}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \caption{data dictionary ของ room }\label{tbl:er-table2}
+  \begin{tabular}{|p{2.5cm}|p{6cm}|p{6cm}|}
     \hline
-    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                                                                                                                                                                 \\
+    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล}                        & \textbf{คำอธิบาย}                                                    \\
     \hline
-    id                   & ObjectId           & ID ของ result                                                                                                                                                                                   \\
+    \_id                 & ObjectId                                  & ID ของ result                                                      \\
     \hline
-    owner\_id            & ObjectId           & ID ของผู้ใช้ที่เป็นเจ้าของ result                                                                                                                                                                      \\
+    owner\_id            & ObjectId                                  & ID ของผู้ใช้ที่เป็นเจ้าของ result                                         \\
     \hline
-    room\_id             & ObjectId           & ID ของห้องและสไตล์ที่เลือกใช้ในการ Generate รูปภาพ                                                                                                                                                     \\
+    type                 & Enum["public","private"]                  & ประเภทของห้องที่ใช้ในการสร้างรูปภาพ                                      \\
     \hline
-    status               & String             & สถานะของการ Generate รูปภาพ                                                                                                                                                                      \\
+    style                & Enum ["Contemporary","Modern","Bohemian"] & สไตล์ของห้องที่ใช้ในการสร้างรูปภาพ                                        \\
     \hline
-    furniture\_list      & [ObjectId]         & ID ของ furniture ที่ใช้ประกอบการ Generate รูปภาพ                                                                                                                                                    \\
+    budget               & Number                                    & ราคาของเฟอร์นิเจอร์ทั้งหมดที่ถูกเลือกนำมาใช้ในการสร้างรูปภาพ                    \\
     \hline
-    budget               & float              & ราคาที่ผู้ใช้ตั้งไว้ในการ Generate รูปภาพ                                                                                                                                                                \\
+    furnitures           & ObjectId[]                                & ID ของเฟอร์นิเจอร์ที่นำมาใช้ในการสร้างรูปภาพ                                \\
     \hline
-    image                & Object             & รูปภาพที่ได้จากการ Generate รูปภาพ ซึ่งจะเก็บเป็น object โดยจะมี Index ซึ่งบ่งบอกว่าเป็นรูปที่เท่าไหร่ และ url คือลิงก์ที่ได้จากการเก็บรูปภาพที่ cloudinary                                                                   \\
+    images               & String[]                                  & ลิงก์ของรูปภาพที่ได้จากการสร้างรูปภาพทั้งหมด 3 รูปภาพซึ่งได้นำไปฝากไว้ที่ cloudinary \\
     \hline
-    post                 & Object             & ข้อมูลรายละเอียดของโพสต์ ที่เกี่ยวข้องกับการ Generate รูปภาพ โดยจะมี post\_id เป็น ID ของโพสต์  title เป็นหัวข้อของโพสต์ description  เป็นเนื้อหาในโพสต์ status คือสถานะของ โพสต์ซึ่งมี 2 แบบคือ deleted และ active privacy
-    คือ ความเป็นส่วนตัวของโพสต์ซึ่งจะมี 2 แบบคือ private และ public created\_at
-    คือ เวลาที่โพสต์นี้ถูกสร้างขึ้น updated\_at คือเวลาที่โพสต์ถูกแก้ไขครั้งล่าสุด
-    selected\_image คือรูปภาพที่เลือกมาโพสต์ซึ่งจะอ้างอิงกับ index ใน image                                                                                                                                                                                \\
+    selectedimage        & Number                                    & Index ของรูปที่ถูกเลือกมาเป็นรูปปกของโพสต์                                 \\
+    \hline
+    createdAt            & Date                                      & เวลาที่สร้างข้อมูล                                                      \\
+    \hline
+    updatedAt            & Date                                      & เวลาที่แก้ไขข้อมูลล่าสุด                                                  \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}
+  \caption{data dictionary ของ post }\label{tbl:er-table3}
+  \begin{tabular}{|p{2.5cm}|p{4cm}|p{8cm}|}
+    \hline
+    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล}       & \textbf{คำอธิบาย}                  \\
+    \hline
+    \_id                 & ObjectId                 & ID ของ post                      \\
+    \hline
+    ownerid              & ObjectId                 & ID ของเจ้าของโพสต์                 \\
+    \hline
+    status               & Enum["public","private"] & สถานะของโพสต์ว่าเป็นสาธารณะหรือส่วนตัว \\
+    \hline
+    roomid               & ObjectId                 & ID ของ room ที่อ้างอิงมาสร้างโพสต์     \\
+    \hline
+    title                & String                   & ชื่อของโพสต์                        \\
+    \hline
+    description          & String                   & คำอธิบายของโพสต์                    \\
+    \hline
+    createdAt            & Date                     & เวลาที่สร้างข้อมูล                    \\
+    \hline
+    updatedAt            & Date                     & เวลาที่แก้ไขข้อมูลล่าสุด                \\
+    \hline
+    deleted              & Boolean                  & สถานะของโพสต์ว่าถูกลบแล้วหรือไม่       \\
     \hline
   \end{tabular}
 \end{table}
 
 \begin{table}
   \caption{data dictionary ของ like }\label{tbl:er-table4}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \begin{tabular}{|p{2.5cm}|p{5cm}|p{4cm}|}
     \hline
-    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}      \\
+    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}       \\
     \hline
-    id                   & ObjectId           & ID ของ like          \\
+    id                   & ObjectId           & ID ของ like           \\
     \hline
-    owner\_id            & ObjectId           & ID ของ user ที่กด like \\
+    ownerId              & ObjectId           & ID ของ user ที่กดไลค์    \\
     \hline
-    post\_id             & ObjectId           & โพสต์ที่ถูกกดไลค์         \\
+    postId               & ObjectId           & โพสต์ที่ถูกกดไลค์          \\
     \hline
-  \end{tabular}
-\end{table}
-\begin{table}
-  \caption{data dictionary ของ room }\label{tbl:er-table5}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+    createdAt            & Date               & เวลาที่ไลค์ถูกสร้างขึ้น      \\
     \hline
-    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                               \\
-    \hline
-    id                   & ObjectId           & ID ของ room                                                   \\
-    \hline
-    room\_type           & String             & ประเภทของห้องซึ่งมีทั้งหมด 2 ประเภทคือ Bathroom และ Bedroom          \\
-    \hline
-    room\_style          & String             & สไตล์ของห้องซึ้่งมีทั้งหมด 3 สไตล์คือ Contemporary, Modern และ Bohemian \\
+    updatedAt            & Date               & เวลาที่มีการแก้ไขข้อมูลล่าสุด \\
     \hline
   \end{tabular}
 \end{table}
 \begin{table}
-  \caption{data dictionary ของ furniture }\label{tbl:er-table6}
-  \begin{tabular}{|p{2.5cm}|p{2cm}|p{8cm}|}
+  \caption{data dictionary ของ newFurniture }\label{tbl:er-table6}
+  \begin{tabular}{|p{2.5cm}|p{6cm}|p{6cm}|}
     \hline
-    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล} & \textbf{คำอธิบาย}                                          \\
+    \textbf{ชื่อของ field} & \textbf{รูปแบบข้อมูล}                       & \textbf{คำอธิบาย}                               \\
     \hline
-    id                   & ObjectId           & รหัสประจำตัวของ furniture                                   \\
+    \_id                 & ObjectId                                 & ID ของ newFurniture                           \\
     \hline
-    added\_by            & ObjectId           & รหัสประจำตัวของผู้ใช้ที่เพิ่มเฟอร์นิเจอร์ดังกล่าว                       \\
+    thai\_name           & String                                   & ชื่อภาษาไทยของเฟอร์นิเจอร์                         \\
     \hline
-    room\_id             & [ObjectId]         & รหัสประจำตัวของสไตล์และประเภทของห้องที่เหมาะสมกับเฟอร์นิเจอร์ดังกล่าว \\
+    english\_name        & String                                   & ชื่อภาษาอังกฤษของเฟอร์นิเจอร์                       \\
     \hline
-    thai\_name           & String             & ชื่อภาษาไทยของเฟอร์นิเจอร์                                    \\
+    description          & String                                   & คำอธิบายของเฟอร์นิเจอร์                            \\
     \hline
-    english\_name        & String             & ชื่อภาษาอังกฤษของเฟอร์นิเจอร์                                  \\
+    brand                & String                                   & แบรนด์ของเฟอร์นิเจอร์                             \\
     \hline
-    brand                & String             & แบรนด์ของเฟอร์นิเจอร์                                        \\
+    image                & string                                   & ลิงก์รูปภาพของเฟอร์นิเจอร์จากแหล่งจำหน่าย              \\
     \hline
-    image\_url           & String             & ลิ้งก์ของรูปภาพของเฟอร์นิเจอร์ซึ่งฝากไว้บน cloudinary              \\
+    url                  & String                                   & ลิงก์ในการซื้อเฟอร์นิเจอร์จากแหล่งจำหน่าย               \\
     \hline
-    seller               & String             & แหล่งจัดจำหน่ายผลิตภัณฆ์ดังกล่าว                                  \\
+    price                & Number                                   & ราคาของเฟอร์นิเจอร์                              \\
     \hline
-    website\_url         & String             & ลิงก์ของเว็ปไซต์ที่ขายเฟอร์นิเจอร์ดังกล่าว                          \\
+    category             & String                                   & หมวดหมู่ของเฟอร์นิเจอร์                            \\
     \hline
-    price                & Float              & ราคาของเฟอร์นิเจอร์                                         \\
+    trigger\_word        & String                                   & คำที่ใช้สำหรับเรียกใช้โมเดล LoRa ในการ Generate รูปภาพ \\
     \hline
-    category             & String             & หมวดหมู่ของเฟอร์นิเจอร์                                       \\
+    added\_by            & ObjectId                                 & ID ของผู้ใช้ที่เพิ่มเฟอร์นิเจอร์ขึ้น                      \\
+    \hline
+    room                 & Enum["bathroom","bedroom"]               & ประเภทของห้องที่เหมาะสมกับเฟอร์นิเจอร์               \\
+    \hline
+    style                & Enum["modern","contemporary","bohemian"] & สไตล์ของห้องที่เหมาะสมกับเฟอร์นิเจอร์                 \\
+    \hline
+    createdAt            & Date                                     & เวลาที่สร้างข้อมูล                                 \\
+    \hline
+    updatedAt            & Date                                     & เวลาที่แก้ไขข้อมูลล่าสุด                             \\
     \hline
   \end{tabular}
 \end{table}
-
 \chapter{ผลการทดลองและอภิปรายผล}
 
 \section{ผลการทดลองการเก็บข้อมูล Furniture จาก Internet}
-\hspace{18pt} ทางคณะผู้จัดทำได้ทำการ scrape ข้อมูลจากเว็บไซต์ Homepro \url{https://www.homepro.co.th/} โดยใช้ library selenium และ beautifulSoup และได้ข้อมูลเฟอร์นิเจอร์ทั้งหมด 3043 ชิ้น 9 ชนิด คือ อ่างล้างหน้า ก็อกอ่างล่างหน้า อ่างอาบน้ำ ฝักบัว ม่านกั้นอาบน้ำ โถสุขภัณฑ์ ตู้เสื้อผ้า โต๊ะเครื่องแป้ง เตียงนอน โดยข้อมูลที่เก็บมาประกอบด้วย รูปภาพ และ csv ไฟล์สำหรับข้อมูลแต่ละชนิดของเฟอร์นิเจอร์โดยใน csv ไฟล์ จะประกอบไปด้วย sku name\_th,name\_en,type,room,brand,retailer,image\_link,product\_link,image\_path ซึ่งจะใช้ประกอบการ fine tuning โมเดล และ mock up ใน database
+\hspace{18pt} ทางคณะผู้จัดทำได้ทำการ scrape ข้อมูลจากเว็บไซต์ Homepro \url{https://www.homepro.co.th/} โดยใช้ library selenium และ beautifulSoup และได้ข้อมูลเฟอร์นิเจอร์ทั้งหมด 3043 ชิ้น 9 ชนิด คือ อ่างล้างหน้า ก็อกอ่างล่างหน้า อ่างอาบน้ำ ฝักบัว ม่านกั้นอาบน้ำ โถสุขภัณฑ์ ตู้เสื้อผ้า โต๊ะเครื่องแป้ง เตียงนอน โดยข้อมูลที่เก็บมาประกอบด้วย รูปภาพ และ csv ไฟล์สำหรับข้อมูลแต่ละชนิดของเฟอร์นิเจอร์โดยใน csv ไฟล์ จะประกอบไปด้วย sku name\_th,name\_en,type,room,brand,retailer,image\_link,product\_link,image\_path
+
+\section{ผลการทดลองเก็บข้อมูล Furniture จากการลงพื้นที่ ณ แหล่งจัดจำหน่าย }
+\hspace{18pt} คณะผู้จัดทำได้ทำการลงพื้นที่ ณ แหล่งจัดจำหน่ายทั้งหมด 3 ครั้ง เพื่อที่จะถ่ายรูปภาพของเฟอร์นิเจอร์ เพื่อให้เหมาะสมในการ train โมเดล ซึ่งผลลัพธ์ที่ได้จะเป็นเฟอร์นิเจอร์สำหรับห้องนอนและห้องน้ำรวม 44 เฟอร์นิเจอร์โดยแต่ละเฟอร์นิเจอร์มีรูปภาพไม่ต่ำกว่า 30 รูป รูปภาพที่ถ่ายมามีขนาด 3024 x 3024 pixels จึงทำให้จะต้องนำข้อมูลไปทำการ resized เป็นขนาด 512 x 512 pixels จากเว็บไซต์ \url{https://www.birme.net}และได้ทำการสร้าง json file ในการเก็บข้อมูลเฟอร์นิเจอร์ทุกชิ้นเพื่อที่จะเพื่มข้อมูลเฟอร์นิเจอร์ลงใน database
 
 
 \section{ผลการทดลองการเก็บข้อมูลรูปภาพ ประเภทของห้อง และรูปแบบของห้อง จาก Internet}
@@ -1070,12 +1082,13 @@
   \caption{รูปภาพที่ได้จากการ scrape มาจาก pinterest.com}
   \label{fig:scrape-2}
 \end{figure}
-
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
 
 คัดเลือกรูปภาพที่เหมาะจะนำมาใช้ในการ train โมเดล โดยคัดเลือกตามคุณสมบัติดังต่อไปนี้
 \begin{enumerate}
   \item รูปภาพต้องมีความคมชัด
-  \item ขนาดของรูปภาพจะต้องมีขนาดมากกว่า 512x512 pixel
+  \item ขนาดของรูปภาพจะต้องมีขนาดอย่างน้อย 512x512 pixel สเกลแบบ 1:1
   \item รูปภาพไม่ซ้ำกัน
   \item รูปภาพต้องมีลักษณะที่หลากหลาย
   \item จำนวนรูปภาพต้องมากกว่า 30 รูปภาพต่อหมวดหมู่และรูปแบบของห้อง
@@ -1087,9 +1100,10 @@
   \caption{รูปภาพ 516 รูปที่จะนำไปใช้ train โมเดล}
   \label{fig:scrape-3}
 \end{figure}
-
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
 \section{ผลการทดลองการ train โมเดล และ generate รูปภาพ}
-\subsection{ข้อมูลเพื่อใช้ในการ train โมเดล}
+\subsection{เตรียมข้อมูลเพื่อใช้ในการ train โมเดล}\label{sec:preparedata}
 หลังจากได้รูปภาพมาแล้ว นำไปทำการ resize จากเว็บไซต์ \url{https://www.birme.net} เพื่อทำการ resize ให้เป็นขนาด 512x512 pixel
 และตั้งชื่อใหม่ให้กับรูปภาพทั้งหมด
 \vspace{\fill}\clearpage
@@ -1115,12 +1129,9 @@
   \caption{ใช้ BLIP บน Kohya UI ในการสร้างคำอธิบายให้กับรูปภาพ}
   \label{fig:prepare-data-3}
 \end{figure}
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
 
-% \begin{figure}
-%   \includegraphics[width=10cm]{image/prepare-data-3.jpg}
-%   \caption{ใช้ BLIP บน Kohya UI ในการสร้างคำอธิบายให้กับรูปภาพ}
-%   \label{fig:prepare-data-3}
-% \end{figure}
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/prepare-data-4.jpg}
@@ -1139,9 +1150,9 @@
 หมายเหตุ ณ ตอนนี้โมเดลไม่สามารถประเมินผลความแม่นยำด้วย precision และ recall ได้เนื่องจากไม่มีข้อมูลที่เป็น ground truth ซึ่งเป็นข้อมูลที่ถูกตรวจสอบแล้วว่าเป็นคำตอบที่ถูกต้อง
 แต่สามารถประเมินผลได้ด้วยการดูรูปภาพที่ได้จากการทำงานของโมเดลว่ามีความเหมาะสมหรือไม่
 
-\subsubsection{โมเดลรูปแบบปละประเภทของห้อง}
-
-\hspace{18pt}Hyperparameter
+\subsubsection{โมเดลสำหรับแต่ละสไตล์ของห้อง(ไม่ได้นำมาใช้งาน)}
+fine-tuning โมเดลสำหรับแต่ละสไตล์ของห้องโดยใช้ dreambooth เทคนิคซึ่งผลลัพธ์ที่ได้จะเป็นโมเดลหลักที่โมเดลอื่นไม่สามารถเรียกใช้งานได้ และในส่วนของรูปภาพที่ได้เปรียบเสมือนการสุ่มภาพที่เป็นข้อมูลที่เรานำมา fine-tuning ซึ่งเป็นโมเดลที่ overfit
+\par\hspace{18pt}Hyperparameter
 \begin{itemize}
   \item Epoch : 100
   \item Batch size : 16
@@ -1152,47 +1163,28 @@
 \hspace{18pt}ผลลัพธ์
 เวลาที่ใช้ train โมเดล : 9 ชั่วโมง
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/modern_bedroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:modern_bedroom}
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering contemporary bedroom]{\includegraphics[width=5cm]{image/contemporary_bedroom.png}}
+  \qquad
+  \subfloat[\centering contemporary bathroom]{\includegraphics[width =5cm]{image/contemporary_bathroom.png}}
+  \caption{ตัวอย่างผลลัพธ์ของห้องที่ได้ในสไตล์ contemporary}
+  \label{fig:contemporay_result}
+\end{figure}
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering bohemian bedroom]{\includegraphics[width=5cm]{image/bohemian_bedroom.png}}
+  \qquad
+  \subfloat[\centering bohemain bathroom]{\includegraphics[width =5cm]{image/bohemian_bathroom.png}}
+  \caption{ตัวอย่างผลลัพธ์ของห้องที่ได้ในสไตล์ bohemian}
+  \label{fig:bohemian_result}
 \end{figure}
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/modern_bathroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:modern_bathroom}
-\end{figure}
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/contemporary_bedroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:contemporary_bedroom}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/contemporary_bathroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:contemporary_bathroom}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/bohemian_bedroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:bohemian_bedroom}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/bohemian_bathroom.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:bohemian_bathroom}
-\end{figure}
-
-
-
-
-
-\subsubsection{โมเดลรูปแบบปละประเภทของเฟอร์นิเจอร์}
+\subsubsection{โมเดลสำหรับแต่ละเฟอร์นิเจอร์(ไม่ได้นำมาใช้งาน)}
+fine-tuning โมเดลสำหรับเฟอร์นิเจอร์โดยใช้ dreambooth เทคนิคซึ่งผลลัพธ์ที่ได้จะเป็นโมเดลหลักที่โมเดลอื่นไม่สามารถเรียกใช้งานได้ คณะผู้จัดทำพบว่าหากมีเฟอร์นิเจอร์เพิ่มขึ้นจะทำให้ผลลัพธ์ที่ได้แย่ขึ้น ทางคณะผู้จัดจึงใช้โมเดลเสริมที่พัฒนาด้วย fine-tuning เทคนิคที่เรียกว่า LoRa ซึ่งเป็นโมเดลเสริมที่โมเดลหลักสามารถเรียกใช้งานได้
 Furniture ที่ใช้ในการ train โมเดลมีทั้งหมด 2 ชนิด
 \begin{enumerate}
   \item โคมไฟรุ่น TVARHAND จาก IKEA จำนวน 31 รูปภาพ
@@ -1208,58 +1200,66 @@ Furniture ที่ใช้ในการ train โมเดลมีทั้
 \end{itemize}
 \hspace{18pt}ผลลัพธ์
 เวลาที่ใช้ train โมเดล : 3 ชั่วโมง 20 นาที
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/TVARHAND.jpg}
-  \caption{ตัวอย่างของโคมไฟรุ่น TVARHAND จาก IKEA}
-  \label{fig:TVARHAND}
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering ตัวอย่างของโคมไฟรุ่น TVARHAND จาก IKEA]{\includegraphics[width=5cm]{image/TVARHAND.jpg}}
+  \qquad
+  \subfloat[\centering ตัวอย่างเตียง TARVA จาก IKEA]{\includegraphics[width = 5cm]{image/TARVA.jpg}}
+  \caption{ตัวอย่างผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาทดลอง}
+  \label{fig:TVARHANDTARVA}
 \end{figure}
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/TARVA.jpg}
-  \caption{ตัวอย่างเตียง TARVA จาก IKEA}
-  \label{fig:TARVA}
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering]{\includegraphics[width=5cm]{image/result-furniture-1.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width =5cm]{image/result-furniture-2.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width =5cm]{image/result-furniture-3.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width =5cm]{image/result-furniture-4.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width =5cm]{image/result-furniture-5.png}}
+  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดลเฟอร์นิเจอร์}
+  \label{fig:result-furniture}
 \end{figure}
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/result-furniture-1.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:result-furniture-1}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/result-furniture-2.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:result-furniture-2}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/result-furniture-3.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:result-furniture-3}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/result-furniture-4.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:result-furniture-4}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=10cm]{image/result-furniture-5.png}
-  \caption{ตัวอย่างผลลัพธ์ที่ได้จากโมเดล}
-  \label{fig:result-furniture-5}
-\end{figure}
-
-
-
+\vspace{\fill}\clearpage
+\subsubsection{โมเดลที่นำมาใช้งาน}
+\begin{enumerate}
+  \item โมเดลสำหรับแต่ละสไตล์และประเภทของห้อง (โมเดลหลัก) โมเดลที่นำมาใช้งานสำหรับสไตล์และประเภทของห้องเป็นโมเดลที่นำมาจากเว็บไซต์ Civitai โดยมีชื่อว่า XSarchitectural-InteriorDesign-ForXSLora สามารถเข้าถึงได้ที่ \url{https://civitai.com/models/28112/xsarchitectural-interiordesign-forxslora}
+  \item โมเดลสำหรับแต่ละเฟอร์นิเจอร์ (โมเดลเสริม) โมเดลที่นำมาใช้งานสำหรับแต่ละเฟอร์นิเจอร์เป็นโมเดลที่คณะผู้จัดทำทำขึ้นมา โดยใช้ข้อมูลเฟอร์นิเจอร์ที่คณะผู้จัดทำได้ไปเก็บข้อมูลมาจากแหล่งจัดจำหน่ายและทำเตรียมข้อมูลตามที่เขียนในหัวข้อ~\ref{sec:preparedata} แต่จะมีความแตกต่างในขั้นตอนของการใส่คำอธิบายแต่ละรูปภาพโดยที่จะมีการเพิ่ม trigger word เป็นคำพิเศษสำหรับแต่ละผลิตภัณฑ์เฟอร์นิเจอร์และเป็นชื่อของโมเดลรอง(LoRa) เพื่อให้โมเดลหลักสามารถเรียกใช้งานโมเดล(LoRa) ได้ ซึ่งตัวอย่างของ trigger word เช่น EZR-0x123f068 เป็นต้น ซี่งนำมาใส่ข้างหน้าคำอธิบายที่ BLIP สร้างขึ้น ตัวอย่างเช่น ภาพที่ ~\ref{fig:example_trigger_word}
+        \begin{figure}[!h]
+          \centering
+          \subfloat[\centering ภาพของ White Heztiara 120cm dressing table 1]{\includegraphics[width=5cm]{image/EZR-0x123f068_1.jpg}}
+          \qquad
+          \subfloat[\centering ภาพของ White Heztiara 120cm dressing table 2]{\includegraphics[width =5cm]{image/EZR-0x123f068_2.jpg}}
+          \qquad
+          \subfloat[\centering คำอธิบายของ White Heztiara 120cm dressing table 1 และ 2]{\includegraphics[width =12cm]{image/caption_explain.png}}
+          \caption{ตัวอย่างคำอธิบายรูปภาพสำหรับโมเดลเฟอร์นิเจอร์}
+          \label{fig:example_trigger_word}
+        \end{figure}
+        \par\hspace{18pt}ซึ่งโมเดลของเฟอร์นิเจอร์จะมีทั้งหมด 41 โมเดลตามจำนวนเฟอร์นิเจอร์ที่คณะผู้จัดทำได้คัดกรองและตัดสินใจนำมาเทรนโมเดล ซึ่งจำนวนรูปภาพที่ใช้เทรนต่อ 1 โมเดล ประมาณ 30 รูปภาพ
+        \par\hspace{18pt}Hyperparameter
+        \begin{itemize}
+          \item Epoch : 1
+          \item Batch size : 1
+          \item Learning rate : 1e-05
+          \item Learning rate scheduler : cosine
+          \item Optimizer: Adafactor
+          \item Network dim: 128
+          \item Network alpha:96
+          \item Attension: Xformers
+        \end{itemize}
+\end{enumerate}
 
 
 
 \vspace{\fill}\clearpage
 
+
 \section{ผลการทดลองการสร้างเว็บแอปพลิเคชัน}
-\subsection{รายละเอียดของการออกแบบส่วนของผู้ใช้สำหรับเว็บแอปพลิเคชัน Easy room}
+\subsection{หน้าตาของเว็บแอปพลิเคชัน Easy room}
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-1.png}
@@ -1269,7 +1269,7 @@ Furniture ที่ใช้ในการ train โมเดลมีทั้
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-2.png}
-  \caption{แสดงหน้า Sign Up โดยให้ผู้ใช้กรอกข้อมูลต่างๆ เช่น Email, Password, ชื่อ, วันเดือนปีเกิด และรูปโปรไฟล์สำหรับการลงทะเบียนเข้าใช้งานเว็ปไซต์}
+  \caption{แสดงหน้า Sign Up โดยให้ผู้ใช้กรอกข้อมูลต่างๆ เช่น Email, Password, ชื่อ, วันเดือนปีเกิด เพศและรูปโปรไฟล์สำหรับการลงทะเบียนเข้าใช้งานเว็ปไซต์}
   \label{fig:frontend-2}
 \end{figure}
 
@@ -1281,13 +1281,13 @@ Furniture ที่ใช้ในการ train โมเดลมีทั้
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-4.png}
-  \caption{แสดงหน้า Generate โดยจะมีความสามารถในการสร้างรูปห้อง ซึ่งผู้ใช้สามารถระบุห้องตามความต้องการได้ เช่น ประเภทของห้อง, สไตล์ของห้อง, เฟอร์นิเจอร์ที่ต้องการให้อยู่ภายในรูปภาพ}
+  \caption{แสดงหน้า Generate โดยจะมีความสามารถในการสร้างรูปห้อง ซึ่งผู้ใช้สามารถระบุห้องตามความต้องการได้ เช่น ประเภทของห้อง สไตล์ของห้อง ราคาของเฟอร์นิเจอร์ 2 ชิ้นที่ต้องการให้อยู่ในรูปภาพและเฟอร์นิเจอร์ที่ต้องการให้อยู่ภายในรูปภาพ}
   \label{fig:frontend-4}
 \end{figure}
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-5.png}
-  \caption{แสดงหน้า Community โดยจะแสดงโพสต์ที่ผู้ใช้เผยแผร่ ซึ่งจะมีการแสดงรายละเอียดของโพสต์และผู้ใช้สามารถคลิกปุ่ม My posts เพื่อแสดงโพสต์ทั้งหมดของผู้ใช้ได้}
+  \caption{แสดงหน้า Community โดยจะแสดงโพสต์ที่ผู้ใช้เผยแผร่ ซี่งจะมีการแสดงรายละเอียดของโพสต์และผู้ใช้สามารถคลิกปุ่ม My posts เพื่อแสดงโพสต์ทั้งหมดของผู้ใช้ได้}
   \label{fig:frontend-5}
 \end{figure}
 
@@ -1305,40 +1305,247 @@ Furniture ที่ใช้ในการ train โมเดลมีทั้
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-8.png}
-  \caption{แสดงหน้า About Us ซึ่งประกอบข้อมูลของเว็บไซต์และคณะผู้จัดทำ}
+  \caption{จอ monitor สำหรับหน้า Admin โดยจะแสดงถึงข้อมูลของโพสต์ที่ผู้ใช้เลือก generate รูปภาพของห้อง}
   \label{fig:frontend-8}
 \end{figure}
+
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/frontend-9.png}
+  \caption{แสดงหน้า About Us ซึ่งประกอบข้อมูลของเว็บไซต์และคณะผู้จัดทำ}
+  \label{fig:frontend-9}
+\end{figure}
+
+
 
 \vspace{\fill}\clearpage
 
 \subsection{รายละเอียดในการพัฒนาเว็บแอปพลิเคชันในส่วนของ Backend}
-\hspace{18pt} ในส่วนของ Backend ได้พัฒนาเว็บแอปพลิเคชันให้สามารถ log-in sign-up และ log-out จาก Frontend สามารถ CRUD room และ user ได้จาก Postman การจัดการ session จะใช้วิธีของ Cookie-based session โดยข้อมูลภายใน Cookie จะเป็น JSON Web Tokens(JWT) ที่ Generate จาก Backend และได้ mock ข้อมูลเพิ่มเติมใน collection ของ room และได้สร้าง global error handling middleware ที่จะ response ตามชนิดของ error ที่เกิดขึ้น
-\begin{figure}[!h]\centering
-  \includegraphics[width=14cm]{image/backend-1.png}
-  \caption{ตัวอย่างข้อมูลของ user บน database}
-  \label{fig:backend-1}
-\end{figure}
+\hspace{18pt} ในส่วนของ Backend ได้พัฒนาเว็บแอปพลิเคชันให้สามารถใช้งานทุกฟีเจอร์ที่มีในเว็บแอปพลิเคชัน สร้าง database ตามที่ได้ออกแบบดังภาพ~\ref{fig:er}
+\begin{itemize}
+  \item \textbf{ลงทะเบียน เข้าสู่ระบบ ออกจากระบบ} ในการลงทะเบียนหากผู้ใช้งานเว็บแอปพลิเคชันมีการแนปรูปภาพมาจะทำการ upload รูปภาพนั้นไปที่ cloudinary หากไม่มีการแนบรูปภาพจะนำตัวอักษรตัวแรกของfirstname มาเป็นรูปภาพโปรไฟล์สำหรับการเข้าสู่ระบบนั้นเมื่อใส่ข้อมูลของ email และ password ที่ถูกต้องจะทำการสร้าง cookie ที่เป็นแบบ HTTP only ทั้งหมด 3 cookie คือ infoซึ่งจะเก็บข้อมูลของ objectที่แปลงเป็น string ประกอบไปด้วย isLogin: true,
+        role,avatar,firstname ซึ่งจะช่วย support frontend ในการแสดงผล navigation bar และในส่วนของ token และ refreshToken จะเป็น JWT token โดยเมื่อถอดรหัสออกมาจะได้ข้อมูลของ role email และ id ซึ่งจะใช้ cookie token ในการจำกัดการเข้าถึงของผู้ใช้ และในการออกจากระบบจะเป็นการลบ cookie ทั้งหมด
+  \item \textbf{การจำกัดสิทธิและการยืนยันสิทธิ} สำหรับการจำกัดสิทธิและการยืนยันสิทธิจะพัฒนาด้วย middleware 2 อันก่อนประกอบไปด้วย verifyToken และ RBAC โดย verifyToken จะเป็นการนำ cookie token มาถอดรหัสและฝังลงใน req เพื่อที่จะให้ RBAC middleware เช็คว่า role ของผู้ใช้สามารถเข้าถึง API ได้หรือไม่
+        \begin{figure}[!h]
+          \centering
+          \subfloat[\centering verifyToken]{\includegraphics[width=7cm]{image/verifyToken.png}}
+          \qquad
+          \subfloat[\centering RBAC]{\includegraphics[width = 7cm]{image/RBAC.png}}
+          \caption{โค้ดในส่วนของ verifyToken และ RBAC}
+          \label{fig:verifyTokenandRBAC}
+        \end{figure}
+        %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+        \vspace{\fill}\clearpage
+  \item \textbf{การจัดการกับข้อมูลที่แปลกปลอมที่ได้รับ} คณะผู้จัดทำได้ทำการเขียนโปรแกรมให้สามารถป้องกันการรับข้อมูลข้อมูลที่แปลกปลอมได้โดยการใช้งาน Zod ที่จะคอยจัดการข้อมูลขาเข้าว่ามีสิ่งแปลกปลอมอยู่หรือไม่ถ้ามีก็จะส่ง error กลับไปว่ามีข้อมูลที่ส่งมานั้นไม่ครบหรือเกินจากที่ควรได้รับ
+        \begin{figure}[!h]
+          \centering
+          \includegraphics[width=12cm]{image/extraKey.png}
+          \caption{ภาพตัวอย่างของการจัดการข้อมูลที่แปลกปลอมในกรณีที่รับข้อมูลเกินกว่าที่จำเป็น}
+          \label{fig:extraKey}
+        \end{figure}
 
-\begin{figure}[!h]\centering
-  \includegraphics[width=12cm]{image/backend-2.png}
-  \caption{ตัวอย่างข้อมูลของ room บน database}
-  \label{fig:backend-2}
-\end{figure}
-
-\begin{figure}[!h]\centering
-  \includegraphics[width=14cm]{image/backend-3.png}
-  \caption{โค้ดในส่วนของ global error handling middleware}
-  \label{fig:backend-3}
-\end{figure}
+        จากภาพ~\ref{fig:extraKey} จะเห็นได้ว่าหากพบว่ารับข้อมูลเกินกว่าที่จำเป็นจะถูกตีกลับเป็น status code 400 และ message ว่า Validation error 400
+  \item \textbf{การสร้างรูปภาพด้วยปัญญาประดิษฐ์} สำหรับการสร้างรูปภาพด้วยปัญญาประดิษฐ์ในส่วนของ Backend จะเป็นการนำข้อมูลที่ผู้ใช้เลือกจากหน้าเว็บมาแปลงเป็นข้อความ(prompt)และทำการส่ง API ไปยัง Server ที่ใช้ในการสร้างรูปภาพโดยจะส่งเพียง 1 รอบ ในกรณีที่ผู้ใช้ไม่ได้เลือกผลิตภัณฑ์เฟอร์นิเจอร์ประกอบรูปภาพ ทาง Backend จะสุ่มเลือกผลิตภัณฑ์เฟอร์นิเจอร์ 2 ชิ้นจากราคาที่ผู้ใช้ตั้งเอาไว้ โดยจะมีข้อกำหนดทั้งหมด 2 ข้อ
+        \begin{itemize}
+          \item ผลิตภัณฑ์เฟอร์นิเจอร์ที่เลือกมาทั้ง 2 ชิ้นนั้นจะต้องไม่อยู่ในหมวดหมู่เดียวกัน เช่นหากชิ้นแรกมีเป็นโคมไฟ ชิ้นที่สองจะเป็นโคมไฟไม่ได้อีก
+          \item ราคารวมของผลิตภัณฑ์เฟอร์นิเจอร์ที่สุ่มเลือกมาได้นั้นจะต้องไม่ต่ำกว่าร้อยละ 40 ของราคาที่ผู้ใช้กำหนด
+        \end{itemize} และได้พัฒนาให้สามารถใช้ load balancer ด้วย Algorithm round robin เพื่อให้รอบรับกรณีที่มี Server ในการสร้างรูปภาพที่มากขึ้น
+\end{itemize}
 
 \vspace{\fill}\clearpage
 
 \section{การทดสอบผลลัพธ์}
 \hspace{18pt}
 \subsection{การทดสอบโมเดล}
-จากที่ได้กล่าวถึงว่า ผลลัพธ์ที่ได้จากโมเดลนั้นไม่สามารถวัดผลได้ด้วยค่า f1-score, precision และ recall ทำให้คณะผู้จัดทำพิจารณาให้การทดสอบโมเดลจะเป็นการทำแบบสอบถามในเรื่องความพึงพอใจกับผลลัพธ์ของโมเดล
+\hspace{18pt}คณะผู้จัดได้ทำได้ตั้งเกณฑ์ในการทดสอบโมเดล โดยมีตัวชี้วัดทั้งหมด 2 อย่าง คือ
+\begin{itemize}
+  \item \textbf{รูปภาพมุมกว้างตรงตามสไตล์และประเภทห้อง} สาเหตุที่คณะผู้จัดทำเลือกใช้ตัวชี้วัดดังกล่าวสาเหตุเปเพราะว่า หาก interior designer จะนำไปใช้ รูปที่ได้ควรจะเป็นรูปมุมกว้างที่สามารถมองเห็นหลายๆส่วนของห้อง
+  \item \textbf{ผลิตภัณฑ์เฟอร์นิเจอร์ที่เลือกปรากฏอยู่ในรูปภาพ}  สาเหตุที่คณะผู้จัดทำเลือกใช้ตัวชี้วัดดังกล่างเพราะว่าโมเดลของคณะผู้จัดทำสามารถเลือกผลิตภัณฑ์เฟอร์นิเจอร์ที่ต้องการให้ปรากฎอยู่ในรูปภาพได้ โดยสิ่งที่จะปรากฏอยู่ในภาพอาจจะคล้าย
+\end{itemize}
+\subsubsection{ตัวอย่างของรูปภาพที่ผ่านตัวชี้วัดของคณะผู้จัดทำ}
+1. ประเภทห้อง: ห้องนอน สไตล์ของห้อง: โบฮีเมียน ผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้ในการสร้างรูปภาพชั้นวางดังภาพ~\ref{fig:test_fur}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=5cm]{image/test_fur.jpg}
+  \caption{รูปภาพตัวอย่างผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้ในการสร้างรูปภาพ}
+  \label{fig:test_fur}
+\end{figure}
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering]{\includegraphics[width=5cm]{image/pass_bohe_bed1.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/pass_bohe_bed2.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/pass_bohe_bed3.png}}
+  \caption{ตัวอย่างรูปภาพห้องนอนสไตล์โบฮีเมียนที่ได้จากฟีเจอร์ Generate และผ่านตัวชี้วัดของคณะผู้จัดทำ}
+  \label{fig:pass_bohe}
+\end{figure}
+\vspace{\fill}\clearpage
+
+2. ประเภทห้อง: ห้องน้ำ สไตล์ของห้อง: โมเดิร์น ผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้ในการสร้างรูปภาพชั้นวางดังภาพ~\ref{fig:test_bath_fur}
+\label{fig:test_bath_fur}
+\begin{figure}[!h]
+  \centering
+  \includegraphics[width=5cm]{image/test_bath_fur.jpg}
+  \caption{รูปภาพตัวอย่างผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้ในการสร้างรูปภาพ}
+  \label{fig:test_bath_fur}
+\end{figure}
+
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering]{\includegraphics[width=5cm]{image/pass_modern_bath1.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/pass_modern_bath2.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/pass_modern_bath3.png}}
+  \caption{ตัวอย่างรูปภาพห้องน้ำสไตล์โมเดิร์นที่ได้จากฟีเจอร์ Generate และผ่านตัวชี้วัดของคณะผู้จัดทำ}
+  \label{fig:pass_bohe}
+\end{figure}
+
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
+\subsubsection{ตัวอย่างของรูปภาพที่ไม่ผ่านตัวชี้วัดของคณะผู้จัดทำ}
+
+\begin{figure}[!h]
+  \centering
+  \subfloat[\centering]{\includegraphics[width=5cm]{image/failed_gen_img1.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/failed_gen_img2.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/failed_gen_img3.png}}
+  \qquad
+  \subfloat[\centering]{\includegraphics[width=5cm]{image/failed_gen_img4.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/failed_gen_img5.png}}
+  \qquad
+  \subfloat[\centering ]{\includegraphics[width=5cm]{image/failed_gen_img6.png}}
+  \caption{ตัวอย่างรูปภาพห้องที่ได้จากฟีเจอร์ Generate และไม่ผ่านตัวชี้วัดของคณะผู้จัดทำ}
+  \label{fig:pass_bohe}
+\end{figure}
+ในการทดสอบโมเดลจะใช้งานฟีเจอร์ Generate ในการสร้างรูปของห้องนอนและห้องน้ำแต่ละสไตล์อย่างละ 6 ครั้ง โดย 3 ครั้งแรกจะใช้เฟอร์นิเจอร์เพียง 1 ชิ้น และ 3 ครั้งหลังจะใช้เฟอร์นิเจอร์ 2 ชิ้น
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
+\begin{table}
+  \caption{ผลการทดสอบโมเดล }\label{tbl:test_model}
+  \begin{tabular}{|p{2.5cm}|p{5cm}|p{3cm}|p{3cm}|}
+    \hline
+    \textbf{ประเภทห้องและสไตล์ห้องและจำนวนผลิตภัณฑ์เฟอร์นิเจอร์ที่ทดสอบ} & \textbf{ผลิตภัณฑ์ที่นำมาใช้}                                                                                                   & \textbf{ประเภทของผลิตภัณฑ์ที่นำมาใช้} & \textbf{จำนวนรูปภาพที่ผ่านตัวชี้วัด(0-9)} \\
+    \hline
+    ห้องนอนโบฮีเมียน 1ชิ้น                                        & 5 Level Foldable Shelf KASSA AUTO JM-G0091D                                                                             & Shelf                          & 8 รูป                             \\
+    \hline
+    ห้องนอนโบฮีเมียน 2ชิ้น                                        & WARDROBE FURDINI KNIGHT 120CM NATURAL/BLACK GREY, BED FRAME 6FT FURDINI KNIGHT NATURAL/BLACK GREY                       & Wardrobe, Bed                  & 1 รูป                             \\
+    \hline
+    ห้องนอนโมเดิร์น 1ชิ้น                                         & เก้าอี้สแตนเลสเบาะหนัง รุ่น Wimmy สีน้ำตาล                                                                                       & Chair                          & 9 รูป                             \\
+    \hline
+    ห้องนอนโมเดิร์น 2ชิ้น                                         & Gray Ladela wool chair, WARDROBE WITH 3 DOORS FURDINI THRU WD1244 120CM OTTAWA/SIERRA                                   & Chair, Wardrobe                & 2 รูป                             \\
+    \hline
+    ห้องนอนคอนเทมโพรารี่ 1ชิ้น                                    & HATASHI Plastic Study Lamp EXC. E27x1 (TD-103) Black Color                                                              & Table lamp                     & 0 รูป                             \\
+    \hline
+    ห้องนอนคอนเทมโพรารี่ 2ชิ้น                                    & Table Lamp La Fleur (E27x1) LUZINO D4609(WH) White - Copper, BED FRAME 3.5FT SB FURNITURE SPAZZ-D WHITE/G-TWIST/CARRARA & Table lamp, Bed                & 0 รูป                             \\
+    \hline
+    ห้องน้ำโบฮีเมียน 1ชิ้น                                          & MIRROR 4MM. KASSA SY-007-4MM Size 60 x 45 x 0.4 CM. Clear                                                               & Mirror                         & 6 รูป                             \\
+    \hline
+    ห้องน้ำโบฮีเมียน 2ชิ้น                                          & WALL-HUNG WASHBASIN KOHLER K-17156X WHITE, CT623Z94Z84 RAIN SHOWER                                                      & Basin, Shower                  & 0 รูป                             \\
+    \hline
+    ห้องน้ำโมเดิร์น 1ชิ้น                                           & COUNTER WASHBASIN WITH CABINET TOTO LBAT501PGR GREY                                                                     & Basin                          & 6 รูป                             \\
+    \hline
+    ห้องน้ำโมเดิร์น 2ชิ้น                                           & Bathtub with Whirlpool KASSA RONDA 20260 Size 145 x 145 x 70 CM. White, VANITY WASHBASIN WITH CABINET MOYA A194 BLACK   & Bathtub, Basin                 & 0 รูป                             \\
+    \hline
+    ห้องน้ำคอนเทมโพรารี่ 1ชิ้น                                      & Bathtub with Whirlpool KASSA C-467 White                                                                                & Bathtub                        & 7 รูป                             \\
+    \hline
+    ห้องน้ำคอนเทมโพรารี่ 2ชิ้น                                      & VANITY WASHBASIN WITH CABINET MOYA PU1002WH MATT GREY, BATHROOM MIRROR MOYA FM05-S 62.5X82.5CM                          & Basin, Mirror                  & 1 รูป                             \\
+    \hline
+  \end{tabular}
+\end{table}
+\hspace{18pt} จากตารางที่ \ref{tbl:test_model} สามารถสรุปได้ว่าโมเดลทำงานได้ดีหากผลิตภัณฑ์เฟอร์นิเจอร์เพียง 1 ชิ้น โดยมีจำนวนรูปภาพที่ผ่านตัวชี้วัดทั้งหมด 36 ภาพจากทั้งหมด 54 ภาพคิดเป็นร้อยละ 67 ในทางกลับกันสำหรับสำหรับผลิตภัณฑ์เฟอร์นิเจอร์ 2 ชิ้นยังคงไม่เสถียรและมีจำนวนรูปที่ผ่านเกณฑ์อยู่ที่ 4 ภาพจากทั้งหมด 54 ภาพคิดเป็นร้อยละ 7 และสำหรับประเภทผลิตภัณฑ์เฟอร์นิเจอร์ที่นำมาใช้ประกอบการสร้างรูปภาพด้วยปัญญาประดิษฐ์แล้วไม่มีความเสถียรมีรายการดังนี้ 1.Table lamp 2.Rainshower 3.Toilet ทั้งนี้ความเสถียรของรูปภาพยังขึ้นอยู่กับผลิตภัณฑ์เฟอร์นิเจอร์หากเฟอร์นิเจอร์ประเภทนั้นไม่เสถียร รูปภาพของห้องที่สร้างก็จะไม่เสถียรเช่นกัน
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
 \subsection{การทดสอบเว็บแอปพลิเคชัน}
-สำหรับการทดสอบเว็บแอปพลิเคชัน ทางคณะผู้จัดทำทดสอบตาม flow ของ use-case scenario 
+ในการทดสอบเว็บแอปพลิเคชัน คณะผู้จำได้ทำการทดสอบโดยการทำแบบสอบถามความพึงพอใจของผู้ใช้ซึ่งพบว่า
+\begin{itemize}
+  \item ความพึงพอใจกับความง่ายในการใช้งานเว็บแอปพลิเคชันที่ 4 คะแนน โดยมีคะแนนเต็มที่ 5 คะแนน
+  \item ความพึงพอใจกับการ User Interface เว็บแอปพลิเคชัน Easy Room ที่ 3.66 คะแนน
+  \item ความพึงพอใจกับการ User Experience เว็บแอปพลิเคชัน Easy Room ที่ 3 คะแนน
+\end{itemize}
+และผู้ทำแบบสอบถามได้แจ้งปัญหาว่า การทำให้ออกมาเป็นภาพ ไม่แน่นอน รอโหลดภาพนาน ฟีเจอร์ในการคัดกรองกว้างไป เฟอร์นี้เจอร์ที่เลือกไม่ถูกออกมาเจนเป็นภาพเสมือน ข้อมูลในการตกแต่งน้อยเกินไป
+และให้ข้อเสนอแนะว่า ถ้าสามารถทำให้มีนักออกแบบมาใช้เยอะๆและทำเงินได้ หรือรับฟรีแลน จากแชร์ไอเดียของตัวเองได้ จะทำให้เว็บนี้มีคนสนใจเข้ามาใช้มากขึ้น การแปลงภาพออกมายังไม่เสถียร ดีบ้างเสียบ้าง ถ้าสามารถทำให้ ดูภาพเสมือนได้ 360 องศา และเลือกโทนสีของแต่ละสไตล์ได้ก็จะดี
+
+\chapter{บทสรุป}
+
+\section{สรุปผลโครงงาน}
+\hspace{18pt} โครงงานนี้เป็นสร้างเว็บแอปพลิเคชันที่มีการประยุกต์ใช้ปัญญาประดิษฐ์ Stable diffusion เข้ามาในการแก้ไขปัญหาให้กับผู้ที่ต้องการค้นหาไอเดียการตกแต่งภายในห้อง โดยผู้ใช้สามารถให้ Stable Diffusion สร้างภาพของห้องขึ้นมาให้ โดยใช้ Dreambooth (โมเดลหลัก) และ LoRA (โมเดลเสริมหรือโมเดลของเฟอร์นิเจอร์แต่ละชิ้น) หรือสามารถเข้าไปได้ที่ community ซึ่งเป็นแหล่งรวมไอเดียของผู้ใช้เว็บแอปพลิเคชัน Easy Room  เว็บแอปพลิเคชันของเรานั้นสามารถแก้ไขปัญหาได้ และสามารถทราบถึงข้อมูลเฟอร์นิเจอร์บนรูปภาพได้สูงสุด 2 ชิ้น และเป็นจำนวน 2 ชิ้น ที่อยู่บนฐานข้อมูลของเว็บแอปพลิเคชันซึ่งส่วนนี้คือข้อจำกัดของเว็บแอปพลิเคชัน
+เว็บแอปพลิเคชันสามารถรองรับผู้ใช้งานได้หลายคนพร้อมกัน โดยในฝั่ง Server มีการใช้ pm2 ซึ่งเป็น process manager มาจัดการ Client กับ Server โดยคณะผู้จัดทำเปิดเป็นจำนวน 2 instances server โดยในที่นี้จำนวนสูงสุดของจำนวน instance server จะขึ้นอยู่กับจำนวนคอร์ของ CPU ภายในเครื่อง
+ในส่วนของคำขอของ Client ที่ต้องการใช้งาน AI ทางคณะผู้จัดทำได้มีการใช้ Load Balancer เข้าเพื่อแก้ไขปัญหาการรองรับคำขอของ Client ที่ต้องการใช้งาน AI เพื่อให้สามารถกรระจายงานได้และยังสามารถขยาย AI ได้อย่างสะดวก
+โดยตลอดการพัฒนาในภาคเรียนที่ 2 ทาคณะผู้จัดทำได้ดำเนินการพัฒนาเว็บแอปพลิเคชัน Easy Room โดยได้ดำเนินการพัฒนาเสร็จสมบูรณ์เป็นจำนวน 2 ฟีเจอร์ ได้แก่ Generate  และ Community โดยทั้ง 2 ฟีเจอร์สามารถทำงานได้และให้ผลลัพธ์ดังที่วางแผนไว้ ในส่วนของฟีเจอร์ Object Detection ทางคณะผู้จัดทำได้ยกเลิกการพัฒนาเพราะจากการทดลองแล้วผลลัพธ์ไม่เป็นไปดั่งที่วางแผนเอาไว้ และฟีเจอร์ Generate ที่จำเป็นต้องใช้เวลานานกว่าที่กำหนดเอาไว้ไปกับการเตรียมการชุดข้องมูลของเฟอร์นิเจอร์เพื่อนำไปใช้เทรน LoRA (โมเดลเสริม) ทำให้คณะผู้จัดทำไม่มีเวลาที่เพียงพอในการพัฒนาฟีเจอร์ Object Detection นี้
+
+
+\section{ผลการดําเนินงาน}
+
+จากการดําเนินงานตั้งแต่ภาคเรียนที่ 1 จนถึงปัจจุบัน มีสถานะของผลการดําเนินงาน ดังตารางที่ 5.1
+\begin{table}[!h]
+  \caption{ผลดําเนินงานโครงงาน}\label{tbl:project-results}
+  \begin{tabular}{|p{3cm}|p{6cm}|p{4cm}|}
+    \hline
+    \textbf{ข้อที่} & \textbf{ชื่องาน}                   & \textbf{สถานะ} \\
+    \hline
+    1            & ส่วนติดต่อผู้ใช้งาน                    & -              \\
+    \hline
+    1.1          & หน้าตาส่วนติดต่อผู้ใช้งาน               & เสร็จสิ้น         \\
+    \hline
+    1.2          & เชื่อมต่อส่วนติดต่อผู้ใช้งานกับระบบหลังบ้าน  & เสร็จสิ้น         \\
+    \hline
+    2            & ระบบหลังบ้าน                       & -              \\
+    \hline
+    2.1          & เชื่อมต่อส่วนติดต่อผู้ใช้งานกับระบบหลังบ้าน  & เสร็จสิ้น         \\
+    \hline
+    2.2          & ระบบการจัดการข้อมูลโพสต์             & เสร็จสิ้น         \\
+    \hline
+    2.3          & ระบบการจัดการข้อมูล furniture       & เสร็จสิ้น         \\
+    \hline
+    2.4          & ระบบการสร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ & เสร็จสิ้น         \\
+    \hline
+    2.5          & ระบบการสร้างโพสต์                  & เสร็จสิ้น         \\
+    \hline
+    3            & AI                               & -              \\
+    \hline
+    3.1          & เทรนโมเดล                        & เสร็จสิ้น         \\
+    \hline
+    3.2          & เชื่อมต่อ AI กับระบบหลังบ้าน           & เสร็จสิ้น         \\
+    \hline
+  \end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
+\vspace{\fill}\clearpage
+\section{ปัญหาที่พบในระหว่างการดําเนินงานและแนวทางการแก้ไข}
+\subsection{ทรัพยากรในการฝึกฝนโมเดลมีข้อจำกัด}
+\hspace{18pt} เนื่องจากการเทรนโมเดล ต้องการฮาร์ดแวร์ที่มีประสิทธิภาพสูงในการเทรน ความเร็วในการเทรนจึงขึ้นอยู่กับการ์ดจอ ทำให้ยิ่งการ์ดจอมีการประมวลผลได้มาก จะทำให้ระยะเวลาการการฝึกฝนโมเดลลดลง
+เราจึงพัฒนาโมเดลด้วยการ์ดจอ Nvidia GTX 1050 ในการฝึกฝนโมเดล เป็นผลให้การเทรน Furniture 41 ตัว ใช้เวลาเทรนทั้งหมดต้องใช้เวลา 41 วัน ทำให้เรามีข้อจำกัดในฝึกฝนโมเดลและไม่สามารถเทรนโมเดลได้
+
+\hspace{18pt} ดังนั้นเราจึงแก้ปัญหาโดยการใช้ RunPod ซึ่งเป็น GPU cloud โดยใช้เป็น Nvidia RTX A4500 มาใช้ฝึกฝนโมเดล ทำให้ลดระยะเวลาการการฝึกฝนโมเดลเป็นจาก 41 วัน เป็น 1 วัน เป็นผลให้ฝึกฝนโมเดลได้รวดเร็วขึ้น
+
+\section{สิ่งที่ได้เรียนรู้จากการทําโครงงาน}
+\subsection{ทฤษฎี และอัลกอรึทึมที่เกี่ยวข้องในการสร้างรูปภาพ}
+\hspace{18pt} จากการพัฒนาเว็บแอปพลิเคชัน Easy Room with generative Interior design AI using Stable Diffusion Model ทําให้ผู้จัดทําได้ศึกษาเกี่ยวกับทฤษฎีต่างๆ ที่ใช้เพื่อเว็บพัฒนาแอปพลิเคชัน ได้แก่
+ทฤษฎีการสร้างรูปภาพจาก Stable Diffusion อาทิ Forward Diffusion, Reverse Diffusion, Variational Autoencoder, Encoder, Decoder ซึ่งจากการศึกษาดังกล่าวมีประโยชน์ต่อการพัฒนาระบบที่เกี่ยวข้องในอนาคต
+
+
+\section{ข้อจำกัดและข้อเสนอแนะ}
+\hspace{18pt} Stable Diffusion Model ที่คณะผู้จัดทำนำมาใช้สามารถสร้างรูปภาพขนาด 512x512 pixel เท่านั้น ดังนั้นการนำมาประยุกต์ใช้กับรูปภาพการออกแบบภายใน ความละเอียดนี้อาจจะไม่เก็บรายละเอียดที่ซับซ้อนในการออกแบบห้อง ส่งผลให้ภาพมีรายละเอียดน้อยลงได้
+
+\hspace{18pt} ข้อเสนอแนะสำหรับโครงงานคือ การปรับปรุงโมเดล การเพิ่มประสิทธิภาพให้สามารถสร้างรูปภาพการออกแบบภายในตามสไตล์ของห้องที่ตรงตามลักษณะของสไตล์ห้องนั้น สามารถเพิ่มประสิทธิภาพของโมเดลได้ เนื่องจากสไตล์ของห้องจากผลลัพธ์มีความไม่แน่นอนจึงแยกด้วยตาเปล่าได้ยาก
+ดังนั้นการปรับปรุงโมเดลจะทำให้โมเดลมีความแม่นยำมากขึ้น เพื่อให้ AI สามารถสร้างรูปภาพที่ตรงกับสไตล์ของห้องได้มากขึ้น
+
+\section{Future work}
+
+\begin{itemize}
+  \item พัฒนาประสิทธิภาพของเว็บแอปพลิเคชันให้สามารถตอบโต้กับผู้ใช้ได้อย่างรวดเร็วมากขึ้น
+  \item เพิ่มทางเลือกระบบล็อกอินต่างๆ เช่น Google, Facebook เพื่อเพิ่มความสะดวกในการเข้าถึงและเสริมความปลอดภัยให้กับผู้ใช้ทุกคน
+  \item เพิ่มระบบการคัดกรองโพสต์ เพื่อเพิ่มความสะดวกในการค้นหาโพสต์ที่ผู้ใช้ต้องการ
+  \item พัฒนาโมเดลให้มีความแม่นยำและถูกต้องมากขึ้น เพื่อให้สามารถสร้างรูปภาพการออกแบบภายในที่มีผลิตภัณฑ์ตรงตามที่ผู้ใช้เลือก
+\end{itemize}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Ref %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \g@addto@macro{\UrlBreaks}{\UrlOrds}
@@ -1364,11 +1571,24 @@ Furniture ที่ใช้ในการ train โมเดลมีทั้
 ใช้งาน AI ในการสร้างรูปของห้องต่างๆ แต่สามารถประเมินนค่าช้จ่ายทั้งหมดจากภาพที่ AI สร้างขึ้น ซึ่งข้อมูลที่ได้รับจะไม่ถูกนําไปเปิดเผย
 และใช้เพื่อการศีกษาเท่านั้น
 
-\hspace {18pt} สามารถเข้าทำแบบสอบถามได้จาก \url{https://forms.gle/jPAt6VJqqN2smsn29}
+\hspace {18pt} สามารถดูผลการตอบกลับของฟอร์มและคำถามได้จาก \url{https://docs.google.com/forms/d/19iS8P243RoYmF4xKIGPixBT2HfSflCttMIf6AeGfzlc/edit}
 
+\appendix{แบบสอบถามความพึงพอใจของผู้ใช้เว็บแอปพลิเคชัน}
+\noindent{\large\bf แบบสอบถามความพึงพอใจของผู้ใช้เว็บแอปพลิเคชัน Easy Room} \\
 
+\textbf{เรื่อง} ความพึงพอใจของผู้ใช้กับเว็บแอปพลิเคชัน Easy Room \\
 
+\hspace {18pt} คำชี้แจงของแบบสอบถามฉบับนี้
 
+\hspace {18pt}แบบสอบถามฉบับนี้มีจุดประสงค์ที่จะเก็บข้อมูลความพึงพอใจของผู้ใช้เว็บแอปพลิเคชัน Easy Room เพื่อนำไปพัฒนาและปรับปรุงเว็บแอปพลิเคชัน
+แบบสอบถามฉบับนี้เป็นส่วนหนึ่งของรายวิชา CPE 402 Computer Engineering Project มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าธนบุรี
+แบบสอบถามประกอบไปด้วย 4 ส่วน ดังนี้
+ส่วนที่ 1: คำชี้แจงของแแบบสอบถาม
+ส่วนที่ 2: ความพึงพอใจต่อเฟอร์นิเจอร์ออกแบบห้องด้วยปัณญาประดิษฐ์
+ส่วนที่ 3: ความพึงพอใจต่อฟีเจอร์คอมมูนิตี้
+ส่วนที 4: ความพึงพอใจในส่วนของการใช้งานเว็บแอปพลิเคชัน
+
+สามารถดูผลการตอบกลับของฟอร์มและคำถามได้จาก \url{https://docs.google.com/forms/d/1HgAR9S1VGRN-zFqRGoHnN8O1I4Tizgm6OVNx4116G8w/edit}
 
 
 
