@@ -51,6 +51,12 @@ Briggs,  2022,
   \url{https://www.pinecone.io/learn/series/image-search/zero-shot-object-detection-clip/},
 \newblock [Online; accessed 17-September-2023].
 
+\bibitem{ZeroImageClass}
+Briggs,  2022,
+\newblock ``Zero-Shot Image Classification with OpenAI CLIP,'' Available at
+  \url{https://www.pinecone.io/learn/series/image-search/zero-shot-image-classification-clip/},
+\newblock [Online; accessed 16-September-2023].
+
 \bibitem{pcsystem}
 Jon Martindale,  2023,
 \newblock ``Stable Diffusion PC system requirements: what do you need to run
