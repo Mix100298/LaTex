@@ -40,7 +40,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Your project and independent study committee..
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\def\dissadvisor{Dr. Taweechai Nusantiwong}  % Advisor
+\def\dissadvisor{Dr. Taweechai Nuntawisuttiwong}  % Advisor
 %%% Leave it empty if you have no Co-advisor
 \def\disscoadvisor{}  % Co-advisor
 \def\disscoadvisortwo{}  % Co-advisor
@@ -131,14 +131,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% English abstract %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \abstract
 
-\hspace{18pt}In the modern world, interior design has become a part of creating comfortable and aesthetically pleasing living spaces. However, the process can often be complex and intimidating,
-especially for those without a background in design. Recognizing this challenge, we developed Easy-Room, an innovative web application aimed at simplifying interior design and serving
-as a source of design ideas by using a generative AI model, Stable Diffusion, fine-tuned through AUTOMATIC1111 GUI and kohya\_ss GUI using LoRA and Dreambooth fine-tuning techniques.
-Easy-Room allows users to generate interior designs effortlessly by selecting from various options for room type (Bedroom, Bathroom, Random), room style (Bohemian, Contemporary, Modern),
-and 44 distinct furniture items. Eliminate the need for complex design processes by only selecting options rather than drawing. Furthermore, the project is better than the former website
-by being able to choose the desired furniture to be included in the generated image. Additionally, the platform has a community where users can share ideas from the generated images.
-For administrators, Easy-Room provides a robust dashboard for managing furniture data and monitoring usage. The technological infrastructure of Easy-Room includes an Express framework Back End,
-a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensuring a robust and scalable solution for interior design challenges.
+\hspace{18pt}In the modern world, interior design has become a part of creating comfortable and aesthetically pleasing living spaces. However, the process can often be complex and challenging, Especially for those without a background in design. Recognizing this challenge, we developed Easy-Room, an innovative web application aimed at simplifying interior design and serving as a source of design ideas by using a generative AI model, Stable Diffusion, fine-tuning through AUTOMATIC1111 GUI and kohya\_ss GUI using LoRA and Dreambooth fine-tuning techniques.Easy-Room allows user to generate room images effortlessly by selecting from various options for room type (Bedroom, Bathroom and Random), room style (Bohemian, Contemporary, Modern and Random) and 41 distinct furniture items which user want to include in the generated images (Up to 2 furnitures). Eliminate the need for complex design processes by only selecting options rather than designing. Furthermore, the project is better than the former AI room design website by being able to choose the desired furniture to be included in the generated image. Additionally, the platform has a community where users can share ideas from the generated images. For administrators, Easy-Room provides a robust dashboard for managing furniture data and monitoring usage. The technological infrastructure of Easy-Room includes an Express framework Back End, a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensuring a robust and scalable solution for interior design challenges.
 
 
 \begin{flushleft}
@@ -156,7 +149,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 % \thaifont
 \thaiabstract
 
-\hspace{18pt}โครงงานนี้เป็นโครงงานที่เกี่ยวข้องกับการใช้งาน Generative AI ที่มีชื่อว่า Stable Diffusion ซึ่งมีความสามารถในการสร้างรูปภาพจากข้อความ โดยคณะผู้จัดทำได้มีการประยุกต์ใช้ให้สามารถสร้างรูปภาพของห้องนอนหรือห้องน้ำโดยสามารถเลือกผลิตภัณฑ์ที่ต้องการให้ปรากฏบนรูปภาพและสามารถเลือกสไตล์ของห้องที่ต้องการได้ทั้งหมด 3 สไตล์คือ Bohemian Contemporary และ Modern โดยคณะผู้จัดทำทำการ fine-tuning โดยใช้เทคนิค DreamBooth และ LoRA ผ่าน Automatic1111 ซึ่งเป็น web-UI ที่พัฒนาขึ้นเพื่อให้สามารถใช้งาน Stable diffusion ราบรื่นยิ่งขึ้นจากเดิมที่จะต้องใช้งานผ่าน Command line ซึ่งสามารถนำมาใช้ในการสร้างรูปภาพหรือ fine-tuning มาใช้ในการสร้างรูปภาพ โดยนำเสนอในรูปแบบของเว็บแอปพลิเคชัน โดยเว็บแอปพลิเคชันมีความสามารถในการสร้างรูปภาพ ซึ่งผู้ใช้สามารถเลือกรูปแบบของห้อง ชนิดของห้องที่ต้องการ รวมถึงผลิตภัณฑ์เฟอร์นิเจอร์ที่ต้องการให้ปรากฏในภาพ และสามารถแบ่งปันไอเดียที่ได้จากการสร้างรูปภาพของห้องของ Stable Diffusion เพื่อใช้เป็นแหล่งสะสมและค้นหาไอเดียสำหรับผู้ที่ต้องการออกแบบภายในห้องนอนหรือห้องน้ำ
+\hspace{18pt}ในยุคสมัยใหม่ที่การออกแบบภายในเป็นส่วนของการสร้างที่พักอาศัยที่สะดวกสบายและน่าพึงพอใจ อย่างไรก็ตามการออกแบบภายในประกอบไปด้วยกระบวนการที่ซับซ้อนและเข้าถึงยากโดยเฉพาะบุคคลที่ไม่มีความรู้ในการออกแบบภายใน คณะผู้จัดทำตระหนักถึงความซับซ้อนในการออกแบบภายใน คณะผู้จัดทำจึงพัฒนาเว็บแอปพลิเคชัน Easy-Room เป็นเว็บแอปพลิเคชันที่มุ่งเป้าในการลดความซับซ้อนในการออกแบบภายในและเป็นแหล่งของไอเดียในการออกแบบภายในโดยนำโมเดลปัญญาประดิษฐ์ที่มีความสามารถในการสรรค์สร้างรูปภาพที่มีชื่อว่า Stable Diffusion มาทำการ fine-tuning ผ่าน AUTOMATIC1111 และ kohya\_ss ด้วยเทคนิค fine-tuning อย่าง LoRA และ Dreambooth ภายในเว็บแอปพลิเคชัน Easy-Room ผู้ใช้งานสามารถสร้างรูปภาพของห้องได้อย่างง่ายดายโดยเพียงเลือกประเภทของห้องโดยมีทั้งหมด 3 ตัวเลือก คือ ห้องนอน ห้องน้ำและสุ่ม เลือกสไตล์ของห้องโดยมีทั้งหมด 4 ตัวเลือกคือ โบฮีเมียน โมเดิร์น คอนเทมโพรารี่ และสุ่ม และมีผลิตภัณฑ์เฟอร์นิเจอร์กว่า 41 ผลิตภัณฑ์เฟอร์นิเจอร์ที่ผู้ใช้สามารถเลือกเพื่อให้ปรากฏในรูปภาพที่สรรค์สร้างจากปัญญาประดิษฐ์ ซึ่งทำให้ความต้องการของกระบวนการออกแบบที่ซับซ้อนลดลงเหลือเพียงแค่เลือกตัวเลือกแทนที่จะต้องออกแบบด้วยตนเอง มากไปกว่านั้นเว็บแอปพลิเคชันนี้ดีกว่าเว็บแอปพลิเคชันที่ใช้ปัญญาประดิษฐ์ในการออกแบบห้องโดยที่สามารถเลือกผลิตภัณฑ์เฟอร์นิเจอร์ที่ต้องการให้ปรากฏอยู่ในรูปภาพและมีคอมมูนิตี้สำหรับผู้ใช้ในการแบ่งปันและค้นหาไอเดียจากรูปภาพที่ถูกสรรค์สร้างขึ้น สำหรับผู้ดูแลระบบ เว็บแอปพลิเคชัน Easy-Room มี Dashboard ที่ใช้สำหรับจัดการข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์และตรวจสอบการใช้งานของผู้ใช้ ในส่วนของเทคโนโลยีที่ใช้ในการพัฒนาประกอบไปด้วย Express framework สำหรับการพัฒนาระบบหลังบ้าน Next.js framework สำหรับการพัฒนาส่วนติดต่อผู้ใช้และ MongoDB สำหรับฐานข้อมูลเพื่อให้เกิดเว็บแอปพลิเคชันที่แก้ปัญหาความท้าทายในการออกแบบภายในที่แข็งแรงและปรับขยายโครงสร้างพื้นฐานได้
 
 \begin{flushleft}
   \begin{tabular*}{\textwidth}{@{}lp{0.8\textwidth}}
@@ -602,7 +595,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 
 \begin{figure}[!h]\centering
   \includegraphics[width=9cm]{image/spacely.jpg}
-  \caption{แสดงความสามารถทั้งหมดของ Ai ในเว็บแอปพลิเคชัน spacely.ai จาก \url{https://www.spacely.ai/}}
+  \caption{แสดงความสามารถทั้งหมดของปัญญาประดิษฐ์ในเว็บแอปพลิเคชัน spacely.ai จาก \url{https://www.spacely.ai/}}
   \label{fig:spacely}
 \end{figure}
 
@@ -631,7 +624,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
         \end{figure}
 
   \item การสร้างรูปภาพจากข้อความ (text to image)
-        \par \hspace {18pt} เว็ปแอปพลิเคชัน Spacely AI สามารถสร้างรูปภาพข้อความโดยจะรับอินพุตเป็นข้อความซึ่งจะได้ผลลัพธ์เป็นรูปภาพ 4 ภาพทีแตกต่างกันหากต้องการที่จะทราบรายละเอียดผลิตภัณฑ์เฟอร์นิเจอร์ที่ใช้จะต้องโหลดรูปภาพและนำไปใช้งานกับฟีเจอร์ตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์ มีตัวอย่างดังนี้
+        \par \hspace {18pt} เว็บแอปพลิเคชัน Spacely AI สามารถสร้างรูปภาพข้อความโดยจะรับอินพุตเป็นข้อความซึ่งจะได้ผลลัพธ์เป็นรูปภาพ 4 ภาพทีแตกต่างกันหากต้องการที่จะทราบรายละเอียดผลิตภัณฑ์เฟอร์นิเจอร์ที่ใช้จะต้องโหลดรูปภาพและนำไปใช้งานกับฟีเจอร์ตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์ มีตัวอย่างดังนี้
         \par
         ข้อความที่อินพุต "Generate a highly realistic image of a minimal-style living room that resembles an authentic photograph. The room should embody the essence of minimalism with lifelike architectural details, realistic furnishings, a subdued color palette, and convincing lighting, shadows, and reflections. Make it appear as though you're looking at a real photograph of a minimal-style living room"
         ผลลัพธ์ที่ได้จะเป็นดังภาพ~\ref{fig:spacely-gen}
@@ -765,8 +758,13 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 % \hspace {18pt} บทที่ 3 จะกล่าวถึงโครงงานของเราจะมีวิธีการทำงานอย่างไร โครงสร้างทางระบบที่ทางเราได้วางเอาไว้ การใช้งานหว่างระบบออกแบบมาตอบโจทย์ผู้ใช้งาน รวมถึงการจัดการระบบที่ออกแบบมา และผลตอบรับจากแบบสอบถามที่ผู้จัดได้ทำขึ้นหาเพื่อวิเคราะห์ความต้องการของผู้ใช้งาน
 
 \section{วิเคราะห์ความต้องการของเว็บแอปพลิเคชัน}
-\hspace {18pt} คณะผู้จัดทำได้สำรวจความต้องการของเว็บแอปพลิเคชันจากการทำแบบสอบถามโดยมีผู้ทำแบบสอบถาม 50 คน และคณะผู้จัดทำสามารถวิเคราะห์จากผลตอบรับได้ดังนี้
+\hspace {18pt} คณะผู้จัดทำได้สำรวจความต้องการของเว็บแอปพลิเคชันจากการทำแบบสอบถามโดยมีผู้ทำแบบสอบถาม 50 คน โดยไม่ได้ระบุกลุ่มเป้าหมายกลุ่มเป้าหมายซึ่งผู้ทำแบบสอบถามส่วนใหญ่ประกอบอาชีพนักศึกษาดังภาพที่ \ref{fig:requirement-0}และคณะผู้จัดทำสามารถวิเคราะห์จากผลการตอบรับได้ดังนี้
 
+\begin{figure}[!h]\centering
+  \includegraphics[width=10cm]{image/target_user1.png}
+  \caption{แผนภูมิแสดงอาชีพของผู้ทำแบบสอบถาม}
+  \label{fig:requirement-0}
+\end{figure}
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/requirement.jpg}
   \caption{แผนภูมิแสดงความคิดผู้ทำแบบสอบถามถึงความสำคัญห้องประเภทใดมากที่สุด}
@@ -781,8 +779,6 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 
 \hspace {18pt} จากผลการตอบรับในภาพ~\ref{fig:requirement} ทำให้ทางคณะผู้จัดทำพบว่าห้องนอนมีความสำคัญมากที่สุด รองลงมาคือห้องน้ำและห้องนั่งเล่นเป็นอันดับที่สาม และจากภาพ~\ref{fig:requirement-2} คณะผู้จัดทำพบว่าดีไซน์และประโยชน์มีความสำคัญมากที่สุดและรองลงมาคือราคาและขนาดเป็นอันดับที่สาม จากผลการตอบรับดังกล่าว คณะผู้จัดทำจึงได้ข้อสรุปว่าจะพัฒนาเว็บแอปพลิเคชันให้สามารถใช้งานได้กับห้อง 3 ประเภทดังนี้ 1.ห้องนอน 2.ห้องน้ำ 3.ห้องครัว และเนื่องจากประโยชน์นั้นเป็นตัวชี้วัดที่ไม่ชัดเจน คณะผู้จัดทำตัดสินใจที่จะพัฒนาเว็บแอปพลิเคชันให้สามารถระบุทั้งราคาโดยรวมและดีไซน์ของห้อง
 
-%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
-\vspace{\fill}\clearpage
 
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/requirement-3.jpg}
@@ -801,10 +797,6 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
   \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามว่าจะเป็นการดีหรือไม่ หากคุณสามารถระบุงบประมาณให้ AI ในการออกแบบได้}
   \label{fig:requirement-5}
 \end{figure}
-
-%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
-\vspace{\fill}\clearpage
-
 \begin{figure}[p]\centering
   \includegraphics[width=10cm]{image/requirement-6.jpg}
   \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามว่าจะเป็นการดีหรือไม่ หากคุณสามารถระบุขนาดพื้นที่ห้องสำหรับ AI ในการออกแบบ}
@@ -816,21 +808,18 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
   \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามว่าจะเป็นการดีหรือไม่ ถ้าเราสามารถเห็นภาพที่ AI ออกแบบมาได้หลายๆมุม}
   \label{fig:requirement-7}
 \end{figure}
-
-\begin{figure}[p]\centering
+\clearpage
+\begin{figure}[!ht]\centering
   \includegraphics[width=10cm]{image/requirement-8.jpg}
   \caption{แสดงถึงความคิดเห็นของผู้ทำแบบสอบถามถึงคำถามจากบน Website มี AI ในการออกแบบห้องและรวบรวม สถาปนิก ผู้รับเหมาไว้ให้ติดต่อได้เลยจะสะดวกขึ้นหรือไม่}
   \label{fig:requirement-8}
 \end{figure}
-%%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
-\vspace{\fill}\clearpage
 จากแผนภูมิที่ ~\ref{fig:requirement-4} ~\ref{fig:requirement-5} ~\ref{fig:requirement-6} ~\ref{fig:requirement-7} ~\ref{fig:requirement-8} คณะผู้จัดทำได้ทำการพิจารณาและวิเคราะห์ความเป็นไปได้ซึ่งคณะผู้จัดทำได้ข้อสรุปดังนี้
-
 \begin{enumerate}
-  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถเลือกผลิตภัณฑ์เฟอร์นิเจอร์ให้ AI สร้างรูปภาพห้องที่มีผลิตภัณฑ์เฟอร์นิเจอร์ที่ผู้ใช้เลือกปรากฏอยู่ในรูปภาพ
-  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถระบุงบประมาณของผลิตภัณฑ์เฟอร์นิเจอร์โดยรวมให้ AI สร้างรูปภาพห้อง
-  \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็ปแอปพลิเคชันให้ผู้ใช้สามารถระบุขนาดพื้นที่ห้องให้กับ AI เนื่องจากไม่มีเวลาเพียงพอและเป็นที่เรื่องที่ซับซ้อนในการพัฒนา
-  \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็ปแอปพลิเคชันให้สามารถสร้างรูปภาพในหลากหลายมุมมอง เช่น Top View Front View Side View เนื่องจากมีความซับซ้อนในการพัฒนา
+  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถเลือกผลิตภัณฑ์เฟอร์นิเจอร์ให้ปัญญาประดิษฐ์สร้างรูปภาพห้องที่มีผลิตภัณฑ์เฟอร์นิเจอร์ที่ผู้ใช้เลือกปรากฏอยู่ในรูปภาพ
+  \item คณะผู้จัดทำจะพัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถระบุงบประมาณของผลิตภัณฑ์เฟอร์นิเจอร์โดยรวมให้ปัญญาประดืษฐ์สร้างรูปภาพห้อง
+  \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็บแอปพลิเคชันให้ผู้ใช้สามารถระบุขนาดพื้นที่ห้องให้กับปัญญาประดิษฐ์เนื่องจากโมเดลที่คณะผู้จัดทำนำมาใช้ไม่มีความแม่นยำในการวิเคราะห์ข้อมูลที่มีลักษณะเป็นตัวเลขและหากแปลงตัวเลขเป็นข้อความภาษาอังกฤษจะเป็นข้อความที่ค่อนข้างยาวและปัญญาประดิษฐ์ให้ความสำคัญของข้อความที่คำเริ่มต้นมากที่สุดและค่อยๆน้อยลงเรื่อยๆ ข้อความจึงควรที่จะเป็นข้อความที่สั้นและได้ใจความเพื่อให้รูปภาพที่สรรค์สร้างขึ้นตรงกับข้อความมากที่สุด
+  \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็บแอปพลิเคชันให้สามารถสร้างรูปภาพในหลากหลายมุมมอง เช่น Top View Front View Side View เพราะควบคุมผลลัพธ์ได้ค่อนข้างยากที่จะให้รูปภาพ Top View Front View และ Side View เป็นของห้องเดียวกัน
   \item คณะผู้จัดทำตัดสินใจที่จะไม่พัฒนาเว็บแอปพลิเคชันให้สามารถติดต่อสถาปนิกและผู้รับเหมา เนื่องจากการปรับเปลี่ยนขอบเขตของงาน จึงทำให้ความสำคัญของสิ่งนี้ลดน้อยลง
 \end{enumerate}
 
@@ -897,8 +886,8 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
   \label{fig:system}
 \end{figure}
 
-\hspace {18pt}จากภาพ~\ref{fig:system} สามารถอธิบายได้ว่า Client ติดต่อสื่อสารกับ Server Cluster โดยมีการใช้ PM2 ซึ่งเป็น process manager ในการจัดการเชื่อมต่อระหว่าง Client และ Server เพื่อเพิ่มประสิทธิภาพการรองรับผู้ใช้งานให้กับ Server
-สำหรับคำขอจาก Client ที่ต้องการเข้าถึงการใช้งาน AI ในคำขอนี้ Load Balancer ที่อยู่ภายใน Server ทำการกระจายภาระงานไปยัง Stable Diffusion AI ที่ถูกรันเป็น Server เอาไว้ เพื่อเพิ่มประสิทธิภาพการรองรับการใช้งาน AI พร้อม ๆกันและง่ายต่อการเพิ่ม-ลดจำนวน AI server
+\hspace {18pt}จากภาพที่~\ref{fig:system} สามารถอธิบายได้ว่า Client ติดต่อสื่อสารกับ Server Cluster โดยมีการใช้ PM2 ซึ่งเป็น process manager ในการจัดการเชื่อมต่อระหว่าง Client และ Server เพื่อเพิ่มประสิทธิภาพการรองรับผู้ใช้งานให้กับ Server
+สำหรับคำขอจาก Client ที่ต้องการใช้งานฟีเจอร์สร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ซึ่งมีการเชื่อมต่อกับ Server ที่มี AI โดยจะมี Load Balancer ภายใน Server สำหรับการกระจายภาระงานไปที่ AI Server เพื่อเพิ่มประสิทธิภาพการรองรับการใช้งาน AI พร้อมๆกันหากมี AI Server ที่เพิ่มขึ้น
 มีการใช้ Mongoose ODM ทำหน้าที่ในการเข้าถึงฐานข้อมูล MongoDB นอกจากนี้ ยังมีการใช้บริการ Cloudinary สำหรับการจัดการและเก็บข้อมูลรูปภาพ
 
 %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
@@ -1059,14 +1048,32 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 
 \chapter{ผลการทดลองและอภิปรายผล}
 \section{ผลการทดลองการเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์จากอินเตอร์เน็ตด้วยวิธีการ Web Scraping}
-\hspace{18pt} ทางคณะผู้จัดทำทำการเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์จากเว็บไซต์ Homepro ด้วยวิธีการ Web Scraping \url{https://www.homepro.co.th/} โดยใช้ library selenium และ beautifulSoup โดยผลลัพธ์ที่ได้ประกอบไปด้วยข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์ทั้งหมด 3043 ชิ้น 9 ชนิด คือ อ่างล้างหน้า ก็อกอ่างล่างหน้า อ่างอาบน้ำ ฝักบัว ม่านกั้นอาบน้ำ โถสุขภัณฑ์ ตู้เสื้อผ้า โต๊ะเครื่องแป้ง เตียงนอน โดยข้อมูลที่เก็บมาประกอบด้วย รูปภาพ และ csv ไฟล์สำหรับข้อมูลแต่ละชนิดของผลิตภัณฑ์เฟอร์นิเจอร์โดยใน csv ไฟล์ จะประกอบไปด้วย sku name\_th,name\_en,type,room,brand,retailer,image\_link,product\_link,image\_path
-
+\hspace{18pt} ทางคณะผู้จัดทำทำการเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์จากเว็บไซต์ Homepro ด้วยวิธีการ Web Scraping \url{https://www.homepro.co.th/} โดยใช้ library selenium และ beautifulSoup โดยผลลัพธ์ที่ได้ประกอบไปด้วยข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์ทั้งหมด 3043 ชิ้น 9 ชนิด คือ อ่างล้างหน้า ก็อกอ่างล่างหน้า อ่างอาบน้ำ ฝักบัว ม่านกั้นอาบน้ำ โถสุขภัณฑ์ ตู้เสื้อผ้า โต๊ะเครื่องแป้ง เตียงนอน โดยข้อมูลที่เก็บมาประกอบด้วย รูปภาพ และ csv ไฟล์สำหรับข้อมูลแต่ละชนิดของผลิตภัณฑ์เฟอร์นิเจอร์โดยใน csv ไฟล์ จะประกอบไปด้วย sku name\_th,name\_en,type,room,brand,retailer,image\_link,product\_link,image\_path โดยตัวอย่างข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นดังภาพที่ \ref{fig:scarpe_homepro}
+\begin{figure}[!ht]
+  \centering
+  \subfloat[\centering ตัวอย่างรูปภาพของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width=5cm]{image/scrape_homepro.jpg}}
+  \qquad
+  \subfloat[\centering ตัวอย่างรายละเอียดของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width =13cm]{image/scrape_homepro_csv.png}}
+  \caption{ตัวอย่างข้อมูลของผลิตภัณ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล}
+  \label{fig:scrape_homepro}
+\end{figure}
 \section{ผลการทดลองเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์จากการลงพื้นที่ ณ แหล่งจัดจำหน่าย }
-\hspace{18pt} คณะผู้จัดทำได้ทำการลงพื้นที่ ณ แหล่งจัดจำหน่ายทั้งหมด 3 ครั้ง เพื่อเก็บข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์โดยการถ่ายรูปภาพของเฟอร์นิเจอร์แต่ละชิ้นเพื่อให้เหมาะสมในการ train โมเดล โดยผลลัพธ์ที่ได้จะประกอบไปด้วยข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์สำหรับห้องนอนและห้องน้ำรวม 44 ผลิตภัณฑ์เฟอร์นิเจอร์โดยแต่ละผลิตภัณฑ์เฟอร์นิเจอร์มีรูปภาพไม่ต่ำกว่า 30 รูปภาพ โดยแต่ละรูปภาพที่ถ่ายมีขนาดของรูปภาพอยู่ที่ 3024 x 3024 pixels จึงทำให้ต้องนำข้อมูลรูปภาพทำการ resized เป็นขนาด 512 x 512 pixels จากเว็บไซต์ \url{https://www.birme.net} และทำการสร้างไฟล์ json ในการเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์ทุกชิ้น ทำให้สามารถเพิ่มข้อมูลเข้าสู่ Database ได้อย่างสะดวก
-
+\hspace{18pt} คณะผู้จัดทำได้ทำการลงพื้นที่ ณ แหล่งจัดจำหน่ายทั้งหมด 3 ครั้ง เพื่อเก็บข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์โดยการถ่ายรูปภาพของเฟอร์นิเจอร์แต่ละชิ้นเพื่อให้เหมาะสมในการ train โมเดล โดยผลลัพธ์ที่ได้จะประกอบไปด้วยข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์สำหรับห้องนอนและห้องน้ำรวม 44 ผลิตภัณฑ์เฟอร์นิเจอร์โดยแต่ละผลิตภัณฑ์เฟอร์นิเจอร์มีรูปภาพไม่ต่ำกว่า 30 รูปภาพ โดยแต่ละรูปภาพที่ถ่ายมีขนาดของรูปภาพอยู่ที่ 3024 x 3024 pixels จึงทำให้ต้องนำข้อมูลรูปภาพทำการ resized เป็นขนาด 512 x 512 pixels จากเว็บไซต์ \url{https://www.birme.net} และทำการสร้างไฟล์ json ในการเก็บข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์ทุกชิ้น ทำให้สามารถเพิ่มข้อมูลเข้าสู่ Database ได้อย่างสะดวก โดยตัวอย่างข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นดังภาพที่ \ref{fig:scrape_area}
+\begin{figure}[!ht]
+  \centering
+  \subfloat[\centering ตัวอย่างรูปภาพของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width=5cm]{image/scrape_area_img1.jpg}}
+  \qquad
+  \subfloat[\centering ตัวอย่างรูปภาพของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width=5cm]{image/scrape_area_img2.jpg}}
+  \qquad
+  \subfloat[\centering ตัวอย่างรูปภาพของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width=5cm]{image/scrape_area_img3.jpg}}
+  \qquad
+  \subfloat[\centering ตัวอย่างรายละเอียดของผลิตภัณฑ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล]{\includegraphics[width =16.25cm]{image/scrape_area_json.png}}
+  \caption{ตัวอย่างข้อมูลของผลิตภัณ์เฟอร์นิเจอร์ 1 ชิ้นที่ได้จากการทดลองเก็บข้อมูล}
+  \label{fig:scrape_area}
+\end{figure}
 \section{ผลการทดลองการเก็บข้อมูลและคัดเลือกรูปภาพสำหรับสไตล์ของห้องและประเภทของห้องจากอินเตอร์เน็ตด้วยวิธีการใช้เครื่องมือช่วยดาวน์โหลด}
 
-\hspace{18pt} ดาวน์โหลดรูปภาพจากเว็บไซต์ \url{https://www.pinterest.com} โดยใช้เครื่องมือช่วยดาวน์โหลดและข้อมูลที่ต้องการคือ ห้องน้ำและห้องนอนในสไตล์ของ Bohemian Contemporary และ Modern
+\hspace{18pt} ดาวน์โหลดรูปภาพจากเว็บไซต์ \url{https://www.pinterest.com} โดยใช้เครื่องมือช่วยดาวน์โหลดและข้อมูลที่ต้องการคือ ห้องน้ำและห้องนอนในสไตล์ของ Bohemian Contemporary และ Modern โดยมี Code ที่ใช้ในการดาวน์โหลดรูปภาพและตัวอย่างรูปภาพที่ได้ดังภาพที่ \ref{fig:scrape-1-2}
 % \begin{itemize}
 %   \item ประเภทของห้อง
 %         \begin{enumerate}
@@ -1080,7 +1087,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 %           \item Modern style
 %         \end{enumerate}
 % \end{itemize}
-
+\clearpage
 \begin{figure}[!ht]
   \centering
   \subfloat[\centering Code ที่ใช้ในการดาวน์โหลดรูปภาพจาก pinterest.com]{\includegraphics[width=7cm]{image/scrape-1.jpg}}
@@ -1096,8 +1103,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
   \item รูปภาพต้องไม่ซ้ำกัน
   \item จำนวนรูปภาพต้องมากกว่า 30 รูปภาพต่อประเภทและสไตล์ของห้อง
 \end{enumerate}
-โดยจำนวนรูปภาพทั้งหมดที่ได้มาคือ 516 รูปภาพ
-\clearpage
+โดยจำนวนรูปภาพทั้งหมดที่ได้มาคือ 516 รูปภาพ ดังภาพที่ \ref{fig:scrape-3}
 
 \begin{figure}[!ht]\centering
   \includegraphics[width=10cm]{image/scrape-3.jpg}
@@ -1107,7 +1113,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 \section{การทดลองใช้โมเดล CLIP และ train โมเดล YOLOv8m สำหรับการตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์}
 \subsection{ข้อมูลที่นำมาใช้}
 \hspace{18pt}ใช้ข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์ที่ในห้องน้ำโดยมีข้อมูลอยู่ 4 หมวดหมู่คือ สุขภัณฑ์ ฉากกั้นอาบน้ำ อ่างอาบน้ำและอ่างล้างหน้า โดยแต่ละหมวดหมู่ประกอบไปด้วย 50 ผลิตภัณฑ์เฟอร์นิเจอร์ โดยรวมทั้งสิ้น 200 ผลิตภัณฑ์เฟอร์นิเจอร์
-และมีการแบ่งข้อมูลสำหรับ train test และ validation โดยมีอัตราส่วนที่ 60:30:10 สำหรับแต่ละผลิตภัณฑ์เฟอร์นิเจอร์ โดยมีตัวอย่างของข้อมูลสำหรับ 1 ผลิตภัณฑ์เฟอร์นิเจอร์ดัง \ref{fig:example_object_detection_dataset}
+และมีการแบ่งข้อมูลสำหรับ train test และ validation โดยมีอัตราส่วนที่ 60:30:10 สำหรับแต่ละผลิตภัณฑ์เฟอร์นิเจอร์ โดยมีตัวอย่างของข้อมูลสำหรับ 1 ผลิตภัณฑ์เฟอร์นิเจอร์ตามภาพที่ \ref{fig:example_object_detection_dataset}
 \begin{figure}[!h]
   \centering
   \subfloat[\centering ตัวอย่างข้อมูลผลิตภัณฑ์เฟอร์นิเจอร์ในรูปแบบ JSON ]{\includegraphics[scale = 0.18]{image/code.png}}
@@ -1119,7 +1125,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 
 \subsection{การเตรียมข้อมูลสำหรับการ train โมเดล}
 \hspace{18pt}การเตรียมข้อมูลสำหรับการ train โมเดลของโมเดล YOLOv8m
-เตรียมข้อมูลโดยใช้งานแพลตฟอร์ม Roboflow ในการวาด bounding box และ annotate ผลิตภัณฑ์เฟอร์นิเจอร์ในรูปภาพและทำการ resized ขนาดรูปให้เหมาะสมกับโมเดล YOLOv8m ที่ 640 x 640 pixels โดยมีตัวอย่างข้อมูลสำหรับ 1 ผลิตภัณฑ์เฟอร์นิเจอร์ดังนี้
+เตรียมข้อมูลโดยใช้งานแพลตฟอร์ม Roboflow ในการวาด bounding box และ annotate ผลิตภัณฑ์เฟอร์นิเจอร์ในรูปภาพและทำการ resized ขนาดรูปให้เหมาะสมกับโมเดล YOLOv8m ที่ 640 x 640 pixels โดยมีตัวอย่างข้อมูลสำหรับ 1 ผลิตภัณฑ์เฟอร์นิเจอร์ตามภาพที่ \ref{fig:example_object_detection_YOLOv8m_dataprepare}
 \begin{figure}[!h]
   \centering
   \includegraphics[width=5cm]{image/ex_annotate_bounding_box.png}
@@ -1128,15 +1134,16 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
 \end{figure}
 \subsection{Hyperparameter}
 \subsubsection{Hyperparameter สำหรับโมเดล YOLOv8m}
+\hspace{18pt} การได้มาของ Hyperparameter สำหรับโมเดล YOLOv8m นั้นได้มาจากการหา Hyperameter ที่ดีที่สุดของ library Ultralytics หรือผู้พัฒนาโมเดล YOLOv8m โดยการตั้งต่า optimizer = 'auto' และสำหรับ Epoch ที่ใช้เป็นการทดลองตั้งค่าของคณะผู้จัดทำ
 \begin{itemize}
   \item Epoch : 270
   \item Learning rate = 0.00125
-  \item Optimizer : Adam
+  \item Optimizer : AdamW
   \item momentum : 0.9
 \end{itemize}
 \clearpage
 \subsection{ผลการทดลอง train โมเดล YOLOv8m สำหรับการตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์}
-\hspace{18pt}จากการเปรียบเทียบผลลัพธ์ที่ได้ระหว่าง pre-trained โมเดล และ โมเดลที่ train เสร็จเรียบร้อยสามารถสรุปผลได้ว่า pre-trained โมเดลสามารถทำงานได้ดีกว่าหากรูปภาพมีลักษณะเป็นห้องน้ำและทำงานได้ไม่ดีหากเป็นรูปภาพที่มีพื้นหลังสีขาว ในทางกลับกันโมเดลที่ train เสร็จเรียบร้อยทำงานได้ไม่ดีกับรูปภาพที่มีลักษณะเป็นห้องน้ำและทำงานได้ดีกับรูปภาพพื้นหลังสีขาว โดยปัจจัยที่ทำให้เกิดปัญหานี้ขึ้นสาเหตุมาจากการ train ด้วยข้อมูลที่มีพื้นหลังสีขาวซึ่งมีผลิตภัณฑ์เฟอร์นิเจอร์เพียง 1 ผลิตภัณฑ์เฟอร์นิเจอร์ในรูปภาพจึงสูญเสียความสามารถในการตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์
+\hspace{18pt}จากการเปรียบเทียบผลลัพธ์ที่ได้ระหว่าง pre-trained โมเดลจากภาพที่ \ref{fig:pre-trained-yolo}และ โมเดลที่ train เสร็จเรียบร้อยจากภาพที่ \ref{fig:post-trained-yolo}สามารถสรุปผลได้ว่า pre-trained โมเดลสามารถทำงานได้ดีกว่าหากรูปภาพมีลักษณะเป็นห้องน้ำและทำงานได้ไม่ดีหากเป็นรูปภาพที่มีพื้นหลังสีขาว ในทางกลับกันโมเดลที่ train เสร็จเรียบร้อยทำงานได้ไม่ดีกับรูปภาพที่มีลักษณะเป็นห้องน้ำและทำงานได้ดีกับรูปภาพพื้นหลังสีขาว โดยปัจจัยที่ทำให้เกิดปัญหานี้ขึ้นสาเหตุมาจากการ train ด้วยข้อมูลที่มีพื้นหลังสีขาวซึ่งมีผลิตภัณฑ์เฟอร์นิเจอร์เพียง 1 ผลิตภัณฑ์เฟอร์นิเจอร์ในรูปภาพจึงสูญเสียความสามารถในการตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์
 \begin{figure}[!h]
   \centering
   \subfloat[\centering ตัวอย่างผลลัพธ์ที่ได้จาก pre-trained โมเดล 1]{\includegraphics[width=6cm]{image/pre-trained-1_yolo.jpg}}
@@ -1171,7 +1178,7 @@ a Next.js Front End, a Fast-API for AI services, and a MongoDB database, ensurin
   \label{fig:post-trained-yolo}
 \end{figure}
 \clearpage
-\subsection{ผลการทดลองใช้โมเดล CLIP }
+\subsection{ผลการทดลองใช้โมเดล CLIP สำหรับการตรวจจับผลิตภัณฑ์เฟอร์นิเจอร์}
 \hspace{18pt}คณะผู้จัดทำทดลองใช้วิธี Zero-shot Object Detection~\ref{sec:Zero-shot-obj} โดยมีตัวอย่างผลลัพธ์ที่ได้ดังภาพ~\ref{fig:zero-shot-do} โดยสรุปผลได้ว่าโมเดลทำงานได้ไม่ดีเนื่องจากมีการวาด bounding box ซ้ำกันที่จุดเดียวกันและไม่มีความแม่นยำ
 \begin{figure}[!h]
   \centering
@@ -1332,17 +1339,17 @@ fine-tuning โมเดลสำหรับผลิตภัณฑ์เฟ�
 \subsection{หน้าตาของเว็บแอปพลิเคชัน Easy room}
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-1.png}
-  \caption{แสดง User Interface สำหรับหน้าแรกของเว็บแอปพลิเคชัน ซึ่งประกอบด้วยเมนูต่างๆ และรายละเอียดของเว็ปไซต์}
+  \caption{แสดง User Interface สำหรับหน้าแรกของเว็บแอปพลิเคชัน ซึ่งประกอบด้วยเมนูต่างๆ และรายละเอียดของเว็บไซต์}
   \label{fig:frontend-1}
 \end{figure}
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-2.png}
-  \caption{แสดง User Interface สำหรับหน้า Sign Up โดยให้ผู้ใช้กรอกข้อมูลต่างๆ เช่น Email, Password, ชื่อ, วันเดือนปีเกิด เพศและรูปโปรไฟล์สำหรับการลงทะเบียนเข้าใช้งานเว็ปไซต์}
+  \caption{แสดง User Interface สำหรับหน้า Sign Up โดยให้ผู้ใช้กรอกข้อมูลต่างๆ เช่น Email, Password, ชื่อ, วันเดือนปีเกิด เพศและรูปโปรไฟล์สำหรับการลงทะเบียนเข้าใช้งานเว็บไซต์}
   \label{fig:frontend-2}
 \end{figure}
 \begin{figure}[!h]\centering
   \includegraphics[width=10cm]{image/frontend-3.png}
-  \caption{แสดง User Interface สำหรับหน้า Sign In สำหรับผู้ใช้ที่ลงทะเบียนกับเว็ปไซต์แล้ว}
+  \caption{แสดง User Interface สำหรับหน้า Sign In สำหรับผู้ใช้ที่ลงทะเบียนกับเว็บไซต์แล้ว}
   \label{fig:frontend-3}
 \end{figure}
 \clearpage
@@ -1523,7 +1530,7 @@ role,avatar,firstname ซึ่งจะช่วย support Front End ในก
 %%%%%%%%%%%%%%%%% Move to the next page %%%%%%%%%%%%%%%%
 \vspace{\fill}\clearpage
 \subsection{การทดสอบเว็บแอปพลิเคชัน}
-ในการทดสอบเว็บแอปพลิเคชัน คณะผู้จำได้ทำการทดสอบโดยการทำแบบสอบถามความพึงพอใจของผู้ใช้ซึ่งพบว่า
+\hspace{18pt}สำหรับการทดสอบเว็บแอปพลิเคชัน คณะผู้จัดทดสอบโดยการทำแบบสอบถามความพึงพอใจของผู้ใช้ กับพนักงานบรืษัทที่เกี่ยวกับการพัฒนามูลค่าของแบรนด์และบางส่วนมีพื้นหลังด้านการออกแบบภายใน ซึ่งพบว่า
 \begin{itemize}
   \item ความพึงพอใจกับความง่ายในการใช้งานเว็บแอปพลิเคชัน Easy Roomที่ 4 คะแนน โดยมีคะแนนเต็มที่ 5 คะแนน
   \item ความพึงพอใจกับการ User Interface เว็บแอปพลิเคชัน Easy Room ที่ 3.66 คะแนน โดยมีคะแนนเต็มที่ 5 คะแนน
@@ -1537,7 +1544,7 @@ role,avatar,firstname ซึ่งจะช่วย support Front End ในก
 \section{สรุปผลโครงงาน}
 \hspace{18pt} โครงงานนี้เป็นการสร้างเว็บแอปพลิเคชันที่มีการประยุกต์ใช้ปัญญาประดิษฐ์จาก Stable diffusion ในการแก้ไขปัญหาให้กับผู้ที่ต้องการค้นหาไอเดียการตกแต่งภายในห้อง โดยผู้ใช้สามารถใช้ Stable Diffusion สำหรับการสร้างรูปภาพของห้องขึ้นมาได้ โดยใช้ Dreambooth (โมเดลหลัก) และ LoRA (โมเดลเสริมหรือโมเดลของผลิตภัณฑ์เฟอร์นิเจอร์แต่ละชิ้น) และสามารถเข้าไปได้ที่ community ซึ่งเป็นแหล่งรวมไอเดียของผู้ใช้เว็บแอปพลิเคชัน Easy Room  เว็บแอปพลิเคชันของเรานั้นสามารถแก้ไขปัญหาได้ และสามารถทราบถึงข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์บนรูปภาพได้สูงสุด 2 ชิ้น และเป็นจำนวน 2 ชิ้น ที่อยู่บนฐานข้อมูลของเว็บแอปพลิเคชันซึ่งส่วนนี้คือข้อจำกัดของเว็บแอปพลิเคชัน
 เว็บแอปพลิเคชันสามารถรองรับผู้ใช้งานได้หลายคนพร้อมกัน โดยในฝั่ง Server มีการใช้ pm2 ซึ่งเป็น process manager มาจัดการ Client กับ Server โดยคณะผู้จัดทำใช้งานจำนวน 2 instances server โดยจำนวนสูงสุดของ instance server ที่สร้างขึ้นได้จะขึ้นอยู่กับจำนวนคอร์ของ CPU ภายในเครื่อง
-ในส่วนของคำขอของ Client ที่ต้องการใช้งาน AI ทางคณะผู้จัดทำได้มีการใช้ Load Balancer เข้าเพื่อแก้ไขปัญหาการรองรับคำขอของ Client ที่ต้องการใช้งาน AI เพื่อให้สามารถกรระจายงานได้และยังสามารถขยาย AI ได้อย่างสะดวก
+ในส่วนของคำขอของ Client ที่ต้องการใช้งานฟีเจอร์สร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ ทางคณะผู้จัดทำได้มีการใช้ Load Balancer เข้าเพื่อแก้ไขปัญหาการรองรับคำขอของ Client ที่ต้องการใช้งานฟีเจอร์สร้างรูปภาพด้วยปัญญาประดิษฐ์ เพื่อให้สามารถกระจายงานให้ AI server ได้หากมี AI server เพิ่มขึ้น
 โดยตลอดการพัฒนาในภาคเรียนที่ 2 ทาคณะผู้จัดทำได้ดำเนินการพัฒนาเว็บแอปพลิเคชัน Easy Room โดยได้ดำเนินการพัฒนาเสร็จสมบูรณ์เป็นจำนวน 2 ฟีเจอร์ ได้แก่ Generate  และ Community โดยทั้ง 2 ฟีเจอร์สามารถทำงานได้และให้ผลลัพธ์ดังที่วางแผนไว้ ในส่วนของฟีเจอร์ Object Detection ทางคณะผู้จัดทำได้ยกเลิกการพัฒนาเพราะจากการทดลองแล้วผลลัพธ์ไม่เป็นไปดั่งที่วางแผนเอาไว้ และฟีเจอร์สร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ ที่จำเป็นต้องใช้เวลานานกว่าที่กำหนดเอาไว้ไปกับการเตรียมการชุดข้อมูลของผลิตภัณฑ์เฟอร์นิเจอร์เพื่อนำไปใช้ในการ train LoRA (โมเดลเสริม) ทำให้คณะผู้จัดทำไม่มีเวลาที่เพียงพอในการพัฒนาฟีเจอร์ Object Detection นี้
 
 
@@ -1600,13 +1607,14 @@ role,avatar,firstname ซึ่งจะช่วย support Front End ในก
 ดังนั้นการปรับปรุงโมเดลจะทำให้โมเดลมีความแม่นยำมากขึ้น เพื่อให้ AI สามารถสร้างรูปภาพที่ตรงกับสไตล์ของห้องได้มากขึ้น
 
 \section{Future work}
-
-\begin{itemize}
+\hspace{18pt}การพัฒนาเว็บแอปพลิเคชัน Easy-Room ในอนาคต ทางคณะผู้จัดทำได้มุ่งหวังพัฒนาให้ AI สร้างรูปภาพที่ถูกต้องและแม่นยำที่มากขึ้น รวมไปถึงผลิตภัณฑ์เฟอร์นิเจอร์ที่มีให้เลือกมากขึ้นโดยการ train โมเดล LoRA ตามจำนวนผลิตภัณฑ์เฟอร์นิเจอร์ที่เพิ่มขึ้น นอกจากนี้ในส่วนของเว็บแอปพลิเคชันมีความยากในการเข้าถึงโดยเฉพาะการสมัครสมาชิกเพื่อเข้าใช้งานและการแสดงผลของโพสต์ที่หน้า community ที่ไม่สามารถจัดเรียงตามยอดความถูกใจของผู้ใช้สูงสุดได้ รวมไปถึงสุดท้ายนี้คือการ Deploy เพื่อให้ผู้ใช้สามารถใช้งานได้
+จากที่กล่าวมาข้างต้นทำให้มีแนวคิดในการพัฒนาด้วยกัน 4 Feature ด้วยกัน ได้แก่
+\begin{enumerate}
   \item พัฒนาโมเดลให้มีความแม่นยําและถูกต้องมากขึ้น เพื่อให้สามารถสร้างรูปภาพห้องจากฟีเจอร์สร้างรูปภาพห้องด้วยปัญญาประดิษฐ์ เป็นภาพมุมกว้างและมีผลิตภัณฑ์เฟอร์นิเจอร์ปรากฏอยู่ในรูปภาพตาม ที่ผู้ใช้เลือก
   \item เพิ่มทางเลือกระบบ Login เช่น Google, Facebook ทําให้เข้าถึงเว็บแอปพลิเคชันง่ายขึ้นโดยที่ไม่จําเป็นจะต้องกรอกข้อมูล เพื่อลงทะเบียน โดยใช้ OAuth ในการพัฒนา
   \item เพิ่มฟีเจอร์คัดกรองโพสต์ เช่น การเรียงลําดับโพสต์ตามยอดไลค์ เพื่อเพิ่ม User Experience
   \item Deploy เว็บแอปพลิเคชันและโมเดลเพื่อให้สามารถเข้าถึงได้จากทุกพื้นที่ที่สามารถใช้อินเตอร์เน็ต
-\end{itemize}
+\end{enumerate}
 
 
 
