@@ -108,4 +108,35 @@ Joshi and Kukreti,  2014,
   \url{https://www.ijser.org/researchpaper/Object-Relational-Mapping-in-Comparison-to-Traditional.pdf},
 \newblock [Online; accessed 20-September-2023].
 
+\bibitem{DreamboothEpochs}
+d8ahazard,  2023,
+\newblock ``Dreambooth Extension for Stable-Diffusion-WebUI,'' Available at
+  \url{https://github.com/d8ahazard/sd_dreambooth_extension?tab=readme-ov-file#readme},
+\newblock [Online; accessed 10-Febuary-2024].
+
+\bibitem{DreamboothBatchSize}
+d8ahazard,  2023,
+\newblock ``Batch Size,'' Available at
+  \url{https://github.com/d8ahazard/sd_dreambooth_extension/wiki/Batch-Size},
+\newblock [Online; accessed 10-Febuary-2024].
+
+\bibitem{DreamboothOptimizers}
+Anzhc,  2023,
+\newblock ``D8ahazard Dreambooth extension guide,'' Available at
+  \url{https://civitai.com/articles/52/d8ahazard-dreambooth-extension-guide},
+\newblock [Online; accessed 11-Febuary-2024].
+
+\bibitem{LoRAParameter}
+bmaltais,  2023,
+\newblock ``LoRA training parameters,'' Available at
+  \url{https://github.com/bmaltais/kohya_ss/wiki/LoRA-training-parameters},
+\newblock [Online; accessed 12-Febuary-2024].
+
+\bibitem{LoRAAttension}
+E.~Sira,  2023,
+\newblock ``สอน Train Model ตัวเองใน Stable Diffusion
+  [Part5],'' Available at
+  \url{https://www.thepexcel.com/stable-diffusion-part5/},
+\newblock [Online; accessed 11-Febuary-2024].
+
 \end{thebibliography}
